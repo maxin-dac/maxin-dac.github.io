@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" id="metaDesc" content="Maxime NDACLEU — Data Analyst & BI Analyst. Du droit public aux systèmes informatiques et à l'IA : la rigueur de la preuve au service de la donnée.">
+<meta name="theme-color" content="#F5B800">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFCB2B'/%3E%3Cstop offset='1' stop-color='%23D4A000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='800' text-anchor='middle' fill='%23171717'%3EMN%3C/text%3E%3C/svg%3E">
+<title>Maxime NDACLEU | Data Analyst & BI Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(function () {
+    var t = localStorage.getItem('theme');
+    var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', t || (p ? 'dark' : 'light'));
+})();
+</script>
+<style>
+:root {
+    --yellow-50: #FFFDF7; --yellow-100: #FFF9E6; --yellow-200: #FFEFB8; --yellow-300: #FFE385;
+    --yellow-400: #FFD752; --yellow-500: #FFCB2B; --yellow-600: #F5B800; --yellow-700: #D4A000;
+    --yellow-800: #A67C00; --yellow-900: #755800;
+    --white: #FFFFFF;
+    --gray-50: #FAFAFA; --gray-100: #F5F5F5; --gray-200: #E5E5E5; --gray-300: #D4D4D4;
+    --gray-400: #A3A3A3; --gray-500: #737373; --gray-600: #525252; --gray-700: #404040;
+    --gray-800: #262626; --gray-900: #171717;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+    --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+html[data-theme="dark"] {
+    --yellow-50: #201a08; --yellow-100: #2a2310; --yellow-200: #3d3315;
+    --white: #171717;
+    --gray-50: #1b1b1b; --gray-100: #242424; --gray-200: #3a3a3a; --gray-300: #525252;
+    --gray-400: #8a8a8a; --gray-500: #a3a3a3; --gray-600: #bdbdbd; --gray-700: #d1d1d1;
+    --gray-800: #e6e6e6; --gray-900: #f5f5f5;
+}
+html[data-theme="dark"] body { background: #171717; }
+html[data-theme="dark"] .navbar { background: rgba(23,23,23,0.45); }
+html[data-theme="dark"] .navbar.scrolled { background: rgba(23,23,23,0.75); }
+html[data-theme="dark"] .section-alt { background: rgba(20,20,20,0.7); }
+html[data-theme="dark"] .tag { background: rgba(23,23,23,0.9); color: #f5f5f5; }
+html[data-theme="dark"] .profile-img { border-color: #171717; }
+html[data-theme="dark"] .btn-primary, html[data-theme="dark"] .project-link.primary { color: #171717; }
+html[data-theme="dark"] .gradient-text { background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600)); -webkit-background-clip: text; background-clip: text; }
+html[data-theme="dark"] .hero-badge, html[data-theme="dark"] .section-tag { color: var(--yellow-400); }
+html[data-theme="dark"] .gradient-orb { opacity: 0.16; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: var(--gray-900); background: var(--white); overflow-x: hidden; transition: background 0.4s ease, color 0.4s ease; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+::selection { background: var(--yellow-400); color: #171717; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--yellow-500); outline-offset: 2px; border-radius: 4px; }
+
+#progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--yellow-400), var(--yellow-600), var(--yellow-800)); z-index: 1002; box-shadow: 0 0 10px rgba(245,184,0,0.55); border-radius: 0 2px 2px 0; }
+
+#backToTop { position: fixed; right: 1.5rem; bottom: 1.5rem; width: 50px; height: 50px; border-radius: 50%; background: var(--yellow-600); color: #171717; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(14px); transition: var(--transition); box-shadow: var(--shadow-lg); z-index: 999; }
+#backToTop.show { opacity: 1; visibility: visible; transform: none; }
+#backToTop:hover { background: var(--yellow-700); transform: translateY(-4px); }
+
+/* ===== Toggles (thème + langue) ===== */
+.nav-toggles { display: flex; align-items: center; gap: 0.75rem; }
+.theme-toggle { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--yellow-300); background: transparent; color: var(--yellow-700); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); flex-shrink: 0; }
+.theme-toggle:hover { transform: rotate(20deg) scale(1.08); border-color: var(--yellow-600); }
+html[data-theme="light"] .icon-sun { display: none; }
+html[data-theme="dark"] .icon-moon { display: none; }
+.lang-toggle { display: flex; border: 2px solid var(--yellow-300); border-radius: 999px; overflow: hidden; background: transparent; flex-shrink: 0; }
+.lang-toggle button { padding: 0.45rem 0.7rem; font-family: inherit; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.03em; background: transparent; color: var(--yellow-700); border: none; cursor: pointer; transition: var(--transition); }
+.lang-toggle button.active { background: var(--yellow-600); color: #171717; }
+.lang-toggle button:not(.active):hover { background: var(--yellow-100); }
+
+.animated-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: linear-gradient(135deg, var(--yellow-50) 0%, var(--white) 100%); }
+.gradient-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: float 20s infinite ease-in-out; }
+.orb-1 { width: 500px; height: 500px; background: var(--yellow-300); top: -250px; right: -250px; }
+.orb-2 { width: 400px; height: 400px; background: var(--yellow-200); bottom: -200px; left: -200px; animation-delay: 5s; }
+.orb-3 { width: 300px; height: 300px; background: var(--yellow-400); top: 50%; left: 50%; animation-delay: 10s; }
+#particles { position: absolute; inset: 0; width: 100%; height: 100%; }
+.floating-shapes { position: absolute; inset: 0; pointer-events: none; }
+.fshape { position: absolute; opacity: 0.4; color: var(--yellow-600); animation: glyph-float 14s ease-in-out infinite; }
+.fshape svg { display: block; }
+.fs-1 { top: 16%; left: 5%; animation-duration: 16s; }
+.fs-2 { top: 72%; left: 10%; animation-duration: 12s; animation-delay: 2s; color: var(--yellow-500); }
+.fs-3 { top: 22%; right: 8%; animation-duration: 18s; animation-delay: 1s; }
+.fs-4 { top: 62%; right: 5%; animation-duration: 14s; animation-delay: 4s; color: var(--yellow-400); }
+.fs-5 { top: 44%; left: 46%; animation-duration: 20s; animation-delay: 3s; }
+.fs-6 { top: 86%; left: 56%; animation-duration: 15s; animation-delay: 5s; color: var(--yellow-500); }
+.fs-7 { top: 7%; left: 58%; animation-duration: 17s; animation-delay: 2.5s; color: var(--yellow-400); }
+.fs-8 { top: 38%; left: 18%; animation-duration: 13s; animation-delay: 6s; }
+@keyframes glyph-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-28px) rotate(7deg); } }
+.spotlight { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(255,203,43,0.14), transparent 70%); }
+@keyframes float { 0%,100% { transform: translate(0,0) scale(1);} 33% { transform: translate(30px,-30px) scale(1.1);} 66% { transform: translate(-20px,20px) scale(0.9);} }
+
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.45); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); border-bottom: 1px solid rgba(255,203,43,0.15); transition: var(--transition); }
+.navbar.scrolled { background: rgba(255,255,255,0.75); box-shadow: var(--shadow); }
+.nav-content { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 1rem; }
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--gray-900); font-weight: 700; font-size: 1.125rem; }
+.logo-mark { display: flex; transition: var(--transition); }
+.logo:hover .logo-mark { transform: rotate(-6deg) scale(1.08); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { text-decoration: none; color: var(--gray-700); font-weight: 500; font-size: 0.9375rem; position: relative; transition: var(--transition); }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--yellow-600); transition: var(--transition); }
+.nav-links a:hover, .nav-links a.active { color: var(--yellow-700); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.mobile-menu-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.mobile-menu-toggle span { width: 24px; height: 2px; background: var(--gray-900); transition: var(--transition); }
+
+.hero { min-height: 100vh; display: flex; align-items: center; padding-top: 70px; position: relative; }
+.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-badge { display: inline-block; padding: 0.5rem 1rem; background: var(--yellow-100); color: var(--yellow-800); border-radius: var(--radius-xl); font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid var(--yellow-200); }
+.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+.gradient-text { background: linear-gradient(135deg, var(--yellow-600) 0%, var(--yellow-800) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-description { font-size: 1.125rem; color: var(--gray-600); margin-bottom: 2rem; line-height: 1.7; }
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; border-radius: var(--radius-md); font-weight: 600; font-size: 1rem; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; }
+.btn-primary { background: var(--yellow-600); color: #171717; box-shadow: var(--shadow); }
+.btn-primary:hover { background: var(--yellow-700); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-secondary { background: var(--white); color: var(--gray-900); border: 2px solid var(--gray-200); }
+.btn-secondary:hover { border-color: var(--yellow-600); color: var(--yellow-700); transform: translateY(-2px); }
+.btn-full { width: 100%; justify-content: center; }
+.hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
+.profile-frame { position: relative; width: 350px; height: 350px; }
+.profile-glow { position: absolute; inset: -20px; background: var(--yellow-300); border-radius: 50%; filter: blur(60px); opacity: 0.4; animation: pulse 3s infinite; }
+.profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 8px solid var(--white); box-shadow: var(--shadow-xl); position: relative; z-index: 2; background: linear-gradient(135deg, var(--yellow-200), var(--yellow-400)); }
+.profile-decoration { position: absolute; inset: -10px; border: 3px dashed var(--yellow-400); border-radius: 50%; animation: rotate 20s linear infinite; }
+@keyframes pulse { 0%,100% { opacity: 0.4; transform: scale(1);} 50% { opacity: 0.6; transform: scale(1.05);} }
+@keyframes rotate { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+.scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; color: var(--gray-500); font-size: 0.875rem; }
+.mouse { width: 24px; height: 40px; border: 2px solid var(--gray-400); border-radius: 12px; position: relative; }
+.wheel { width: 4px; height: 8px; background: var(--gray-500); border-radius: 2px; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); animation: scroll-wheel 1.5s infinite; }
+@keyframes scroll-wheel { 0% { transform: translateX(-50%) translateY(0); opacity: 1;} 100% { transform: translateX(-50%) translateY(12px); opacity: 0;} }
+
+.section { padding: 6rem 0; position: relative; }
+.section-alt { background: rgba(250,250,250,0.7); backdrop-filter: blur(4px); }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-tag { display: inline-block; padding: 0.375rem 1rem; background: var(--yellow-100); color: var(--yellow-800); border-radius: var(--radius-xl); font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; border: 1px solid var(--yellow-200); }
+.section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+.section-subtitle { font-size: 1.125rem; color: var(--gray-600); max-width: 600px; margin: 0 auto; }
+
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+.about-card { background: var(--white); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); transition: var(--transition); }
+.about-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--yellow-300); }
+.card-icon { width: 64px; height: 64px; background: var(--yellow-100); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--yellow-700); }
+.about-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
+.about-card p { color: var(--gray-600); line-height: 1.7; font-size: 0.9375rem; }
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.project-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); transition: var(--transition); display: flex; flex-direction: column; }
+.project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--yellow-300); }
+.project-image { position: relative; height: 240px; overflow: hidden; background: linear-gradient(135deg, var(--yellow-100), var(--yellow-200)); }
+.project-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow); }
+.project-card:hover .project-image img { transform: scale(1.1); }
+.project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); display: flex; align-items: flex-end; padding: 1.5rem; opacity: 0; transition: var(--transition); }
+.project-card:hover .project-overlay { opacity: 1; }
+.project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag { padding: 0.375rem 0.75rem; background: rgba(255,255,255,0.9); color: #171717; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 600; }
+.project-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; gap: 1rem; }
+.project-header h3 { font-size: 1.25rem; font-weight: 700; }
+.project-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 500; }
+.project-description { color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6; flex: 1; }
+.project-features { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+.feature { display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--gray-700); }
+.feature svg { color: var(--yellow-600); flex-shrink: 0; }
+.project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.project-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: var(--transition); border: 1px solid var(--gray-200); color: var(--gray-700); }
+.project-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+.project-link:hover { border-color: var(--yellow-600); color: var(--yellow-700); transform: translateY(-2px); }
+.project-link.primary { background: var(--yellow-600); color: #171717; border-color: var(--yellow-600); }
+.project-link.primary:hover { background: var(--yellow-700); border-color: var(--yellow-700); }
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+.skill-card { background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
+.skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--yellow-400), var(--yellow-600)); transform: scaleX(0); transition: var(--transition); transform-origin: left; }
+.skill-card:hover::before { transform: scaleX(1); }
+.skill-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--yellow-300); }
+.skill-icon { width: 80px; height: 80px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; background: var(--yellow-50); border-radius: var(--radius-md); padding: 1rem; color: var(--yellow-700); transition: var(--transition); }
+.skill-card:hover .skill-icon { transform: scale(1.1) rotate(-3deg); background: var(--yellow-100); color: var(--yellow-800); }
+.skill-icon svg { width: 46px; height: 46px; }
+.skill-icon .brand { display: block; width: 46px; height: 46px; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+@supports not (mask-image: url("data:,x")) {
+    .skill-icon .brand { background: var(--src) center / contain no-repeat; }
+}
+.skill-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; }
+.skill-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.5; }
+
+.certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.cert-card { background: var(--white); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); transition: var(--transition); display: flex; flex-direction: column; }
+.cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--yellow-300); }
+.cert-badge { width: 72px; height: 72px; background: var(--yellow-50); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--yellow-700); }
+.cert-badge svg { width: 58px; height: 58px; }
+.cert-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
+.cert-list { display: flex; flex-direction: column; gap: 1rem; flex: 1; }
+.cert-item { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-100); gap: 1rem; }
+.cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+.cert-name { font-size: 0.9375rem; color: var(--gray-700); font-weight: 500; flex: 1; }
+.cert-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 600; white-space: nowrap; }
+.cert-cta { display: flex; justify-content: center; margin-top: 3rem; }
+
+.contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start; }
+.social-row { display: flex; gap: 2rem; justify-content: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.social-col { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.social-btn { width: 72px; height: 72px; border-radius: 50%; background: var(--white); border: 2px solid var(--yellow-300); display: flex; align-items: center; justify-content: center; transition: var(--transition); box-shadow: var(--shadow); position: relative; overflow: hidden; color: var(--yellow-700); }
+.social-btn svg { width: 32px; height: 32px; transition: var(--transition); position: relative; z-index: 2; }
+.social-btn::before { content: ''; position: absolute; inset: 0; background: var(--yellow-600); transform: scale(0); border-radius: 50%; transition: var(--transition); }
+.social-btn:hover { transform: translateY(-6px) scale(1.05); box-shadow: var(--shadow-xl); border-color: var(--yellow-600); color: #171717; }
+.social-btn:hover::before { transform: scale(1); }
+.social-label { font-size: 0.875rem; font-weight: 600; color: var(--gray-700); }
+.contact-note { color: var(--gray-600); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group label { font-size: 0.875rem; font-weight: 600; color: var(--gray-700); }
+.form-group input, .form-group textarea { padding: 0.875rem 1rem; border: 2px solid var(--gray-200); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; transition: var(--transition); background: var(--white); color: var(--gray-900); }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--yellow-600); box-shadow: 0 0 0 3px var(--yellow-100); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.footer { background: #171717; color: var(--white); padding: 2rem 0; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-left p { font-size: 0.875rem; color: var(--gray-400); }
+.footer-link { color: var(--yellow-400); text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: var(--transition); }
+.footer-link:hover { color: var(--yellow-300); }
+
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+@media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+    .hero-cta { justify-content: center; }
+    .hero-image { order: -1; }
+    .contact-content { grid-template-columns: 1fr; gap: 3rem; }
+    .social-row { justify-content: center; }
+}
+@media (max-width: 768px) {
+    .mobile-menu-toggle { display: flex; }
+    .nav-links { position: fixed; top: 70px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 2rem; gap: 1.5rem; transform: translateY(-120%); transition: var(--transition); box-shadow: var(--shadow-lg); }
+    .nav-links.active { transform: translateY(0); }
+    .section { padding: 4rem 0; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+    .hero-title { font-size: 2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .certifications-grid { grid-template-columns: 1fr; }
+    .profile-frame { width: 250px; height: 250px; }
+    .logo-text { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<div class="animated-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <canvas id="particles"></canvas>
+    <div class="floating-shapes">
+        <span class="fshape fs-1"><svg width="46" height="24" viewBox="0 0 48 24" fill="none"><polyline points="2,20 12,14 20,17 30,8 38,11 46,4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="4" r="2.5" fill="currentColor"/></svg></span>
+        <span class="fshape fs-2"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1" opacity="0.7"/><rect x="17" y="3" width="4" height="18" rx="1" opacity="0.45"/></svg></span>
+        <span class="fshape fs-3"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="4" opacity="0.35"/><path d="M12 4a8 8 0 0 1 8 8" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span>
+        <span class="fshape fs-4"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.66 3.58 3 8 3s8-1.34 8-3v-13"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span>
+        <span class="fshape fs-5"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="5.5" r="2.4"/><circle cx="5.5" cy="17.5" r="2.4"/><circle cx="18.5" cy="17.5" r="2.4"/><path d="M10.8 7.6L6.8 15.4M13.2 7.6l4 7.8M8 17.5h8"/></svg></span>
+        <span class="fshape fs-6"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l6-6 4 4 8-9"/><path d="M16 7h5v5"/></svg></span>
+        <span class="fshape fs-7"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="16" r="1.8"/><circle cx="10" cy="8" r="1.8" opacity="0.7"/><circle cx="14" cy="14" r="1.8" opacity="0.5"/><circle cx="19" cy="6" r="1.8" opacity="0.8"/><circle cx="9" cy="19" r="1.8" opacity="0.4"/></svg></span>
+        <span class="fshape fs-8"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M18 6L6 18"/></svg></span>
+    </div>
+</div>
+<div class="spotlight"></div>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-content">
+            <a href="#home" class="logo">
+                <span class="logo-mark">
+                    <svg width="36" height="36" viewBox="0 0 64 64" role="img" aria-label="MN">
+                        <defs><linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFCB2B"/><stop offset="1" stop-color="#D4A000"/></linearGradient></defs>
+                        <rect width="64" height="64" rx="14" fill="url(#logo-g)"/>
+                        <text x="32" y="43" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#171717">MN</text>
+                    </svg>
+                </span>
+                <span class="logo-text">Maxime NDACLEU</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-toggles">
+                    <div class="lang-toggle" role="group" aria-label="Langue / Language">
+                        <button id="langFr" class="active" type="button">FR</button>
+                        <button id="langEn" type="button">EN</button>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+                        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav_about">À propos</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Compétences</a></li>
+                <li><a href="#certifications" data-i18n="nav_certs">Certifications</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content fade-in">
+            <div class="hero-text">
+                <span class="hero-badge">Data Analyst & BI Analyst</span>
+                <h1 class="hero-title" data-i18n="hero_title">Transformer la donnée en<br><span class="gradient-text">décisions éclairées</span></h1>
+                <p class="hero-description" data-i18n="hero_desc">Mon parcours n'est pas linéaire, c'est ma force. Du droit public à l'intelligence économique en passant par les systèmes informatiques, je mets la rigueur de la preuve au service de la donnée pour produire des analyses qui éclairent réellement les décisions stratégiques.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary"><span data-i18n="hero_cta1">Découvrir mes projets</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 5L12 10L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                    <a href="#contact" class="btn btn-secondary"><span data-i18n="hero_cta2">Me contacter</span></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <div class="profile-glow"></div>
+                    <img src="images/Maxime-NDACLEU.jpg" alt="Maxime NDACLEU" class="profile-img" onerror="this.style.display='none'">
+                    <div class="profile-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator"><div class="mouse"><div class="wheel"></div></div><span>Scroll</span></div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-tag" data-i18n="about_tag">À propos</span>
+            <h2 class="section-title" data-i18n="about_title">Une approche unique</h2>
+        </div>
+        <div class="about-content fade-in">
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M14 2H6C5.47 2 4.96 2.21 4.59 2.59C4.21 2.96 4 3.47 4 4V20C4 20.53 4.21 21.04 4.59 21.41C4.96 21.79 5.47 22 6 22H18C18.53 22 19.04 21.79 19.41 21.41C19.79 21.04 20 20.53 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <h3 data-i18n="a1_t">La méthode du juriste</h3>
+                    <p data-i18n="a1_p">Qualifier les faits avant de conclure, citer ses sources, peser le pour et le contre, distinguer ce qui est établi de ce qui ne l'est pas. Cette rigueur juridique structure chacune de mes analyses. Le but ? Rester en totale conformité avec les normes éthiques et légales.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z" stroke="currentColor" stroke-width="2"/><path d="M2 12H22" stroke="currentColor" stroke-width="2"/><path d="M12 2C14.5 4.74 15.92 8.29 16 12C15.92 15.71 14.5 19.26 12 22C9.5 19.26 8.08 15.71 8 12C8.08 8.29 9.5 4.74 12 2Z" stroke="currentColor" stroke-width="2"/></svg></div>
+                    <h3 data-i18n="a2_t">Intelligence économique</h3>
+                    <p data-i18n="a2_p">De l'expression des besoins à la protection du patrimoine informationnel en passant par la collecte des données, leur traitement, leur analyse et la visualisation de l'information, je maîtrise l'ensemble du cycle itératif pour produire des livrables actionnables qui répondent aux enjeux business.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="6" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="19" cy="6" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M7 7l3 3.2M7 17l3-3.2M14.5 10.2L17 7M14.5 13.8L17 17"/><path d="M12 9.4V5.5M12 14.6v3.9" opacity="0.55"/></svg></div>
+                    <h3 data-i18n="a3_t">Intelligence artificielle</h3>
+                    <p data-i18n="a3_p">Formé également aux fondamentaux de l'Intelligence Artificielle, du Machine Learning et du Deep Learning, j'applique ces connaissances à la création d'agents intelligents et à l'automatisation de processus. En constante montée en compétences, je travaille au déploiement de projets IA de bout en bout.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section section-alt">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-tag" data-i18n="proj_tag">Projets</span>
+            <h2 class="section-title" data-i18n="proj_title">Des travaux qui ont de l'impact</h2>
+            <p class="section-subtitle" data-i18n="proj_sub">Chaque projet est une réponse concrète à un problème business, avec des données vérifiables et des méthodologies transparentes.</p>
+        </div>
+        <div class="projects-grid">
+            <article class="project-card fade-in">
+                <div class="project-image">
+                    <img src="images/country-risk-desk.jpeg" alt="Country Risk Desk" onerror="this.style.display='none'">
+                    <div class="project-overlay"><div class="project-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Plotly</span></div></div>
+                </div>
+                <div class="project-content">
+                    <div class="project-header"><h3>Country Risk Desk</h3><span class="project-year">2026</span></div>
+                    <p class="project-description" data-i18n="p1_d">Desk de risque pays macro-financier 100% déterministe. Brief complet et sourcé pour 226 économies sur 17 indicateurs, avec score agrégé 0-100, alertes seuil et projections FMI.</p>
+                    <div class="project-features">
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1_f1">226 économies × 17 indicateurs</span></div>
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1_f2">Sources officielles uniquement (FMI, Banque Mondiale)</span></div>
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p1_f3">Export PDF/CSV/Excel bilingue FR/EN</span></div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/maxin-dac/country-risk-desk" target="_blank" rel="noopener" class="project-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="lnk_code">Code source</span></a>
+                        <a href="https://country-risk-desk.streamlit.app/" target="_blank" rel="noopener" class="project-link primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 3H21C21.53 3 22.04 3.21 22.41 3.59C22.79 3.96 23 4.47 23 5V19C23 19.53 22.79 20.04 22.41 20.41C22.04 20.79 21.53 21 21 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 17L15 12L10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Live Demo</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card fade-in">
+                <div class="project-image">
+                    <img src="images/world-economic-dashboard.jpeg" alt="Global Economic Intelligence Dashboard" onerror="this.style.display='none'">
+                    <div class="project-overlay"><div class="project-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Power BI</span></div></div>
+                </div>
+                <div class="project-content">
+                    <div class="project-header"><h3>Global Economic Intelligence Dashboard</h3><span class="project-year">2026</span></div>
+                    <p class="project-description" data-i18n="p2_d">Plateforme bilingue d'intelligence économique analysant 217 pays selon l'approche PESTEL. 58 indicateurs Banque Mondiale structurés en 6 vues coordonnées avec jumeau Power BI.</p>
+                    <div class="project-features">
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2_f1">217 pays × 58 indicateurs (2000-2024)</span></div>
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2_f2">6 vues PESTEL coordonnées</span></div>
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p2_f3">Power BI + Docker + CI/CD</span></div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/maxin-dac/world-economic-dashboard" target="_blank" rel="noopener" class="project-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="lnk_code">Code source</span></a>
+                        <a href="https://world-bi-dashboard.streamlit.app/" target="_blank" rel="noopener" class="project-link primary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 3H21C21.53 3 22.04 3.21 22.41 3.59C22.79 3.96 23 4.47 23 5V19C23 19.53 22.79 20.04 22.41 20.41C22.04 20.79 21.53 21 21 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 17L15 12L10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Live Demo</span></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card fade-in">
+                <div class="project-image">
+                    <img src="images/cameroon-banking-benchmark.jpg" alt="Cameroun Banking Benchmark" onerror="this.style.display='none'">
+                    <div class="project-overlay"><div class="project-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">SQLite</span></div></div>
+                </div>
+                <div class="project-content">
+                    <div class="project-header"><h3>Cameroun Banking Benchmark</h3><span class="project-year">2026</span></div>
+                    <p class="project-description" data-i18n="p3_d">Un cadre d'analyse comparative standardisé pour les 19 banques commerciales camerounaises. Toujours en cours de finalisation, ce projet intègrera également une consolidation globale de la réglementation bancaire régionale.</p>
+                    <div class="project-features">
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3_f1">19 banques agréées analysées</span></div>
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3_f2">175 lignes tarifaires normalisées HT</span></div>
+                        <div class="feature"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12C22 14.16 21.3 16.25 20.01 17.98C18.72 19.71 16.9 20.97 14.84 21.58C12.77 22.2 10.56 22.12 8.53 21.37C6.51 20.63 4.78 19.25 3.61 17.44C2.44 15.63 1.88 13.49 2.02 11.34C2.16 9.18 3 7.14 4.4 5.5C5.8 3.86 7.69 2.72 9.8 2.24C11.9 1.76 14.1 1.98 16.07 2.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="p3_f3">Aperçu global du marché bancaire</span></div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/maxin-dac/cameroon-banking-benchmark" target="_blank" rel="noopener" class="project-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span data-i18n="lnk_code">Code source</span></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-tag" data-i18n="skills_tag">Compétences</span>
+            <h2 class="section-title" data-i18n="skills_title">Stack technique & outils</h2>
+            <p class="section-subtitle" data-i18n="skills_sub">Les technologies que j'utilise au quotidien pour transformer les données en insights actionnables.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg')"></span></div>
+                <h3>Python</h3><p data-i18n="sk_python">Analyse de données, IA, automatisation</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="15.7" y="3.2" width="5" height="17.6" rx="1.2"/>
+                        <rect x="9.5" y="8.2" width="5" height="12.6" rx="1.2" opacity="0.72"/>
+                        <rect x="3.3" y="13.2" width="5" height="7.6" rx="1.2" opacity="0.48"/>
+                    </svg>
+                </div>
+                <h3>Power BI</h3><p data-i18n="sk_powerbi">Dashboards interactifs, DAX, modélisation de données</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path opacity="0.5" d="M11.5 2.5h6v3.25a2.75 2.75 0 0 0 2.75 2.75h1.25v9.9a3.1 3.1 0 0 1-3.1 3.1h-6.8a3.1 3.1 0 0 1-3.1-3.1V5.6a3.1 3.1 0 0 1 3-3.1z"/>
+                        <rect opacity="0.85" x="14.2" y="2.5" width="7.3" height="6" rx="2.2"/>
+                        <rect x="2.5" y="9.8" width="11.2" height="11.7" rx="2.6"/>
+                        <path d="M6 12.6l4.2 6M10.2 12.6l-4.2 6" stroke="var(--yellow-50)" stroke-width="1.7" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+                <h3>Excel</h3><p data-i18n="sk_excel">TCD, Power Query, Power Pivot</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg')"></span></div>
+                <h3>SQL</h3><p data-i18n="sk_sql">Bases de données, Requêtes, optimisations</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.025 2.667L8.724 10.26 4.393 6.727 1.612 8.053v7.893l2.781 1.327 4.331-3.534 8.301 7.593L22.387 19V5L17.025 2.667zM5.412 13.612L3.618 12l1.794-1.612L7.182 12l-1.77 1.612zM17.55 14.654L11.63 12l5.92-2.654v5.308z"/>
+                    </svg>
+                </div>
+                <h3>VS Code</h3><p data-i18n="sk_vscode">Environnement de développement, extensions, débogage</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg')"></span></div>
+                <h3>Linux</h3><p data-i18n="sk_linux">OSINT, Sécurité et protection du patrimoine informationnel</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg')"></span></div>
+                <h3>Microsoft Azure</h3><p data-i18n="sk_azure">Cloud computing, services de données, déploiement</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg')"></span></div>
+                <h3>AWS</h3><p data-i18n="sk_aws">Services cloud, stockage, calcul</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg')"></span></div>
+                <h3>Google Cloud Platform</h3><p data-i18n="sk_gcp">Compute Engine, services analytiques</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg')"></span></div>
+                <h3>GitHub</h3><p data-i18n="sk_github">Versioning, CI/CD, outils open source</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg')"></span></div>
+                <h3>Git</h3><p data-i18n="sk_git">Contrôle de version, branching, workflows</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.simpleicons.org/google')"></span></div>
+                <h3>Google Workspace</h3><p data-i18n="sk_workspace">Sheets, Forms, collaboration en temps réel</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 73 73" fill="none">
+                        <path d="M53.1574 10.3146C52.1706 7.19669 49.2773 5.07764 46.007 5.07764L43.5352 5.07764C39.9228 5.07764 36.8237 7.65268 36.1621 11.2039L32.4891 30.9179L33.5912 27.2788C34.5491 24.1158 37.4644 21.9526 40.7692 21.9526H52.2499L58.8326 24.2562L62.3337 21.9644C59.0634 21.9644 56.1701 19.8336 55.1833 16.7157L53.1574 10.3146Z" fill="currentColor" opacity="0.55"/>
+                        <path d="M20.615 62.8082C21.5914 65.9426 24.4927 68.0777 27.7757 68.0777H32.6415C36.7421 68.0777 40.0824 64.7845 40.1408 60.6844L40.3984 42.5737L39.4114 45.86C38.459 49.0313 35.5396 51.2027 32.2284 51.2027H20.75L14.8141 48.4965L11.4807 51.2027C14.7636 51.2027 17.665 53.3378 18.6414 56.4722L20.615 62.8082Z" fill="currentColor" opacity="0.8"/>
+                        <path d="M45.5 5.07764H19.25C11.75 5.07764 7.25001 14.7496 4.25002 24.4216C0.695797 35.8804 -3.95498 51.2056 9.50001 51.2056H20.931C24.2656 51.2056 27.1975 49.0121 28.135 45.812C30.1073 39.0797 33.5545 27.3661 36.2631 18.446C37.6417 13.906 38.79 10.007 40.5523 7.57888C41.5404 6.21761 43.1871 5.07764 45.5 5.07764Z" fill="currentColor"/>
+                        <path d="M27.4946 68.0776H53.7446C61.2446 68.0776 65.7446 58.4071 68.7446 48.7365C72.2988 37.2794 76.9496 21.9565 63.4946 21.9565H52.0633C48.7288 21.9565 45.797 24.1499 44.8594 27.3499C42.8871 34.0812 39.44 45.7927 36.7314 54.7113C35.3529 59.2506 34.2046 63.149 32.4422 65.5768C31.4542 66.9378 29.8075 68.0776 27.4946 68.0776Z" fill="currentColor" opacity="0.65"/>
+                    </svg>
+                </div>
+                <h3>Microsoft 365 Copilot</h3><p data-i18n="sk_copilot">IA générative, productivité, collaboration</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg')"></span></div>
+                <h3>WordPress</h3><p data-i18n="sk_wordpress">CMS, personnalisation thèmes, plugins</p>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="4" y="3.5" width="16" height="17" rx="3.2"/>
+                        <path d="M8 8.5h8M8 12h8M8 15.5h3.2" stroke="var(--yellow-50)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+                        <path d="M13.6 15.2l1.5 1.5 2.9-2.9" stroke="var(--yellow-50)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
+                <h3>KoboToolbox</h3><p data-i18n="sk_kobo">Collecte de données terrain, formulaires, enquêtes</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="certifications" class="section section-alt">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-tag" data-i18n="cert_tag">Formation continue</span>
+            <h2 class="section-title" data-i18n="cert_title">L'apprentissage ne s'arrête jamais</h2>
+            <p class="section-subtitle" data-i18n="cert_sub">Certifications Microsoft et formation continue pour rester à la pointe des technologies.</p>
+        </div>
+        <div class="certifications-grid">
+            <div class="cert-card fade-in">
+                <div class="cert-badge">
+                    <svg viewBox="0 0 64 64" fill="currentColor">
+                        <path d="M32 4l20 7.5V28H12V11.5L32 4z" opacity="0.9"/>
+                        <text x="32" y="20.5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="6.3" font-weight="600" fill="var(--yellow-50)">Microsoft</text>
+                        <rect x="7" y="27" width="50" height="12.5" rx="3.5"/>
+                        <text x="32" y="35.9" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7" font-weight="800" letter-spacing="1.2" fill="var(--yellow-50)">CERTIFIED</text>
+                        <path d="M13 41.5h38V43c0 9.5-7.6 15.6-19 19.5C20.6 58.6 13 52.5 13 43v-1.5z" opacity="0.55"/>
+                    </svg>
+                </div>
+                <h3>Microsoft Certified</h3>
+                <div class="cert-list">
+                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n1">SC-900 : Security, Compliance & Identity</span><span class="cert-year" data-i18n="c1_y1">Mai 2021</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n2">DP-900 : Principes de base des données Azure</span><span class="cert-year" data-i18n="c1_y2">Jan 2021</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n3">PL-900 : Notions fondamentales de Power Platform</span><span class="cert-year" data-i18n="c1_y3">Oct 2020</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n4">AZ-900 : Principes de base d'Azure</span><span class="cert-year" data-i18n="c1_y4">Sept 2020</span></div>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-badge">
+                    <svg viewBox="0 0 64 64" fill="currentColor">
+                        <polygon points="61,32 57.1,38.7 57.1,46.5 50.4,50.4 46.5,57.1 38.7,57.1 32,61 25.3,57.1 17.5,57.1 13.6,50.4 6.9,46.5 6.9,38.7 3,32 6.9,25.3 6.9,17.5 13.6,13.6 17.5,6.9 25.3,6.9 32,3 38.7,6.9 46.5,6.9 50.4,13.6 57.1,17.5 57.1,25.3" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                        <circle cx="32" cy="32" r="17.5" fill="var(--yellow-50)"/>
+                        <path d="M32 22l2.6 7.4 7.9.2-6.2 4.8 2.2 7.5-6.5-4.4-6.5 4.4 2.2-7.5-6.2-4.8 7.9-.2z"/>
+                    </svg>
+                </div>
+                <h3 data-i18n="c2_t">Applied Skills (17)</h3>
+                <div class="cert-list">
+                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n1">Commencer à développer des agents dans Microsoft Foundry</span><span class="cert-year" data-i18n="c2_y1">Juil 2026</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n2">Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric</span><span class="cert-year" data-i18n="c2_y2">Déc 2025</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n3">Rationaliser les flux de travail métier avec la conversation IA</span><span class="cert-year" data-i18n="c2_y3">Déc 2025</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n4">Générer des rapports avec des agents de recherche IA</span><span class="cert-year" data-i18n="c2_y4">Nov 2025</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n5">+ 13 autres (Purview, Defender, Entra ID…)</span><span class="cert-year"></span></div>
+                </div>
+            </div>
+            <div class="cert-card fade-in">
+                <div class="cert-badge">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 22V12" stroke="currentColor" stroke-width="2"/><path d="M22 7L12 12L2 7" stroke="currentColor" stroke-width="2"/></svg>
+                </div>
+                <h3 data-i18n="c3_t">Autres certifications</h3>
+                <div class="cert-list">
+                    <div class="cert-item"><span class="cert-name" data-i18n="c3_n1">Certification Google Analytics</span><span class="cert-year" data-i18n="c3_y1">Jan 2026</span></div>
+                    <div class="cert-item"><span class="cert-name" data-i18n="c3_n2">Certiport IT Technical Support Specialist</span><span class="cert-year" data-i18n="c3_y2">Août 2021</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="cert-cta fade-in">
+            <a class="btn btn-primary" href="https://learn.microsoft.com/en-us/users/maximendacleu-3447/transcript/vjjnkuwyoknz4nq?source=docs" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                <span data-i18n="transcript">Transcript officiel Microsoft</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-header fade-in">
+            <span class="section-tag" data-i18n="contact_tag">Contact</span>
+            <h2 class="section-title" data-i18n="contact_title">Travaillons ensemble</h2>
+            <p class="section-subtitle" data-i18n="contact_sub">Un projet en tête ? Une opportunité à discuter ? Retrouvez-moi sur vos plateformes préférées.</p>
+        </div>
+        <div class="contact-content fade-in">
+            <div class="contact-info">
+                <div class="social-row">
+                    <div class="social-col">
+                        <a class="social-btn" href="https://www.linkedin.com/in/maximendacleu" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                        </a>
+                        <span class="social-label">LinkedIn</span>
+                    </div>
+                    <div class="social-col">
+                        <a class="social-btn" href="https://github.com/maxin-dac" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        </a>
+                        <span class="social-label">GitHub</span>
+                    </div>
+                    <div class="social-col">
+                        <a class="social-btn" href="https://www.kaggle.com/maximendacleu" target="_blank" rel="noopener" aria-label="Kaggle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v16M8 12.5L16.5 4M11 10l6.5 10"/></svg>
+                        </a>
+                        <span class="social-label">Kaggle</span>
+                    </div>
+                </div>
+                <p class="contact-note" data-i18n="contact_note">Ouvert aux opportunités de Data Analyst / BI Analyst / Market Research.</p>
+            </div>
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwlkvyla" method="POST">
+                <div class="form-group"><label for="name" data-i18n="f_name">Nom</label><input type="text" id="name" name="name" required></div>
+                <div class="form-group"><label for="email" data-i18n="f_email">Email</label><input type="email" id="email" name="email" required></div>
+                <div class="form-group"><label for="subject" data-i18n="f_subject">Sujet</label><input type="text" id="subject" name="subject" required></div>
+                <div class="form-group"><label for="message" data-i18n="f_message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <span data-i18n="f_send">Envoyer le message</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-left"><p data-i18n="footer_r">© 2026 Maxime NDACLEU. Tous droits réservés.</p></div>
+            <div class="footer-right"><a href="#home" class="footer-link" data-i18n="footer_top">Haut de page</a></div>
+        </div>
+    </div>
+</footer>
+
+<button id="backToTop" aria-label="Retour en haut">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+/* ===== Dictionnaire FR / EN ===== */
+const I18N = {
+    fr: {
+        nav_about: "À propos", nav_projects: "Projets", nav_skills: "Compétences", nav_certs: "Certifications", nav_contact: "Contact",
+        hero_title: "Transformer la donnée en<br><span class=\"gradient-text\">décisions éclairées</span>",
+        hero_desc: "Mon parcours n'est pas linéaire, c'est ma force. Du droit public à l'intelligence économique en passant par les systèmes informatiques, je mets la rigueur de la preuve au service de la donnée pour produire des analyses qui éclairent réellement les décisions stratégiques.",
+        hero_cta1: "Découvrir mes projets", hero_cta2: "Me contacter",
+        about_tag: "À propos", about_title: "Une approche unique",
+        a1_t: "La méthode du juriste",
+        a1_p: "Qualifier les faits avant de conclure, citer ses sources, peser le pour et le contre, distinguer ce qui est établi de ce qui ne l'est pas. Cette rigueur juridique structure chacune de mes analyses. Le but ? Rester en totale conformité avec les normes éthiques et légales.",
+        a2_t: "Intelligence économique",
+        a2_p: "De l'expression des besoins à la protection du patrimoine informationnel en passant par la collecte des données, leur traitement, leur analyse et la visualisation de l'information, je maîtrise l'ensemble du cycle itératif pour produire des livrables actionnables qui répondent aux enjeux business.",
+        a3_t: "Intelligence artificielle",
+        a3_p: "Formé également aux fondamentaux de l'Intelligence Artificielle, du Machine Learning et du Deep Learning, j'applique ces connaissances à la création d'agents intelligents et à l'automatisation de processus. En constante montée en compétences, je travaille au déploiement de projets IA de bout en bout.",
+        proj_tag: "Projets", proj_title: "Des travaux qui ont de l'impact",
+        proj_sub: "Chaque projet est une réponse concrète à un problème business, avec des données vérifiables et des méthodologies transparentes.",
+        p1_d: "Desk de risque pays macro-financier 100% déterministe. Brief complet et sourcé pour 226 économies sur 17 indicateurs, avec score agrégé 0-100, alertes seuil et projections FMI.",
+        p1_f1: "226 économies × 17 indicateurs", p1_f2: "Sources officielles uniquement (FMI, Banque Mondiale)", p1_f3: "Export PDF/CSV/Excel bilingue FR/EN",
+        p2_d: "Plateforme bilingue d'intelligence économique analysant 217 pays selon l'approche PESTEL. 58 indicateurs Banque Mondiale structurés en 6 vues coordonnées avec jumeau Power BI.",
+        p2_f1: "217 pays × 58 indicateurs (2000-2024)", p2_f2: "6 vues PESTEL coordonnées", p2_f3: "Power BI + Docker + CI/CD",
+        p3_d: "Un cadre d'analyse comparative standardisé pour les 19 banques commerciales camerounaises. Toujours en cours de finalisation, ce projet intègrera également une consolidation globale de la réglementation bancaire régionale.",
+        p3_f1: "19 banques agréées analysées", p3_f2: "175 lignes tarifaires normalisées HT", p3_f3: "Aperçu global du marché bancaire",
+        lnk_code: "Code source",
+        skills_tag: "Compétences", skills_title: "Stack technique & outils",
+        skills_sub: "Les technologies que j'utilise au quotidien pour transformer les données en insights actionnables.",
+        sk_python: "Analyse de données, IA, automatisation", sk_powerbi: "Dashboards interactifs, DAX, modélisation de données",
+        sk_excel: "TCD, Power Query, Power Pivot", sk_sql: "Bases de données, Requêtes, optimisations",
+        sk_vscode: "Environnement de développement, extensions, débogage", sk_linux: "OSINT, Sécurité et protection du patrimoine informationnel",
+        sk_azure: "Cloud computing, services de données, déploiement", sk_aws: "Services cloud, stockage, calcul",
+        sk_gcp: "Compute Engine, services analytiques", sk_github: "Versioning, CI/CD, outils open source",
+        sk_git: "Contrôle de version, branching, workflows", sk_workspace: "Sheets, Forms, collaboration en temps réel",
+        sk_copilot: "IA générative, productivité, collaboration", sk_wordpress: "CMS, personnalisation thèmes, plugins",
+        sk_kobo: "Collecte de données terrain, formulaires, enquêtes",
+        cert_tag: "Formation continue", cert_title: "L'apprentissage ne s'arrête jamais",
+        cert_sub: "Certifications Microsoft et formation continue pour rester à la pointe des technologies.",
+        c1_n1: "SC-900 : Security, Compliance & Identity", c1_y1: "Mai 2021",
+        c1_n2: "DP-900 : Principes de base des données Azure", c1_y2: "Jan 2021",
+        c1_n3: "PL-900 : Notions fondamentales de Power Platform", c1_y3: "Oct 2020",
+        c1_n4: "AZ-900 : Principes de base d'Azure", c1_y4: "Sept 2020",
+        c2_t: "Applied Skills (17)",
+        c2_n1: "Commencer à développer des agents dans Microsoft Foundry", c2_y1: "Juil 2026",
+        c2_n2: "Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric", c2_y2: "Déc 2025",
+        c2_n3: "Rationaliser les flux de travail métier avec la conversation IA", c2_y3: "Déc 2025",
+        c2_n4: "Générer des rapports avec des agents de recherche IA", c2_y4: "Nov 2025",
+        c2_n5: "+ 13 autres (Purview, Defender, Entra ID…)",
+        c3_t: "Autres certifications", c3_n1: "Certification Google Analytics", c3_y1: "Jan 2026",
+        c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Août 2021",
+        transcript: "Transcript officiel Microsoft",
+        contact_tag: "Contact", contact_title: "Travaillons ensemble",
+        contact_sub: "Un projet en tête ? Une opportunité à discuter ? Retrouvez-moi sur vos plateformes préférées.",
+        contact_note: "Ouvert aux opportunités de Data Analyst / BI Analyst / Market Research.",
+        f_name: "Nom", f_email: "Email", f_subject: "Sujet", f_message: "Message", f_send: "Envoyer le message",
+        footer_r: "© 2026 Maxime NDACLEU. Tous droits réservés.", footer_top: "Haut de page",
+        form_alert: "Merci pour votre message ! Je vous répondrai dans les meilleurs délais.",
+        meta_desc: "Maxime NDACLEU — Data Analyst & BI Analyst. Du droit public aux systèmes informatiques et à l'IA : la rigueur de la preuve au service de la donnée."
+    },
+    en: {
+        nav_about: "About", nav_projects: "Projects", nav_skills: "Skills", nav_certs: "Certifications", nav_contact: "Contact",
+        hero_title: "Turning data into<br><span class=\"gradient-text\">informed decisions</span>",
+        hero_desc: "My path is not linear, that is my strength. From public law to business intelligence via computer systems, I put the rigour of evidence at the service of data to produce analyses that genuinely inform strategic decisions.",
+        hero_cta1: "Explore my projects", hero_cta2: "Contact me",
+        about_tag: "About", about_title: "A unique approach",
+        a1_t: "The jurist's method",
+        a1_p: "Qualify the facts before concluding, cite sources, weigh the pros and cons, distinguish what is established from what is not. This legal rigour structures every analysis I produce. The goal? Remain in full compliance with ethical and legal standards.",
+        a2_t: "Business intelligence",
+        a2_p: "From needs definition to information asset protection, through data collection, processing, analysis and visualization, I master the entire iterative cycle to deliver actionable outputs that address business challenges.",
+        a3_t: "Artificial intelligence",
+        a3_p: "Also trained in the fundamentals of Artificial Intelligence, Machine Learning and Deep Learning, I apply this knowledge to building intelligent agents and automating processes. Continuously upskilling, I am working towards end-to-end AI project deployment.",
+        proj_tag: "Projects", proj_title: "Work that makes an impact",
+        proj_sub: "Each project is a concrete answer to a business problem, with verifiable data and transparent methodologies.",
+        p1_d: "A 100% deterministic macro-financial country risk desk. Complete, sourced briefs for 226 economies across 17 indicators, with a 0-100 aggregate score, threshold alerts and IMF projections.",
+        p1_f1: "226 economies × 17 indicators", p1_f2: "Official sources only (IMF, World Bank)", p1_f3: "Bilingual FR/EN PDF/CSV/Excel export",
+        p2_d: "A bilingual economic intelligence platform screening 217 countries through the PESTEL framework. 58 World Bank indicators structured across 6 coordinated views with a Power BI twin.",
+        p2_f1: "217 countries × 58 indicators (2000-2024)", p2_f2: "6 coordinated PESTEL views", p2_f3: "Power BI + Docker + CI/CD",
+        p3_d: "A standardized comparative analysis framework for Cameroon's 19 commercial banks. Still being finalized, the project will also integrate a comprehensive consolidation of regional banking regulation.",
+        p3_f1: "19 licensed banks analysed", p3_f2: "175 normalized fee lines (excl. tax)", p3_f3: "Market-wide overview",
+        lnk_code: "Source code",
+        skills_tag: "Skills", skills_title: "Tech stack & tools",
+        skills_sub: "The technologies I use daily to turn data into actionable insights.",
+        sk_python: "Data analysis, AI, automation", sk_powerbi: "Interactive dashboards, DAX, data modelling",
+        sk_excel: "PivotTables, Power Query, Power Pivot", sk_sql: "Databases, queries, optimization",
+        sk_vscode: "Development environment, extensions, debugging", sk_linux: "OSINT, security & information asset protection",
+        sk_azure: "Cloud computing, data services, deployment", sk_aws: "Cloud services, storage, compute",
+        sk_gcp: "Compute Engine, analytics services", sk_github: "Versioning, CI/CD, open-source tools",
+        sk_git: "Version control, branching, workflows", sk_workspace: "Sheets, Forms, real-time collaboration",
+        sk_copilot: "Generative AI, productivity, collaboration", sk_wordpress: "CMS, theme customization, plugins",
+        sk_kobo: "Field data collection, forms, surveys",
+        cert_tag: "Continuous learning", cert_title: "Learning never stops",
+        cert_sub: "Microsoft certifications and continuous learning to stay at the cutting edge.",
+        c1_n1: "SC-900: Security, Compliance & Identity", c1_y1: "May 2021",
+        c1_n2: "DP-900: Azure Data Fundamentals", c1_y2: "Jan 2021",
+        c1_n3: "PL-900: Power Platform Fundamentals", c1_y3: "Oct 2020",
+        c1_n4: "AZ-900: Azure Fundamentals", c1_y4: "Sep 2020",
+        c2_t: "Applied Skills (17)",
+        c2_n1: "Get started developing agents in Microsoft Foundry", c2_y1: "Jul 2026",
+        c2_n2: "Implement a Real-Time Intelligence solution with Microsoft Fabric", c2_y2: "Dec 2025",
+        c2_n3: "Streamline business workflows with AI chat", c2_y3: "Dec 2025",
+        c2_n4: "Generate reports with AI research agents", c2_y4: "Nov 2025",
+        c2_n5: "+ 13 more (Purview, Defender, Entra ID…)",
+        c3_t: "Other certifications", c3_n1: "Google Analytics Certification", c3_y1: "Jan 2026",
+        c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Aug 2021",
+        transcript: "Official Microsoft transcript",
+        contact_tag: "Contact", contact_title: "Let's work together",
+        contact_sub: "A project in mind? An opportunity to discuss? Find me on your favourite platforms.",
+        contact_note: "Open to Data Analyst / BI Analyst / Market Research opportunities.",
+        f_name: "Name", f_email: "Email", f_subject: "Subject", f_message: "Message", f_send: "Send message",
+        footer_r: "© 2026 Maxime NDACLEU. All rights reserved.", footer_top: "Back to top",
+        form_alert: "Thank you for your message! I will get back to you as soon as possible.",
+        meta_desc: "Maxime NDACLEU — Data Analyst & BI Analyst. From public law to computer systems and AI: the rigour of evidence at the service of data."
+    }
+};
+
+let currentLang = 'fr';
+function applyLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    localStorage.setItem('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (I18N[lang][k] !== undefined) el.innerHTML = I18N[lang][k];
+    });
+    document.getElementById('metaDesc').setAttribute('content', I18N[lang].meta_desc);
+    document.getElementById('langFr').classList.toggle('active', lang === 'fr');
+    document.getElementById('langEn').classList.toggle('active', lang === 'en');
+}
+document.getElementById('langFr').addEventListener('click', () => applyLang('fr'));
+document.getElementById('langEn').addEventListener('click', () => applyLang('en'));
+(function () {
+    const saved = localStorage.getItem('lang');
+    const lang = saved || ((navigator.language || 'fr').toLowerCase().startsWith('en') ? 'en' : 'fr');
+    applyLang(lang);
+})();
+
+/* ===== Thème ===== */
+document.getElementById('themeToggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+});
+
+/* ===== Progression + retour haut ===== */
+const progressBar = document.getElementById('progress-bar');
+const backToTop = document.getElementById('backToTop');
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    progressBar.style.width = (height > 0 ? (scrollTop / height) * 100 : 0) + '%';
+    navbar.classList.toggle('scrolled', scrollTop > 50);
+    backToTop.classList.toggle('show', scrollTop > 600);
+}, { passive: true });
+backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ===== Scrollspy ===== */
+const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.id;
+            document.querySelectorAll('.nav-links a').forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+        }
+    });
+}, { rootMargin: '-40% 0px -55% 0px' });
+document.querySelectorAll('section[id]').forEach(s => spyObserver.observe(s));
+
+/* ===== Particules ===== */
+(function () {
+    const canvas = document.getElementById('particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w, h, particles, mouse = { x: null, y: null };
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+        w = canvas.clientWidth; h = canvas.clientHeight;
+        canvas.width = w * DPR; canvas.height = h * DPR;
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        const count = Math.min(90, Math.floor(w * h / 18000));
+        particles = Array.from({ length: count }, () => ({
+            x: Math.random() * w, y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 2 + 1
+        }));
+    }
+    function step() {
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > w) p.vx *= -1;
+            if (p.y < 0 || p.y > h) p.vy *= -1;
+            if (mouse.x !== null) {
+                const dx = p.x - mouse.x, dy = p.y - mouse.y;
+                const d = Math.hypot(dx, dy);
+                if (d < 120 && d > 0.01) { p.x += dx / d * 0.6; p.y += dy / d * 0.6; }
+            }
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(245, 184, 0, 0.45)'; ctx.fill();
+        }
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const a = particles[i], b = particles[j];
+                const d = Math.hypot(a.x - b.x, a.y - b.y);
+                if (d < 110) {
+                    ctx.strokeStyle = 'rgba(255, 203, 43, ' + (0.25 * (1 - d / 110)) + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+                }
+            }
+        }
+        if (!reduced) requestAnimationFrame(step);
+    }
+    window.addEventListener('resize', resize);
+    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    resize();
+    if (reduced) step(); else requestAnimationFrame(step);
+})();
+
+/* ===== Spotlight ===== */
+(function () {
+    const spot = document.querySelector('.spotlight');
+    if (!spot) return;
+    window.addEventListener('mousemove', (e) => {
+        spot.style.setProperty('--mx', e.clientX + 'px');
+        spot.style.setProperty('--my', e.clientY + 'px');
+    });
+})();
+
+/* ===== Menu mobile ===== */
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+mobileMenuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+/* ===== Animations scroll ===== */
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const gridObserver = new IntersectionObserver((entries) => {
+    let i = 0;
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), (i++ % 8) * 90);
+            gridObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+document.querySelectorAll('.project-card, .skill-card, .cert-card, .about-card').forEach(el => gridObserver.observe(el));
+
+/* ===== Smooth scroll ===== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' }); }
+    });
+});
+
+/* ===== Formulaire ===== */
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = currentLang === 'fr' ? 'Envoi en cours...' : 'Sending...';
+    btn.disabled = true;
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+            alert(I18N[currentLang].form_alert);
+            contactForm.reset();
+        } else {
+            alert(currentLang === 'fr' ? "Une erreur s'est produite. Veuillez réessayer." : "An error occurred. Please try again.");
+        }
+    } catch (error) {
+        alert(currentLang === 'fr' ? "Une erreur de réseau s'est produite." : "A network error occurred.");
+    } finally {
+        btn.innerHTML = originalContent;
+        btn.disabled = false;
+    }
+});
+</script>
+</body>
+</html>
