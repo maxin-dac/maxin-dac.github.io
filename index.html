@@ -968,12 +968,6 @@ contactForm.addEventListener('submit', async (e) => {
         if (response.ok) {
             alert(I18N[currentLang].form_alert);
             contactForm.reset();
-        } else if (data && (data.error === 'captcha_required' || data.captcha_url)) {
-            if (confirm(currentLang === 'fr'
-                ? 'Une vérification anti-spam est nécessaire. Cliquez sur OK pour continuer.'
-                : 'An anti-spam check is required. Click OK to continue.')) {
-                window.location.href = data.captcha_url;
-            }
         } else if (data && data.error) {
             alert((currentLang === 'fr' ? 'Erreur : ' : 'Error: ') + data.error);
         } else {
