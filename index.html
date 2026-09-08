@@ -17,7 +17,6 @@
     document.documentElement.setAttribute('data-theme', t || (p ? 'dark' : 'light'));
 })();
 </script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
 :root {
     --yellow-50: #FFF9EC; --yellow-100: #FFF1C9; --yellow-200: #FFE4A0; --yellow-300: #F9D276;
@@ -660,12 +659,6 @@ html[data-theme="dark"] .icon-moon { display: none; }
                 <div class="form-group"><label for="email" data-i18n="f_email">Email</label><input type="email" id="email" name="email" required></div>
                 <div class="form-group"><label for="subject" data-i18n="f_subject">Sujet</label><input type="text" id="subject" name="subject" required></div>
                 <div class="form-group"><label for="message" data-i18n="f_message">Message</label><textarea id="message" name="message" rows="5" required></textarea></div>
-                <div class="form-group">
-                    <div class="g-recaptcha" id="gRecaptchaWidget"
-                         data-sitekey="6Les57AtAAAAAK0Myy9nEv4ZaZKPiovunsKNloaf"
-                         data-theme="light"
-                         data-size="normal"></div>
-                </div>
                 <button type="submit" class="btn btn-primary btn-full">
                     <span data-i18n="f_send">Envoyer le message</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -949,67 +942,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-/* ===== Synchronisation thème CAPTCHA (sombre / clair) ===== */
-(function syncRecaptchaTheme() {
-    function currentTheme() {
-        return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    }
-    function tryRender() {
-        const container = document.getElementById('gRecaptchaWidget');
-        if (!container || typeof grecaptcha === 'undefined' || typeof grecaptcha.render !== 'function') {
-            setTimeout(tryRender, 100);
-            return;
-        }
-        try {
-            if (!container.hasAttribute('data-widget-id')) {
-                const id = grecaptcha.render(container, {
-                    sitekey: container.getAttribute('data-sitekey'),
-                    theme: currentTheme(),
-                    size: container.getAttribute('data-size') || 'normal'
-                });
-                container.setAttribute('data-widget-id', id);
-            }
-        } catch (_) {}
-    }
-    const themeBtn = document.getElementById('themeToggle');
-    if (themeBtn) themeBtn.addEventListener('click', () => {
-        setTimeout(() => {
-            const container = document.getElementById('gRecaptchaWidget');
-            if (!container) return;
-            const sitekey = container.getAttribute('data-sitekey');
-            const size = container.getAttribute('data-size') || 'normal';
-            const parent = container.parentNode;
-            const fresh = document.createElement('div');
-            fresh.id = 'gRecaptchaWidget';
-            fresh.className = 'g-recaptcha';
-            fresh.setAttribute('data-sitekey', sitekey);
-            fresh.setAttribute('data-size', size);
-            fresh.setAttribute('data-theme', currentTheme());
-            parent.replaceChild(fresh, container);
-            tryRender();
-        }, 0);
-    });
-    document.addEventListener('DOMContentLoaded', tryRender);
-    tryRender();
-})();
-
-/* ===== Formulaire (soumission native + vérif CAPTCHA) ===== */
+/* ===== Formulaire Formspree basique ===== */
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', () => {
     const subjectField = document.getElementById('subject');
     const subjHidden = document.getElementById('_subject_hidden');
     if (subjectField && subjHidden && subjectField.value) {
         subjHidden.value = '[Portfolio] ' + subjectField.value;
-    }
-    if (typeof grecaptcha !== 'undefined' && grecaptcha.getResponse) {
-        const token = grecaptcha.getResponse();
-        if (!token) {
-            e.preventDefault();
-            alert(currentLang === 'fr'
-                ? 'Veuillez cocher la case "Je ne suis pas un robot" avant d\'envoyer.'
-                : 'Please check the "I\'m not a robot" box before sending.');
-            return false;
-        }
     }
 });
 </script>
