@@ -207,11 +207,14 @@ html[data-theme="dark"] .icon-moon { display: none; }
 .cert-badge { width: 72px; height: 72px; background: var(--teal-100); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--yellow-700); }
 .cert-badge svg { width: 58px; height: 58px; }
 .cert-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
-.cert-list { display: flex; flex-direction: column; gap: 1rem; flex: 1; }
-.cert-item { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-100); gap: 1rem; }
-.cert-item:last-child { border-bottom: none; padding-bottom: 0; }
-.cert-name { font-size: 0.9375rem; color: var(--gray-700); font-weight: 500; flex: 1; }
-.cert-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 600; white-space: nowrap; }
+.cert-list { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+.cert-item { display: flex; justify-content: space-between; align-items: center; padding: 0.875rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200); gap: 0.75rem; text-decoration: none; color: inherit; transition: var(--transition); background: var(--white); position: relative; }
+.cert-item:hover { transform: translateY(-3px); border-color: var(--teal-300); box-shadow: 0 8px 16px rgba(0,0,0,0.06); background: var(--gray-50); z-index: 2; }
+.cert-name { font-size: 0.9375rem; color: var(--gray-800); font-weight: 600; flex: 1; transition: var(--transition); }
+.cert-item:hover .cert-name { color: var(--teal-600); }
+.cert-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 600; white-space: nowrap; display: flex; align-items: center; }
+.cert-item::after { content: '↗'; font-size: 1.1rem; color: var(--gray-300); transition: var(--transition); font-family: system-ui, -apple-system, sans-serif; display: inline-block; margin-left: 0.5rem; }
+.cert-item:hover::after { color: var(--teal-600); transform: translate(3px, -3px) scale(1.1); }
 .cert-cta { display: flex; justify-content: center; margin-top: 3rem; }
 
 .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start; }
@@ -583,10 +586,11 @@ html[data-theme="dark"] .icon-moon { display: none; }
                 </div>
                 <h3>Microsoft Certified</h3>
                 <div class="cert-list">
-                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n1">SC-900 : Security, Compliance & Identity</span><span class="cert-year" data-i18n="c1_y1">Mai 2021</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n2">DP-900 : Principes de base des données Azure</span><span class="cert-year" data-i18n="c1_y2">Jan 2021</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n3">PL-900 : Notions fondamentales de Power Platform</span><span class="cert-year" data-i18n="c1_y3">Oct 2020</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c1_n4">AZ-900 : Principes de base d'Azure</span><span class="cert-year" data-i18n="c1_y4">Sept 2020</span></div>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DE5F42444ABEF86?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n1">SC-900 : Security, Compliance & Identity</span><span class="cert-year" data-i18n="c1_y1">Mai 2021</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/E93EA3371F6A5C1F?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n2">AI-901 : Notions de base de l'IA Azure</span><span class="cert-year" data-i18n="c1_y2">Mar 2021</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/152F0BEFD4F529DB?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n3">DP-900 : Principes de base des données Azure</span><span class="cert-year" data-i18n="c1_y3">Jan 2021</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/8B277E21E3B19A40?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n4">PL-900 : Notions fondamentales de Power Platform</span><span class="cert-year" data-i18n="c1_y4">Oct 2020</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/1955BB776A559952?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n5">AZ-900 : Principes de base d'Azure</span><span class="cert-year" data-i18n="c1_y5">Sept 2020</span></a>
                 </div>
             </div>
             <div class="cert-card fade-in">
@@ -599,28 +603,28 @@ html[data-theme="dark"] .icon-moon { display: none; }
                 </div>
                 <h3 data-i18n="c2_t">Applied Skills (18)</h3>
                 <div class="cert-list">
-                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n1">Développer un agent avec des outils intégrés</span><span class="cert-year" data-i18n="c2_y1">Sep 2026</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n2">Commencer à développer des agents dans Microsoft Foundry</span><span class="cert-year" data-i18n="c2_y2">Juil 2026</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n3">Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric</span><span class="cert-year" data-i18n="c2_y3">Déc 2025</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n4">Rationaliser les flux de travail métier avec la conversation IA</span><span class="cert-year" data-i18n="c2_y4">Déc 2025</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c2_n5">Générer des rapports avec des agents de recherche IA</span><span class="cert-year" data-i18n="c2_y5">Nov 2025</span></div>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/6AA03AD7E5E73E94?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n1">Développer un agent avec des outils intégrés</span><span class="cert-year" data-i18n="c2_y1">Sep 2026</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/527205752C3451BF?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n2">Commencer à développer des agents dans Microsoft Foundry</span><span class="cert-year" data-i18n="c2_y2">Juil 2026</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/A6033CF16EE15AB6?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n3">Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric</span><span class="cert-year" data-i18n="c2_y3">Déc 2025</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/B4327D485D2B4ECA?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n4">Rationaliser les flux de travail métier avec la conversation IA</span><span class="cert-year" data-i18n="c2_y4">Déc 2025</span></a>
+                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/F3190484DD771713?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n5">Générer des rapports avec des agents de recherche IA</span><span class="cert-year" data-i18n="c2_y5">Nov 2025</span></a>
                     
                     <details class="cert-details">
                         <summary data-i18n="c2_more" style="cursor: pointer; font-weight: 600; margin-top: 10px; color: var(--teal-600); text-decoration: underline;">13 autres applied skills</summary>
                         <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m1">Protéger les informations dans Microsoft 365 Copilot avec Microsoft Purview</span><span class="cert-year" data-i18n="c2_y1_m">Sep 2026</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m2">Gérer l'analyse des secrets GitHub avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y2_m">Juil 2026</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m3">Résoudre les problèmes GitHub avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y3_m">Juil 2026</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m4">Accélérer le développement assisté par l'IA avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y4_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m5">Sécuriser les services et charges de travail Azure avec Microsoft Defender for Cloud</span><span class="cert-year" data-i18n="c2_y5_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m6">Sécuriser le stockage pour Azure Files et Azure Blob Storage</span><span class="cert-year" data-i18n="c2_y6_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m7">Sécuriser les solutions d'IA dans le cloud</span><span class="cert-year" data-i18n="c2_y7_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m8">Démarrer avec les tâches de sécurité et de surveillance du cloud</span><span class="cert-year" data-i18n="c2_y8_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m9">Mettre en œuvre la rétention, eDiscovery et la conformité des communications dans Microsoft Purview</span><span class="cert-year" data-i18n="c2_y9_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m10">Mettre en œuvre la protection des informations et DLP avec Microsoft Purview</span><span class="cert-year" data-i18n="c2_y10_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m11">Déployer et configurer Azure Monitor</span><span class="cert-year" data-i18n="c2_y11_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m12">Démarrer avec les tâches de gestion Azure</span><span class="cert-year" data-i18n="c2_y12_m">Déc 2025</span></div>
-                            <div class="cert-item"><span class="cert-name" data-i18n="c2_m13">Démarrer avec les identités et l'accès via Microsoft Entra</span><span class="cert-year" data-i18n="c2_y13_m">Déc 2025</span></div>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DE5FCE12E79EBDEE?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m1">Protéger les informations dans Microsoft 365 Copilot avec Microsoft Purview</span><span class="cert-year" data-i18n="c2_y1_m">Sep 2026</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/7BA12679E805926A?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m2">Gérer l'analyse des secrets GitHub avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y2_m">Juil 2026</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DD3F74A1032245FB?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m3">Résoudre les problèmes GitHub avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y3_m">Juil 2026</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/BDD08DB15026EE57?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m4">Accélérer le développement assisté par l'IA avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y4_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/F9FD65FA6C51A769?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m5">Sécuriser les services et charges de travail Azure avec Microsoft Defender for Cloud</span><span class="cert-year" data-i18n="c2_y5_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/B615153A1534B285?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m6">Sécuriser le stockage pour Azure Files et Azure Blob Storage</span><span class="cert-year" data-i18n="c2_y6_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/6197AF257BE36D5B?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m7">Sécuriser les solutions d'IA dans le cloud</span><span class="cert-year" data-i18n="c2_y7_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/78F22BE9DC1D8967?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m8">Démarrer avec les tâches de sécurité et de surveillance du cloud</span><span class="cert-year" data-i18n="c2_y8_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/D03D4DA0703BF981?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m9">Mettre en œuvre la rétention, eDiscovery et la conformité des communications dans Microsoft Purview</span><span class="cert-year" data-i18n="c2_y9_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/78DCFCB3138B1B4D?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m10">Mettre en œuvre la protection des informations et DLP avec Microsoft Purview</span><span class="cert-year" data-i18n="c2_y10_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/48DF719E9A59D972?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m11">Déployer et configurer Azure Monitor</span><span class="cert-year" data-i18n="c2_y11_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/954506F415284B2C?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m12">Démarrer avec les tâches de gestion Azure</span><span class="cert-year" data-i18n="c2_y12_m">Déc 2025</span></a>
+                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/1A81505B78D02CD1?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m13">Démarrer avec les identités et l'accès via Microsoft Entra</span><span class="cert-year" data-i18n="c2_y13_m">Déc 2025</span></a>
                         </div>
                     </details>
                 </div>
@@ -631,16 +635,10 @@ html[data-theme="dark"] .icon-moon { display: none; }
                 </div>
                 <h3 data-i18n="c3_t">Autres certifications</h3>
                 <div class="cert-list">
-                    <div class="cert-item"><span class="cert-name" data-i18n="c3_n1">Certification Google Analytics</span><span class="cert-year" data-i18n="c3_y1">Jan 2026</span></div>
-                    <div class="cert-item"><span class="cert-name" data-i18n="c3_n2">Certiport IT Technical Support Specialist</span><span class="cert-year" data-i18n="c3_y2">Août 2021</span></div>
+                    <a class="cert-item" href="https://www.credential.net/678a847e-f5a0-4c07-b195-5d35831bdc23" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c3_n1">Certification Google Analytics</span><span class="cert-year" data-i18n="c3_y1">Jan 2026</span></a>
+                    <a class="cert-item" href="https://www.credly.com/badges/315aaf76-e8a6-4949-8cd8-b0bd75ea61dc" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c3_n2">Certiport IT Technical Support Specialist</span><span class="cert-year" data-i18n="c3_y2">Août 2021</span></a>
                 </div>
             </div>
-        </div>
-        <div class="cert-cta fade-in">
-            <a class="btn btn-primary" href="https://learn.microsoft.com/en-us/users/maximendacleu-3447/transcript/vjjnkuwyoknz4nq?source=docs" target="_blank" rel="noopener">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                <span data-i18n="transcript">Transcript officiel Microsoft</span>
-            </a>
         </div>
     </div>
 </section>
@@ -666,6 +664,12 @@ html[data-theme="dark"] .icon-moon { display: none; }
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         </a>
                         <span class="social-label">GitHub</span>
+                    </div>
+                    <div class="social-col">
+                        <a class="social-btn" href="https://gravatar.com/maximendacleu" target="_blank" rel="noopener" aria-label="Gravatar">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-1.326 0-2.4 1.074-2.4 2.4v8.4c0 1.324 1.074 2.398 2.4 2.398s2.4-1.074 2.4-2.398V5.21c2.795.99 4.799 3.654 4.799 6.789 0 3.975-3.225 7.199-7.199 7.199S4.801 15.975 4.801 12c0-1.989.805-3.789 2.108-5.091.938-.938.938-2.458 0-3.396s-2.458-.938-3.396 0C1.344 5.686 0 8.686 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12S18.627 0 12 0"/></svg>
+                        </a>
+                        <span class="social-label">Gravatar</span>
                     </div>
                 </div>
                 <p class="contact-note" data-i18n="contact_note">Ouvert aux opportunités de Data Analyst / BI Analyst / Market Research.</p>
@@ -737,9 +741,10 @@ const I18N = {
         cert_tag: "Formation continue", cert_title: "L'apprentissage ne s'arrête jamais",
         cert_sub: "Certifications et formation continue pour rester à la pointe des technologies.",
         c1_n1: "SC-900 : Security, Compliance & Identity", c1_y1: "Mai 2021",
-        c1_n2: "DP-900 : Principes de base des données Azure", c1_y2: "Jan 2021",
-        c1_n3: "PL-900 : Notions fondamentales de Power Platform", c1_y3: "Oct 2020",
-        c1_n4: "AZ-900 : Principes de base d'Azure", c1_y4: "Sept 2020",
+        c1_n2: "AI-901 : Notions de base de l'IA Azure", c1_y2: "Mar 2021",
+        c1_n3: "DP-900 : Principes de base des données Azure", c1_y3: "Jan 2021",
+        c1_n4: "PL-900 : Notions fondamentales de Power Platform", c1_y4: "Oct 2020",
+        c1_n5: "AZ-900 : Principes de base d'Azure", c1_y5: "Sept 2020",
         c2_t: "Applied Skills (18)", 
         c2_n1: "Développer un agent avec des outils intégrés", c2_y1: "Sep 2026",
         c2_n2: "Commencer à développer des agents dans Microsoft Foundry", c2_y2: "Juil 2026",
@@ -762,7 +767,6 @@ const I18N = {
         c2_m13: "Démarrer avec les identités et l'accès via Microsoft Entra", c2_y13_m: "Déc 2025",
         c3_t: "Autres certifications", c3_n1: "Certification Google Analytics", c3_y1: "Jan 2026",
         c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Août 2021",
-        transcript: "Transcript officiel Microsoft",
         contact_tag: "Contact", contact_title: "Travaillons ensemble",
         contact_sub: "Un projet en tête ? Une opportunité à discuter ? Retrouvez-moi sur vos plateformes préférées.",
         contact_note: "Ouvert aux opportunités de Data Analyst / BI Analyst / Market Research.",
@@ -805,9 +809,10 @@ const I18N = {
         cert_tag: "Continuous learning", cert_title: "Learning never stops",
         cert_sub: "Certifications and continuous learning to stay at the cutting edge.",
         c1_n1: "SC-900: Security, Compliance & Identity", c1_y1: "May 2021",
-        c1_n2: "DP-900: Azure Data Fundamentals", c1_y2: "Jan 2021",
-        c1_n3: "PL-900: Power Platform Fundamentals", c1_y3: "Oct 2020",
-        c1_n4: "AZ-900: Azure Fundamentals", c1_y4: "Sep 2020",
+        c1_n2: "AI-901: Azure AI Fundamentals", c1_y2: "Mar 2021",
+        c1_n3: "DP-900: Azure Data Fundamentals", c1_y3: "Jan 2021",
+        c1_n4: "PL-900: Power Platform Fundamentals", c1_y4: "Oct 2020",
+        c1_n5: "AZ-900: Azure Fundamentals", c1_y5: "Sep 2020",
         c2_t: "Applied Skills (18)",
         c2_n1: "Develop an agent with integrated tools", c2_y1: "Sep 2026",
         c2_n2: "Get started developing agents in Microsoft Foundry", c2_y2: "Jul 2026",
@@ -830,7 +835,6 @@ const I18N = {
         c2_m13: "Get started with identities and access using Microsoft Entra", c2_y13_m: "Dec 2025",
         c3_t: "Other certifications", c3_n1: "Google Analytics Certification", c3_y1: "Jan 2026",
         c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Aug 2021",
-        transcript: "Official Microsoft transcript",
         contact_tag: "Contact", contact_title: "Let's work together",
         contact_sub: "A project in mind? An opportunity to discuss? Find me on your favourite platforms.",
         contact_note: "Open to Data Analyst / BI Analyst / Market Research opportunities.",
