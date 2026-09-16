@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" id="metaDesc" content="Maxime NDACLEU — Data Analyst & BI. Du droit public aux systèmes informatiques et à l'IA : la rigueur de la preuve au service de la donnée.">
 <meta name="theme-color" content="#F2B544">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maxin-dac.github.io/">
+<meta property="og:title" content="Maxime NDACLEU | Data Analyst & BI">
+<meta property="og:description" content="Data Analyst & BI : transformer la donnée en décisions éclairées.">
+<meta property="og:image" content="https://maxin-dac.github.io/images/Maxime-NDACLEU.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maxime NDACLEU | Data Analyst & BI">
+<meta name="twitter:description" content="Data Analyst & BI : transformer la donnée en décisions éclairées.">
+<meta name="twitter:image" content="https://maxin-dac.github.io/images/Maxime-NDACLEU.jpg">
+<link rel="canonical" href="https://maxin-dac.github.io/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFCB2B'/%3E%3Cstop offset='1' stop-color='%23D4A000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='800' text-anchor='middle' fill='%23171717'%3EMN%3C/text%3E%3C/svg%3E">
 <title>Maxime NDACLEU | Data Analyst & BI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +27,20 @@
     var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.setAttribute('data-theme', t || (p ? 'dark' : 'light'));
 })();
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Maxime NDACLEU",
+    "jobTitle": "Data Analyst & BI",
+    "url": "https://maxin-dac.github.io/",
+    "image": "https://maxin-dac.github.io/images/Maxime-NDACLEU.jpg",
+    "sameAs": [
+        "https://www.linkedin.com/in/maximendacleu",
+        "https://github.com/maxin-dac"
+    ]
+}
 </script>
 <style>
 :root {
@@ -235,6 +260,10 @@ html[data-theme="dark"] .icon-moon { display: none; }
 .form-group input, .form-group textarea { padding: 0.875rem 1rem; border: 2px solid var(--gray-200); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; transition: var(--transition); background: var(--white); color: var(--gray-900); }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--yellow-600); box-shadow: 0 0 0 3px var(--yellow-100); }
 .form-group textarea { resize: vertical; min-height: 120px; }
+.contact-form button:disabled { cursor: wait; opacity: 0.7; }
+.form-status { min-height: 1.5rem; color: var(--gray-600); font-size: 0.9375rem; }
+.form-status.success { color: var(--teal-600); }
+.form-status.error { color: var(--coral-500); }
 
 .footer { background: var(--footer-bg); color: var(--white); padding: 2rem 0; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -332,7 +361,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
             <div class="hero-image">
                 <div class="profile-frame">
                     <div class="profile-glow"></div>
-                    <img src="images/Maxime-NDACLEU.jpg" alt="Maxime NDACLEU" class="profile-img" onerror="this.style.display='none'">
+                    <img src="images/Maxime-NDACLEU.jpg" alt="Maxime NDACLEU" class="profile-img" width="411" height="409" decoding="async" onerror="this.style.display='none'">
                     <div class="profile-decoration"></div>
                 </div>
             </div>
@@ -379,7 +408,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
         <div class="projects-grid">
             <article class="project-card fade-in">
                 <div class="project-image">
-                    <img src="images/country-risk-desk.jpeg" alt="Country Risk Desk" onerror="this.style.display='none'">
+                    <img src="images/country-risk-desk.jpeg" alt="Country Risk Desk" width="1343" height="630" loading="lazy" decoding="async" onerror="this.style.display='none'">
                     <div class="project-overlay"><div class="project-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Plotly</span></div></div>
                 </div>
                 <div class="project-content">
@@ -399,7 +428,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
 
             <article class="project-card fade-in">
                 <div class="project-image">
-                    <img src="images/world-economic-dashboard.jpeg" alt="Global Economic Intelligence Dashboard" onerror="this.style.display='none'">
+                    <img src="images/world-economic-dashboard.jpeg" alt="Global Economic Intelligence Dashboard" width="1240" height="580" loading="lazy" decoding="async" onerror="this.style.display='none'">
                     <div class="project-overlay"><div class="project-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Power BI</span></div></div>
                 </div>
                 <div class="project-content">
@@ -419,7 +448,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
 
             <article class="project-card fade-in">
                 <div class="project-image">
-                    <img src="images/cameroon-banking-benchmark.jpg" alt="Cameroun Banking Benchmark" onerror="this.style.display='none'">
+                    <img src="images/cameroon-banking-benchmark.jpg" alt="Cameroun Banking Benchmark" width="1351" height="633" loading="lazy" decoding="async" onerror="this.style.display='none'">
                     <div class="project-overlay"><div class="project-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">SQLite</span></div></div>
                 </div>
                 <div class="project-content">
@@ -680,6 +709,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
                     <span data-i18n="f_send">Envoyer le message</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
+                <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
             </form>
         </div>
     </div>
@@ -937,13 +967,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-/* ===== Formulaire Formspree basique ===== */
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    link.rel = 'noopener noreferrer';
+});
+
+/* ===== Formulaire Formspree ===== */
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', () => {
+const formStatus = document.getElementById('formStatus');
+const submitButton = contactForm.querySelector('button[type="submit"]');
+contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
     const subjectField = document.getElementById('subject');
     const subjHidden = document.getElementById('_subject_hidden');
     if (subjectField && subjHidden && subjectField.value) {
         subjHidden.value = '[Portfolio] ' + subjectField.value;
+    }
+    submitButton.disabled = true;
+    formStatus.className = 'form-status';
+    formStatus.textContent = currentLang === 'en' ? 'Sending...' : 'Envoi en cours...';
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('Form submission failed');
+        formStatus.className = 'form-status success';
+        formStatus.textContent = currentLang === 'en' ? 'Thank you, your message has been sent.' : 'Merci, votre message a bien été envoyé.';
+        contactForm.reset();
+    } catch (error) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = currentLang === 'en' ? 'Unable to send the message. Please try again later.' : 'Impossible d’envoyer le message. Veuillez réessayer plus tard.';
+    } finally {
+        submitButton.disabled = false;
     }
 });
 </script>
