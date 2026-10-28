@@ -18,9 +18,6 @@
 <link rel="canonical" href="https://maxin-dac.github.io/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFCB2B'/%3E%3Cstop offset='1' stop-color='%23D4A000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='800' text-anchor='middle' fill='%23171717'%3EMN%3C/text%3E%3C/svg%3E">
 <title>Maxime NDACLEU | Data Analyst & BI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
 (function () {
     var t = localStorage.getItem('theme');
@@ -52,13 +49,17 @@
     --coral-50: #FFF2EC; --coral-100: #FFDCD0; --coral-300: #F6A18A; --coral-500: #D96852;
     --white: #FFFDF9;
     --footer-bg: #0C3038;
+    --card-bg: rgba(255, 253, 249, 0.78);
+    --card-border: rgba(36, 127, 130, 0.12);
+    --card-hover-border: var(--yellow-400);
+    --card-hover-shadow: 0 16px 32px -8px rgba(36, 127, 130, 0.14);
     --gray-50: #F8FAF9; --gray-100: #EEF2F1; --gray-200: #D9E2E0; --gray-300: #B8C8C6;
     --gray-400: #8A9C9A; --gray-500: #637875; --gray-600: #48605D; --gray-700: #304945;
     --gray-800: #1D3533; --gray-900: #122624;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1);
-    --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
-    --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 24px -4px rgba(0,0,0,0.08);
+    --shadow-xl: 0 24px 40px -12px rgba(0,0,0,0.18);
+    --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -71,30 +72,39 @@ html[data-theme="dark"] {
     --coral-50: #3A2524; --coral-100: #5A3430; --coral-300: #C87867; --coral-500: #F09A83;
     --white: #102225;
     --footer-bg: #091B20;
+    --card-bg: rgba(16, 34, 37, 0.65);
+    --card-border: rgba(114, 196, 185, 0.14);
+    --card-hover-border: var(--yellow-400);
+    --card-hover-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.45);
     --gray-50: #142A2C; --gray-100: #1A3536; --gray-200: #2B4A4A; --gray-300: #456260;
     --gray-400: #78908C; --gray-500: #9BB0AB; --gray-600: #B7C8C3; --gray-700: #D0DEDA;
     --gray-800: #E0EBE7; --gray-900: #F3F8F5;
 }
 html[data-theme="dark"] body { background: #0e1f22; }
-html[data-theme="dark"] .page-bg { background-color: #0e1f22;
-    background-image:
-        radial-gradient(ellipse 70% 50% at 100% 0%, rgba(72,196,185,0.05) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 0% 100%, rgba(242,181,68,0.04) 0%, transparent 65%);
-}
-html[data-theme="dark"] .dot-grid { opacity: 0.18; }
-html[data-theme="dark"] .navbar { background: rgba(16,34,37,0.45); }
-html[data-theme="dark"] .navbar.scrolled { background: rgba(16,34,37,0.78); }
-html[data-theme="dark"] .section-alt { background: rgba(12,48,56,0.42); }
+html[data-theme="dark"] .dot-grid { opacity: 0.16; }
+html[data-theme="dark"] .navbar { background: rgba(16,34,37,0.55); }
+html[data-theme="dark"] .navbar.scrolled { background: rgba(16,34,37,0.85); }
+html[data-theme="dark"] .section-alt { background: rgba(12,48,56,0.30); border-color: rgba(114,196,185,0.08); }
 html[data-theme="dark"] .tag { background: rgba(16,34,37,0.9); color: #F3F8F5; }
 html[data-theme="dark"] .profile-img { border-color: #102225; }
 html[data-theme="dark"] .btn-primary, html[data-theme="dark"] .project-link.primary { color: #122624; }
 html[data-theme="dark"] .gradient-text { background: linear-gradient(135deg, var(--yellow-400), var(--yellow-600)); -webkit-background-clip: text; background-clip: text; }
 html[data-theme="dark"] .hero-badge, html[data-theme="dark"] .section-tag { color: var(--yellow-400); }
-html[data-theme="dark"] .gradient-orb { opacity: 0.16; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Source Sans 3', 'Segoe UI', sans-serif; line-height: 1.6; color: var(--gray-900); background: var(--white); overflow-x: hidden; transition: background 0.4s ease, color 0.4s ease; }
-.hero-title, .section-title, .project-header h3, .skill-card h3, .cert-card h3 { letter-spacing: 0; }
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-900);
+    background: var(--white);
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.hero-title, .section-title, .project-header h3, .skill-card h3, .cert-card h3, .about-card h3 {
+    letter-spacing: -0.015em;
+}
 .project-year, .cert-year, .tag, .section-tag, .hero-badge { font-family: inherit; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 ::selection { background: var(--yellow-400); color: #171717; }
@@ -106,7 +116,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 #backToTop.show { opacity: 1; visibility: visible; transform: none; }
 #backToTop:hover { background: var(--yellow-700); transform: translateY(-4px); }
 
-/* ===== Toggles (thème + langue) ===== */
+/* ===== Toggles (thème & langue) ===== */
 .nav-toggles { display: flex; align-items: center; gap: 0.75rem; }
 .theme-toggle { width: 42px; height: 42px; border-radius: 50%; border: 2px solid var(--yellow-300); background: transparent; color: var(--yellow-700); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); flex-shrink: 0; }
 .theme-toggle:hover { transform: rotate(20deg) scale(1.08); border-color: var(--yellow-600); }
@@ -117,25 +127,64 @@ html[data-theme="dark"] .icon-moon { display: none; }
 .lang-toggle button.active { background: var(--yellow-600); color: #171717; }
 .lang-toggle button:not(.active):hover { background: var(--yellow-100); }
 
-/* ===== Fond sobre : grille de points + dégradé discret ===== */
-.page-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden;
-    background-color: var(--white);
-    background-image:
-        radial-gradient(ellipse 70% 50% at 100% 0%, rgba(36,127,130,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 0% 100%, rgba(242,181,68,0.06) 0%, transparent 65%);
+/* ===== Fond dynamique ===== */
+.page-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background-color: var(--white); }
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(85px);
+    opacity: 0.45;
+    pointer-events: none;
+    will-change: transform;
+    animation: floatOrb 22s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
 }
+.orb-1 {
+    width: 540px;
+    height: 540px;
+    top: -80px;
+    right: -60px;
+    background: radial-gradient(circle, rgba(36, 127, 130, 0.24) 0%, transparent 70%);
+    animation-duration: 22s;
+}
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    top: 48%;
+    left: -100px;
+    background: radial-gradient(circle, rgba(242, 181, 68, 0.22) 0%, transparent 70%);
+    animation-duration: 28s;
+    animation-delay: -6s;
+}
+.orb-3 {
+    width: 440px;
+    height: 440px;
+    bottom: -60px;
+    right: 8%;
+    background: radial-gradient(circle, rgba(217, 104, 82, 0.16) 0%, transparent 70%);
+    animation-duration: 25s;
+    animation-delay: -12s;
+}
+@keyframes floatOrb {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(35px, 40px, 0) scale(1.08); }
+    100% { transform: translate3d(-30px, 60px, 0) scale(0.94); }
+}
+html[data-theme="dark"] .orb-1 { background: radial-gradient(circle, rgba(114, 196, 185, 0.26) 0%, transparent 70%); }
+html[data-theme="dark"] .orb-2 { background: radial-gradient(circle, rgba(244, 196, 90, 0.22) 0%, transparent 70%); }
+html[data-theme="dark"] .orb-3 { background: radial-gradient(circle, rgba(240, 154, 131, 0.18) 0%, transparent 70%); }
+
 .dot-grid { position: absolute; inset: 0;
     background-image: radial-gradient(circle, var(--gray-300) 1px, transparent 1px);
     background-size: 28px 28px;
-    opacity: 0.55;
+    opacity: 0.45;
 }
 .spotlight { position: fixed; inset: 0; z-index: -1; pointer-events: none;
-    background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), rgba(36,127,130,0.07), transparent 70%);
+    background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), rgba(36,127,130,0.08), transparent 70%);
     transition: background 0.1s ease;
 }
 
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,253,249,0.58); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); border-bottom: 1px solid rgba(36,127,130,0.18); transition: var(--transition); }
-.navbar.scrolled { background: rgba(255,253,249,0.82); box-shadow: var(--shadow); }
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,253,249,0.65); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); border-bottom: 1px solid var(--card-border); transition: var(--transition); }
+.navbar.scrolled { background: rgba(255,253,249,0.85); box-shadow: var(--shadow); }
 .nav-content { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 1rem; }
 .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--gray-900); font-weight: 700; font-size: 1.125rem; }
 .logo-mark { display: flex; transition: var(--transition); }
@@ -152,14 +201,14 @@ html[data-theme="dark"] .icon-moon { display: none; }
 .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 70px; position: relative; }
 .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .hero-badge { display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(90deg, var(--yellow-100), var(--coral-50)); color: var(--yellow-800); border-radius: var(--radius-xl); font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid var(--yellow-200); }
-.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; }
 .gradient-text { background: linear-gradient(120deg, var(--teal-600) 0%, var(--yellow-700) 62%, var(--coral-500) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero-description { font-size: 1.125rem; color: var(--gray-600); margin-bottom: 2rem; line-height: 1.7; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; border-radius: var(--radius-md); font-family: inherit; font-weight: 600; font-size: 1rem; text-decoration: none; transition: var(--transition); cursor: pointer; border: none; }
 .btn-primary { background: var(--yellow-600); color: #171717; box-shadow: var(--shadow); }
 .btn-primary:hover { background: var(--yellow-700); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-.btn-secondary { background: var(--white); color: var(--gray-900); border: 2px solid var(--gray-200); }
+.btn-secondary { background: var(--card-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--gray-900); border: 2px solid var(--gray-200); }
 .btn-secondary:hover { border-color: var(--yellow-600); color: var(--yellow-700); transform: translateY(-2px); }
 .btn-full { width: 100%; justify-content: center; }
 .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
@@ -175,74 +224,397 @@ html[data-theme="dark"] .icon-moon { display: none; }
 @keyframes scroll-wheel { 0% { transform: translateX(-50%) translateY(0); opacity: 1;} 100% { transform: translateX(-50%) translateY(12px); opacity: 0;} }
 
 .section { padding: 6rem 0; position: relative; }
-.section-alt { background: linear-gradient(115deg, rgba(238,248,246,0.78), rgba(255,253,249,0.76) 58%, rgba(255,242,236,0.58)); backdrop-filter: blur(4px); }
+.section-alt { background: rgba(36, 127, 130, 0.028); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
 .section-header { text-align: center; margin-bottom: 4rem; }
 .section-tag { display: inline-block; padding: 0.375rem 1rem; background: var(--yellow-100); color: var(--yellow-800); border-radius: var(--radius-xl); font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; border: 1px solid var(--yellow-200); }
 .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
 .section-subtitle { font-size: 1.125rem; color: var(--gray-600); max-width: 600px; margin: 0 auto; }
 
-.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-.about-card { background: var(--white); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); transition: var(--transition); }
-.about-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--yellow-300); }
+/* ===== Grilles ===== */
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; }
+.about-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+.about-card:hover { transform: translateY(-5px); box-shadow: var(--card-hover-shadow); border-color: var(--card-hover-border); }
 .card-icon { width: 64px; height: 64px; background: var(--teal-100); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--yellow-700); }
+html[data-theme="dark"] .card-icon { background: var(--teal-50); color: var(--teal-500); }
 .about-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; }
 .about-card p { color: var(--gray-600); line-height: 1.7; font-size: 0.9375rem; }
 
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-.project-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); transition: var(--transition); display: flex; flex-direction: column; }
-.project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: var(--yellow-300); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+.project-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.project-card:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); border-color: var(--card-hover-border); }
 .project-image { position: relative; height: 240px; overflow: hidden; background: linear-gradient(135deg, var(--yellow-100), var(--teal-100) 65%, var(--coral-100)); }
 .project-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-slow); }
-.project-card:hover .project-image img { transform: scale(1.1); }
+.project-card:hover .project-image img { transform: scale(1.06); }
 .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); display: flex; align-items: flex-end; padding: 1.5rem; opacity: 0; transition: var(--transition); }
 .project-card:hover .project-overlay { opacity: 1; }
 .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.tag { padding: 0.375rem 0.75rem; background: rgba(255,255,255,0.9); color: #171717; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 600; }
-.project-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.tag { padding: 0.375rem 0.75rem; background: rgba(255,255,255,0.92); color: #171717; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 600; }
+.project-content { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
 .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; gap: 1rem; }
 .project-header h3 { font-size: 1.25rem; font-weight: 700; }
-.project-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 500; }
+.project-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 600; }
 .project-description { color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.6; flex: 1; }
 .project-features { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
 .feature { display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--gray-700); }
 .feature svg { color: var(--yellow-600); flex-shrink: 0; }
 .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.project-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: var(--transition); border: 1px solid var(--gray-200); color: var(--gray-700); }
+.project-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1rem; border-radius: 0.375rem; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: var(--transition); border: 1px solid var(--card-border); color: var(--gray-700); background: var(--white); }
 .project-link svg { width: 18px; height: 18px; flex-shrink: 0; }
 .project-link:hover { border-color: var(--yellow-600); color: var(--yellow-700); transform: translateY(-2px); }
 .project-link.primary { background: var(--yellow-600); color: #171717; border-color: var(--yellow-600); }
 .project-link.primary:hover { background: var(--yellow-700); border-color: var(--yellow-700); }
 
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-.skill-card { background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
-.skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--yellow-400), var(--teal-500), var(--coral-500)); transform: scaleX(0); transition: var(--transition); transform-origin: left; }
-.skill-card:hover::before { transform: scaleX(1); }
-.skill-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--yellow-300); }
-.skill-icon { width: 80px; height: 80px; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; background: var(--teal-100); border-radius: var(--radius-md); padding: 1rem; color: var(--yellow-700); transition: var(--transition); }
-.skill-card:hover .skill-icon { transform: scale(1.1) rotate(-3deg); background: var(--teal-100); color: var(--yellow-800); }
-.skill-icon svg { width: 46px; height: 46px; }
-.skill-icon .brand { display: block; width: 46px; height: 46px; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
-@supports not (mask-image: url("data:,x")) {
-    .skill-icon .brand { background: var(--src) center / contain no-repeat; }
+/* ===== Onglets interactifs (Compétences & Certifications) ===== */
+.skill-tabs-wrapper,
+.cert-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
 }
-.skill-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 0.5rem; }
-.skill-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.5; }
+.skill-tabs,
+.cert-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.35rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 9999px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    justify-content: center;
+}
+.skill-tab,
+.cert-tab {
+    background: transparent;
+    border: none;
+    padding: 0.55rem 1.15rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+.skill-tab:hover,
+.cert-tab:hover {
+    color: var(--gray-900);
+    background: rgba(0,0,0,0.04);
+}
+html[data-theme="dark"] .skill-tab:hover,
+html[data-theme="dark"] .cert-tab:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+}
+.skill-tab.active,
+.cert-tab.active {
+    background: var(--yellow-400);
+    color: #171717;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+}
+html[data-theme="dark"] .skill-tab.active,
+html[data-theme="dark"] .cert-tab.active {
+    background: var(--teal-500);
+    color: #022c22;
+    box-shadow: 0 4px 14px rgba(20, 184, 166, 0.35);
+}
+.skill-tab .tab-count,
+.cert-tab .tab-count {
+    font-size: 0.75rem;
+    padding: 0.12rem 0.5rem;
+    border-radius: 9999px;
+    background: rgba(0,0,0,0.08);
+    font-weight: 700;
+}
+html[data-theme="dark"] .skill-tab .tab-count,
+html[data-theme="dark"] .cert-tab .tab-count {
+    background: rgba(255,255,255,0.12);
+}
+.skill-tab.active .tab-count,
+.cert-tab.active .tab-count {
+    background: rgba(0,0,0,0.18);
+    color: inherit;
+}
 
-.certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.cert-card { background: var(--white); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); transition: var(--transition); display: flex; flex-direction: column; }
-.cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--yellow-300); }
-.cert-badge { width: 72px; height: 72px; background: var(--teal-100); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--yellow-700); }
-.cert-badge svg { width: 58px; height: 58px; }
-.cert-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem; }
-.cert-list { display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
-.cert-item { display: flex; justify-content: space-between; align-items: center; padding: 0.875rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200); gap: 0.75rem; text-decoration: none; color: inherit; transition: var(--transition); background: var(--white); position: relative; }
-.cert-item:hover { transform: translateY(-3px); border-color: var(--teal-300); box-shadow: 0 8px 16px rgba(0,0,0,0.06); background: var(--gray-50); z-index: 2; }
-.cert-name { font-size: 0.9375rem; color: var(--gray-800); font-weight: 600; flex: 1; transition: var(--transition); }
-.cert-item:hover .cert-name { color: var(--teal-600); }
-.cert-year { font-size: 0.875rem; color: var(--gray-500); font-weight: 600; white-space: nowrap; display: flex; align-items: center; }
-.cert-item::after { content: '↗'; font-size: 1.1rem; color: var(--gray-300); transition: var(--transition); font-family: system-ui, -apple-system, sans-serif; display: inline-block; margin-left: 0.5rem; }
-.cert-item:hover::after { color: var(--teal-600); transform: translate(3px, -3px) scale(1.1); }
-.cert-cta { display: flex; justify-content: center; margin-top: 3rem; }
+/* ===== Compétences ===== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1rem;
+}
+.skill-tile {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+.skill-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal-400), var(--yellow-400));
+    opacity: 0;
+    transition: var(--transition);
+}
+.skill-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--teal-400);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.skill-tile:hover::before {
+    opacity: 1;
+}
+.skill-tile-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    transition: var(--transition);
+}
+.skill-tile:hover .skill-tile-icon {
+    transform: scale(1.1) rotate(-3deg);
+}
+.skill-tile-icon svg {
+    width: 30px;
+    height: 30px;
+}
+.skill-tile-icon .brand {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: currentColor;
+    -webkit-mask: var(--src) center / contain no-repeat;
+    mask: var(--src) center / contain no-repeat;
+}
+@supports not (mask-image: url("data:,x")) {
+    .skill-tile-icon .brand { background: var(--src) center / contain no-repeat; }
+}
+
+.icon-cat-data { background: rgba(14, 165, 233, 0.12); color: #0284c7; }
+html[data-theme="dark"] .icon-cat-data { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+
+.icon-cat-cloud { background: rgba(245, 158, 11, 0.15); color: var(--yellow-700); }
+html[data-theme="dark"] .icon-cat-cloud { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+
+.icon-cat-dev { background: rgba(20, 184, 166, 0.12); color: var(--teal-600); }
+html[data-theme="dark"] .icon-cat-dev { background: rgba(45, 212, 191, 0.18); color: #2dd4bf; }
+
+.icon-cat-collab { background: rgba(168, 85, 247, 0.12); color: #9333ea; }
+html[data-theme="dark"] .icon-cat-collab { background: rgba(192, 132, 252, 0.18); color: #c084fc; }
+
+.skill-tile-content {
+    flex: 1;
+    min-width: 0;
+}
+.skill-tile-category {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+.cat-tag-data { color: #0284c7; }
+html[data-theme="dark"] .cat-tag-data { color: #38bdf8; }
+.cat-tag-cloud { color: var(--yellow-700); }
+html[data-theme="dark"] .cat-tag-cloud { color: #fbbf24; }
+.cat-tag-dev { color: var(--teal-600); }
+html[data-theme="dark"] .cat-tag-dev { color: #2dd4bf; }
+.cat-tag-collab { color: #9333ea; }
+html[data-theme="dark"] .cat-tag-collab { color: #c084fc; }
+
+.skill-tile h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--gray-900);
+    line-height: 1.25;
+}
+html[data-theme="dark"] .skill-tile h3 {
+    color: var(--white);
+}
+.skill-tile p {
+    font-size: 0.835rem;
+    color: var(--gray-600);
+    line-height: 1.4;
+    margin: 0;
+}
+.skill-tile.tile-hidden {
+    display: none !important;
+}
+
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+}
+.credential-tile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.05rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+.credential-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal-400), var(--yellow-400));
+    opacity: 0;
+    transition: var(--transition);
+}
+.credential-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--teal-400);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.credential-tile:hover::before {
+    opacity: 1;
+}
+.tile-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.credential-tile:hover .tile-icon {
+    transform: scale(1.08);
+}
+.tile-icon svg {
+    width: 24px;
+    height: 24px;
+}
+.icon-certified { background: rgba(14, 165, 233, 0.12); color: #0284c7; }
+html[data-theme="dark"] .icon-certified { background: rgba(56, 189, 248, 0.18); color: #38bdf8; }
+.icon-applied { background: rgba(20, 184, 166, 0.12); color: var(--teal-600); }
+html[data-theme="dark"] .icon-applied { background: rgba(45, 212, 191, 0.18); color: #2dd4bf; }
+.icon-pro { background: rgba(245, 158, 11, 0.15); color: var(--yellow-700); }
+html[data-theme="dark"] .icon-pro { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+.icon-other { background: rgba(168, 85, 247, 0.12); color: #9333ea; }
+html[data-theme="dark"] .icon-other { background: rgba(192, 132, 252, 0.18); color: #c084fc; }
+
+.tile-content {
+    flex: 1;
+    min-width: 0;
+}
+.tile-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+.tile-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.badge-certified { color: #0284c7; }
+html[data-theme="dark"] .badge-certified { color: #38bdf8; }
+.badge-applied { color: var(--teal-600); }
+html[data-theme="dark"] .badge-applied { color: #2dd4bf; }
+.badge-pro { color: var(--yellow-700); }
+html[data-theme="dark"] .badge-pro { color: #fbbf24; }
+.badge-other { color: #9333ea; }
+html[data-theme="dark"] .badge-other { color: #c084fc; }
+
+.tile-date {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    font-weight: 600;
+    white-space: nowrap;
+}
+.tile-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    line-height: 1.35;
+    transition: var(--transition);
+}
+.credential-tile:hover .tile-title {
+    color: var(--teal-600);
+}
+html[data-theme="dark"] .credential-tile:hover .tile-title {
+    color: var(--teal-400);
+}
+.tile-action {
+    color: var(--gray-400);
+    flex-shrink: 0;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.credential-tile:hover .tile-action {
+    color: var(--teal-600);
+    transform: translate(3px, -3px);
+}
+html[data-theme="dark"] .credential-tile:hover .tile-action {
+    color: var(--teal-400);
+}
+.credential-tile.tile-hidden {
+    display: none !important;
+}
 
 .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start; }
 .social-row { display: flex; gap: 2rem; justify-content: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; }
@@ -296,7 +668,9 @@ html[data-theme="dark"] .icon-moon { display: none; }
     .container { padding: 0 1rem; }
     .hero-title { font-size: 2rem; }
     .skills-grid { grid-template-columns: 1fr; }
-    .certifications-grid { grid-template-columns: 1fr; }
+    .credentials-grid { grid-template-columns: 1fr; }
+    .skill-tabs, .cert-tabs { width: 100%; border-radius: var(--radius-lg); }
+    .skill-tab, .cert-tab { flex: 1 1 calc(50% - 0.5rem); justify-content: center; }
     .profile-frame { width: 250px; height: 250px; }
     .logo-text { display: none; }
 }
@@ -306,7 +680,12 @@ html[data-theme="dark"] .icon-moon { display: none; }
 
 <div id="progress-bar"></div>
 
-<div class="page-bg"><div class="dot-grid"></div></div>
+<div class="page-bg">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    <div class="dot-grid"></div>
+</div>
 <div class="spotlight"></div>
 
 <nav class="navbar">
@@ -317,7 +696,7 @@ html[data-theme="dark"] .icon-moon { display: none; }
                     <svg width="36" height="36" viewBox="0 0 64 64" role="img" aria-label="MN">
                         <defs><linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFCB2B"/><stop offset="1" stop-color="#D4A000"/></linearGradient></defs>
                         <rect width="64" height="64" rx="14" fill="url(#logo-g)"/>
-                        <text x="32" y="43" font-family="'Source Sans 3', Arial, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#171717">MN</text>
+                        <text x="32" y="43" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="800" text-anchor="middle" fill="#171717">MN</text>
                     </svg>
                 </span>
                 <span class="logo-text">Maxime NDACLEU</span>
@@ -475,40 +854,79 @@ html[data-theme="dark"] .icon-moon { display: none; }
             <h2 class="section-title" data-i18n="skills_title">Stack technique & outils</h2>
             <p class="section-subtitle" data-i18n="skills_sub">Une sélection de technologies sur lesquelles j'ai la main.</p>
         </div>
-        <div class="skills-grid">
-            <div class="skill-card fade-in">
-                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg')"></span></div>
-                <h3>Python</h3><p data-i18n="sk_python">Analyse de données, IA, automatisation</p>
+        <div class="skill-tabs-wrapper fade-in">
+            <div class="skill-tabs" role="tablist" aria-label="Filtres des compétences techniques">
+                <button class="skill-tab active" data-filter="all" role="tab" aria-selected="true">
+                    <span data-i18n="sk_tab_all">Tous</span>
+                    <span class="tab-count">13</span>
+                </button>
+                <button class="skill-tab" data-filter="data" role="tab" aria-selected="false">
+                    <span data-i18n="sk_tab_data">Data & BI</span>
+                    <span class="tab-count">5</span>
+                </button>
+                <button class="skill-tab" data-filter="cloud-ai" role="tab" aria-selected="false">
+                    <span data-i18n="sk_tab_cloud">Cloud & IA</span>
+                    <span class="tab-count">2</span>
+                </button>
+                <button class="skill-tab" data-filter="dev-sys" role="tab" aria-selected="false">
+                    <span data-i18n="sk_tab_dev">Dev & Systèmes</span>
+                    <span class="tab-count">4</span>
+                </button>
+                <button class="skill-tab" data-filter="collab" role="tab" aria-selected="false">
+                    <span data-i18n="sk_tab_collab">Collaboration & Terrain</span>
+                    <span class="tab-count">2</span>
+                </button>
             </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Jupyter logo: cercle avec les 3 points signature -->
+        </div>
+
+        <div class="skills-grid" id="skillsGrid">
+            <!-- Data & BI (5) -->
+            <div class="skill-tile fade-in" data-category="data">
+                <div class="skill-tile-icon icon-cat-data" aria-hidden="true">
+                    <span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg')"></span>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-data" data-i18n="sk_cat_data">Data & BI</div>
+                    <h3>Python</h3>
+                    <p data-i18n="sk_python">Analyse de données, IA, automatisation</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="data">
+                <div class="skill-tile-icon icon-cat-data" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
                         <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.25"/>
-                        <!-- Arc supérieur orange -->
                         <path d="M6.5 6.8 A8 8 0 0 1 17.5 6.8" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.55"/>
-                        <!-- Arc inférieur gris/teal -->
                         <path d="M6.5 17.2 A8 8 0 0 0 17.5 17.2" stroke="var(--teal-500)" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.7"/>
-                        <!-- Trois points centraux -->
                         <circle cx="8.5" cy="12" r="1.55" fill="currentColor"/>
                         <circle cx="12" cy="12" r="1.55" fill="currentColor" opacity="0.7"/>
                         <circle cx="15.5" cy="12" r="1.55" fill="currentColor" opacity="0.45"/>
                     </svg>
                 </div>
-                <h3>Jupyter Notebook</h3><p data-i18n="sk_jupyter">Exploration de données, visualisation, notebooks interactifs</p>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-data" data-i18n="sk_cat_data">Data & BI</div>
+                    <h3>Jupyter Notebook</h3>
+                    <p data-i18n="sk_jupyter">Exploration de données, visualisation, notebooks interactifs</p>
+                </div>
             </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
+
+            <div class="skill-tile fade-in" data-category="data">
+                <div class="skill-tile-icon icon-cat-data" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <rect x="15.7" y="3.2" width="5" height="17.6" rx="1.2"/>
                         <rect x="9.5" y="8.2" width="5" height="12.6" rx="1.2" opacity="0.72"/>
                         <rect x="3.3" y="13.2" width="5" height="7.6" rx="1.2" opacity="0.48"/>
                     </svg>
                 </div>
-                <h3>Power BI</h3><p data-i18n="sk_powerbi">Dashboards interactifs, DAX, modélisation de données</p>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-data" data-i18n="sk_cat_data">Data & BI</div>
+                    <h3>Power BI</h3>
+                    <p data-i18n="sk_powerbi">Dashboards interactifs, DAX, modélisation de données</p>
+                </div>
             </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
+
+            <div class="skill-tile fade-in" data-category="data">
+                <div class="skill-tile-icon icon-cat-data" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path opacity="0.5" d="M11.5 2.5h6v3.25a2.75 2.75 0 0 0 2.75 2.75h1.25v9.9a3.1 3.1 0 0 1-3.1 3.1h-6.8a3.1 3.1 0 0 1-3.1-3.1V5.6a3.1 3.1 0 0 1 3-3.1z"/>
                         <rect opacity="0.85" x="14.2" y="2.5" width="7.3" height="6" rx="2.2"/>
@@ -516,23 +934,69 @@ html[data-theme="dark"] .icon-moon { display: none; }
                         <path d="M6 12.6l4.2 6M10.2 12.6l-4.2 6" stroke="var(--yellow-50)" stroke-width="1.7" stroke-linecap="round" fill="none"/>
                     </svg>
                 </div>
-                <h3>Excel</h3><p data-i18n="sk_excel">TCD, Power Query, Power Pivot</p>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-data" data-i18n="sk_cat_data">Data & BI</div>
+                    <h3>Excel</h3>
+                    <p data-i18n="sk_excel">TCD, Power Query, Power Pivot</p>
+                </div>
             </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg')"></span></div>
-                <h3>SQL</h3><p data-i18n="sk_sql">Bases de données, Requêtes, optimisations</p>
+
+            <div class="skill-tile fade-in" data-category="data">
+                <div class="skill-tile-icon icon-cat-data" aria-hidden="true">
+                    <span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg')"></span>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-data" data-i18n="sk_cat_data">Data & BI</div>
+                    <h3>SQL</h3>
+                    <p data-i18n="sk_sql">Bases de données, Requêtes, optimisations</p>
+                </div>
             </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
+
+            <!-- Cloud & IA (2) -->
+            <div class="skill-tile fade-in" data-category="cloud-ai">
+                <div class="skill-tile-icon icon-cat-cloud" aria-hidden="true">
+                    <span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg')"></span>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-cloud" data-i18n="sk_cat_cloud">Cloud & IA</div>
+                    <h3>Microsoft Azure</h3>
+                    <p data-i18n="sk_azure">Cloud computing, services de données, déploiement</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="cloud-ai">
+                <div class="skill-tile-icon icon-cat-cloud" aria-hidden="true">
+                    <svg viewBox="0 0 73 73" fill="none">
+                        <path d="M53.1574 10.3146C52.1706 7.19669 49.2773 5.07764 46.007 5.07764L43.5352 5.07764C39.9228 5.07764 36.8237 7.65268 36.1621 11.2039L32.4891 30.9179L33.5912 27.2788C34.5491 24.1158 37.4644 21.9526 40.7692 21.9526H52.2499L58.8326 24.2562L62.3337 21.9644C59.0634 21.9644 56.1701 19.8336 55.1833 16.7157L53.1574 10.3146Z" fill="currentColor" opacity="0.55"/>
+                        <path d="M20.615 62.8082C21.5914 65.9426 24.4927 68.0777 27.7757 68.0777H32.6415C36.7421 68.0777 40.0824 64.7845 40.1408 60.6844L40.3984 42.5737L39.4114 45.86C38.459 49.0313 35.5396 51.2027 32.2284 51.2027H20.75L14.8141 48.4965L11.4807 51.2027C14.7636 51.2027 17.665 53.3378 18.6414 56.4722L20.615 62.8082Z" fill="currentColor" opacity="0.8"/>
+                        <path d="M45.5 5.07764H19.25C11.75 5.07764 7.25001 14.7496 4.25002 24.4216C0.695797 35.8804 -3.95498 51.2056 9.50001 51.2056H20.931C24.2656 51.2056 27.1975 49.0121 28.135 45.812C30.1073 39.0797 33.5545 27.3661 36.2631 18.446C37.6417 13.906 38.79 10.007 40.5523 7.57888C41.5404 6.21761 43.1871 5.07764 45.5 5.07764Z" fill="currentColor"/>
+                        <path d="M27.4946 68.0776H53.7446C61.2446 68.0776 65.7446 58.4071 68.7446 48.7365C72.2988 37.2794 76.9496 21.9565 63.4946 21.9565H52.0633C48.7288 21.9565 45.797 24.1499 44.8594 27.3499C42.8871 34.0812 39.44 45.7927 36.7314 54.7113C35.3529 59.2506 34.2046 63.149 32.4422 65.5768C31.4542 66.9378 29.8075 68.0776 27.4946 68.0776Z" fill="currentColor" opacity="0.65"/>
+                    </svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-cloud" data-i18n="sk_cat_cloud">Cloud & IA</div>
+                    <h3>Microsoft 365 Copilot</h3>
+                    <p data-i18n="sk_copilot">IA générative, productivité, collaboration</p>
+                </div>
+            </div>
+
+            <!-- Dev & Systèmes (4) -->
+            <div class="skill-tile fade-in" data-category="dev-sys">
+                <div class="skill-tile-icon icon-cat-dev" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="VS Code">
                         <path d="m23.15 2.59-4.17-1.97a1.5 1.5 0 0 0-1.65.21L9.52 7.7 4.36 3.84a1.5 1.5 0 0 0-1.89.08L.46 6.03a1.5 1.5 0 0 0 0 2.24L5.1 12 .46 15.73a1.5 1.5 0 0 0 0 2.24l2.01 2.11a1.5 1.5 0 0 0 1.89.08l5.16-3.86 7.81 6.87a1.5 1.5 0 0 0 1.65.21l4.17-1.97a1.5 1.5 0 0 0 .85-1.36V3.95a1.5 1.5 0 0 0-.85-1.36Z"/>
                         <path d="M17.5 17.25 11.2 12l6.3-5.25v10.5Z" fill="var(--yellow-50)"/>
                     </svg>
                 </div>
-                <h3>VS Code</h3><p data-i18n="sk_vscode">Environnement de développement, extensions, débogage</p>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-dev" data-i18n="sk_cat_dev">Dev & Systèmes</div>
+                    <h3>VS Code</h3>
+                    <p data-i18n="sk_vscode">Environnement de développement, extensions, débogage</p>
+                </div>
             </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
+
+            <div class="skill-tile fade-in" data-category="dev-sys">
+                <div class="skill-tile-icon icon-cat-dev" aria-hidden="true">
                     <svg viewBox="0 0 64 64" role="img" aria-label="Linux">
                         <path d="M32 6c-8.8 0-14 7.1-14 16.2v8.4c0 3.2-2.2 5.9-5.2 7.2-3.1 1.3-5.1 3.5-4.5 6.3.8 3.7 6.2 5.1 12.3 3.6 2.4-.6 4.9-1.5 7.1-2.5 1.3 1 2.8 1.6 4.3 1.6s3-.6 4.3-1.6c2.2 1 4.7 1.9 7.1 2.5 6.1 1.5 11.5.1 12.3-3.6.6-2.8-1.4-5-4.5-6.3-3-1.3-5.2-4-5.2-7.2v-8.4C46 13.1 40.8 6 32 6Z" fill="currentColor"/>
                         <path d="M19.5 31.5c-1.7 3.4-4.8 5-8.1 6.4-2.1.9-2.8 2.1-2.2 3.3.8 1.6 4.3 1.8 8.3.9 3.7-.8 6.4-2.1 8.6-3.7-2.9-1.2-5.3-3.6-6.6-6.9ZM44.5 31.5c1.7 3.4 4.8 5 8.1 6.4 2.1.9 2.8 2.1 2.2 3.3-.8 1.6-4.3 1.8-8.3.9-3.7-.8-6.4-2.1-8.6-3.7 2.9-1.2 5.3-3.6 6.6-6.9Z" fill="var(--yellow-400)"/>
@@ -544,46 +1008,60 @@ html[data-theme="dark"] .icon-moon { display: none; }
                         <path d="M24 39c2.3 1.5 5 2.3 8 2.3s5.7-.8 8-2.3" fill="none" stroke="var(--yellow-50)" stroke-width="2" stroke-linecap="round" opacity=".9"/>
                     </svg>
                 </div>
-                <h3>Linux</h3><p data-i18n="sk_linux">OSINT, collecte & analyse de sources ouvertes</p>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg')"></span></div>
-                <h3>Microsoft Azure</h3><p data-i18n="sk_azure">Cloud computing, services de données, déploiement</p>
-            </div>
-
-            <div class="skill-card fade-in">
-                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg')"></span></div>
-                <h3>GitHub</h3><p data-i18n="sk_github">Versioning, CI/CD, outils open source</p>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg')"></span></div>
-                <h3>Git</h3><p data-i18n="sk_git">Contrôle de version, branching, workflows</p>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon"><span class="brand" style="--src:url('https://cdn.simpleicons.org/google')"></span></div>
-                <h3>Google Workspace</h3><p data-i18n="sk_workspace">Sheets, Forms, collaboration en temps réel</p>
-            </div>
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
-                    <svg viewBox="0 0 73 73" fill="none">
-                        <path d="M53.1574 10.3146C52.1706 7.19669 49.2773 5.07764 46.007 5.07764L43.5352 5.07764C39.9228 5.07764 36.8237 7.65268 36.1621 11.2039L32.4891 30.9179L33.5912 27.2788C34.5491 24.1158 37.4644 21.9526 40.7692 21.9526H52.2499L58.8326 24.2562L62.3337 21.9644C59.0634 21.9644 56.1701 19.8336 55.1833 16.7157L53.1574 10.3146Z" fill="currentColor" opacity="0.55"/>
-                        <path d="M20.615 62.8082C21.5914 65.9426 24.4927 68.0777 27.7757 68.0777H32.6415C36.7421 68.0777 40.0824 64.7845 40.1408 60.6844L40.3984 42.5737L39.4114 45.86C38.459 49.0313 35.5396 51.2027 32.2284 51.2027H20.75L14.8141 48.4965L11.4807 51.2027C14.7636 51.2027 17.665 53.3378 18.6414 56.4722L20.615 62.8082Z" fill="currentColor" opacity="0.8"/>
-                        <path d="M45.5 5.07764H19.25C11.75 5.07764 7.25001 14.7496 4.25002 24.4216C0.695797 35.8804 -3.95498 51.2056 9.50001 51.2056H20.931C24.2656 51.2056 27.1975 49.0121 28.135 45.812C30.1073 39.0797 33.5545 27.3661 36.2631 18.446C37.6417 13.906 38.79 10.007 40.5523 7.57888C41.5404 6.21761 43.1871 5.07764 45.5 5.07764Z" fill="currentColor"/>
-                        <path d="M27.4946 68.0776H53.7446C61.2446 68.0776 65.7446 58.4071 68.7446 48.7365C72.2988 37.2794 76.9496 21.9565 63.4946 21.9565H52.0633C48.7288 21.9565 45.797 24.1499 44.8594 27.3499C42.8871 34.0812 39.44 45.7927 36.7314 54.7113C35.3529 59.2506 34.2046 63.149 32.4422 65.5768C31.4542 66.9378 29.8075 68.0776 27.4946 68.0776Z" fill="currentColor" opacity="0.65"/>
-                    </svg>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-dev" data-i18n="sk_cat_dev">Dev & Systèmes</div>
+                    <h3>Linux</h3>
+                    <p data-i18n="sk_linux">OSINT, collecte & analyse de sources ouvertes</p>
                 </div>
-                <h3>Microsoft 365 Copilot</h3><p data-i18n="sk_copilot">IA générative, productivité, collaboration</p>
             </div>
 
-            <div class="skill-card fade-in">
-                <div class="skill-icon">
+            <div class="skill-tile fade-in" data-category="dev-sys">
+                <div class="skill-tile-icon icon-cat-dev" aria-hidden="true">
+                    <span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg')"></span>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-dev" data-i18n="sk_cat_dev">Dev & Systèmes</div>
+                    <h3>GitHub</h3>
+                    <p data-i18n="sk_github">Versioning, CI/CD, outils open source</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="dev-sys">
+                <div class="skill-tile-icon icon-cat-dev" aria-hidden="true">
+                    <span class="brand" style="--src:url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg')"></span>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-dev" data-i18n="sk_cat_dev">Dev & Systèmes</div>
+                    <h3>Git</h3>
+                    <p data-i18n="sk_git">Contrôle de version, branching, workflows</p>
+                </div>
+            </div>
+
+            <!-- Collaboration & Terrain (2) -->
+            <div class="skill-tile fade-in" data-category="collab">
+                <div class="skill-tile-icon icon-cat-collab" aria-hidden="true">
+                    <span class="brand" style="--src:url('https://cdn.simpleicons.org/google')"></span>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-collab" data-i18n="sk_cat_collab">Collaboration & Terrain</div>
+                    <h3>Google Workspace</h3>
+                    <p data-i18n="sk_workspace">Sheets, Forms, collaboration en temps réel</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="collab">
+                <div class="skill-tile-icon icon-cat-collab" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <rect x="4" y="3.5" width="16" height="17" rx="3.2"/>
                         <path d="M8 8.5h8M8 12h8M8 15.5h3.2" stroke="var(--yellow-50)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
                         <path d="M13.6 15.2l1.5 1.5 2.9-2.9" stroke="var(--yellow-50)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                     </svg>
                 </div>
-                <h3>KoboToolbox</h3><p data-i18n="sk_kobo">Collecte de données terrain, formulaires, enquêtes</p>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-collab" data-i18n="sk_cat_collab">Collaboration & Terrain</div>
+                    <h3>KoboToolbox</h3>
+                    <p data-i18n="sk_kobo">Collecte de données terrain, formulaires, enquêtes</p>
+                </div>
             </div>
         </div>
     </div>
@@ -596,73 +1074,467 @@ html[data-theme="dark"] .icon-moon { display: none; }
             <h2 class="section-title" data-i18n="cert_title">Développer, expérimenter, approfondir</h2>
             <p class="section-subtitle" data-i18n="cert_sub">Une démarche d’apprentissage continu fondée sur la pratique, l’expérimentation et la validation de compétences pertinentes.</p>
         </div>
-        <div class="certifications-grid">
-            <div class="cert-card fade-in">
-                <div class="cert-badge">
-                    <svg viewBox="0 0 64 64" fill="currentColor">
-                        <path d="M32 4l20 7.5V28H12V11.5L32 4z" opacity="0.9"/>
-                        <text x="32" y="20.5" text-anchor="middle" font-family="'Source Sans 3', Arial, sans-serif" font-size="6.3" font-weight="600" fill="var(--yellow-50)">Microsoft</text>
-                        <rect x="7" y="27" width="50" height="12.5" rx="3.5"/>
-                        <text x="32" y="35.9" text-anchor="middle" font-family="'Source Sans 3', Arial, sans-serif" font-size="7" font-weight="800" letter-spacing="1.2" fill="var(--yellow-50)">CERTIFIED</text>
-                        <path d="M13 41.5h38V43c0 9.5-7.6 15.6-19 19.5C20.6 58.6 13 52.5 13 43v-1.5z" opacity="0.55"/>
-                    </svg>
-                </div>
-                <h3>Microsoft Certified</h3>
-                <div class="cert-list">
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DE5F42444ABEF86?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n1">SC-900 : Security, Compliance & Identity</span><span class="cert-year" data-i18n="c1_y1">Mai 2021</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/E93EA3371F6A5C1F?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n2">AI-901 : Notions de base de l'IA Azure</span><span class="cert-year" data-i18n="c1_y2">Mar 2021</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/152F0BEFD4F529DB?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n3">DP-900 : Principes de base des données Azure</span><span class="cert-year" data-i18n="c1_y3">Jan 2021</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/8B277E21E3B19A40?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n4">PL-900 : Notions fondamentales de Power Platform</span><span class="cert-year" data-i18n="c1_y4">Oct 2020</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/1955BB776A559952?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c1_n5">AZ-900 : Principes de base d'Azure</span><span class="cert-year" data-i18n="c1_y5">Sept 2020</span></a>
-                </div>
+        <div class="cert-tabs-wrapper fade-in">
+            <div class="cert-tabs" role="tablist" aria-label="Filtres des titres de compétence">
+                <button class="cert-tab active" data-filter="all" role="tab" aria-selected="true">
+                    <span data-i18n="tab_all">Tous</span>
+                    <span class="tab-count">27</span>
+                </button>
+                <button class="cert-tab" data-filter="certified" role="tab" aria-selected="false">
+                    <span data-i18n="tab_certified">Microsoft Certified</span>
+                    <span class="tab-count">5</span>
+                </button>
+                <button class="cert-tab" data-filter="applied" role="tab" aria-selected="false">
+                    <span data-i18n="tab_applied">Applied Skills</span>
+                    <span class="tab-count">19</span>
+                </button>
+                <button class="cert-tab" data-filter="pro" role="tab" aria-selected="false">
+                    <span data-i18n="tab_pro">Microsoft Pro Badge</span>
+                    <span class="tab-count">1</span>
+                </button>
+                <button class="cert-tab" data-filter="other" role="tab" aria-selected="false">
+                    <span data-i18n="tab_other">Autres</span>
+                    <span class="tab-count">2</span>
+                </button>
             </div>
-            <div class="cert-card fade-in">
-                <div class="cert-badge">
-                    <svg viewBox="0 0 64 64" fill="currentColor">
-                        <polygon points="61,32 57.1,38.7 57.1,46.5 50.4,50.4 46.5,57.1 38.7,57.1 32,61 25.3,57.1 17.5,57.1 13.6,50.4 6.9,46.5 6.9,38.7 3,32 6.9,25.3 6.9,17.5 13.6,13.6 17.5,6.9 25.3,6.9 32,3 38.7,6.9 46.5,6.9 50.4,13.6 57.1,17.5 57.1,25.3" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                        <circle cx="32" cy="32" r="17.5" fill="var(--yellow-50)"/>
-                        <path d="M32 22l2.6 7.4 7.9.2-6.2 4.8 2.2 7.5-6.5-4.4-6.5 4.4 2.2-7.5-6.2-4.8 7.9-.2z"/>
-                    </svg>
+        </div>
+
+        <div class="credentials-grid" id="credentialsGrid">
+            <!-- Microsoft Certified (5) -->
+            <a class="credential-tile fade-in" data-category="certified" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DE5F42444ABEF86?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-certified" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                 </div>
-                <h3 data-i18n="c2_t">Applied Skills</h3>
-                <div class="cert-list">
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/243DFDF8FE409476?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n1">Créer un agent dans Microsoft Copilot Studio</span><span class="cert-year" data-i18n="c2_y1">Sep 2026</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/6AA03AD7E5E73E94?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n2">Développer un agent avec des outils intégrés</span><span class="cert-year" data-i18n="c2_y2">Sep 2026</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/527205752C3451BF?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n3">Commencer à développer des agents dans Microsoft Foundry</span><span class="cert-year" data-i18n="c2_y3">Juil 2026</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/A6033CF16EE15AB6?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n4">Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric</span><span class="cert-year" data-i18n="c2_y4">Déc 2025</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/B4327D485D2B4ECA?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n5">Rationaliser les flux de travail métier avec la conversation IA</span><span class="cert-year" data-i18n="c2_y5">Déc 2025</span></a>
-                    <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/F3190484DD771713?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_n6">Générer des rapports avec des agents de recherche IA</span><span class="cert-year" data-i18n="c2_y6">Nov 2025</span></a>
-                    
-                    <details class="cert-details">
-                        <summary data-i18n="c2_more" style="cursor: pointer; font-weight: 600; margin-top: 10px; color: var(--teal-600); text-decoration: underline;">13 autres applied skills</summary>
-                        <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 10px;">
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DE5FCE12E79EBDEE?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m1">Protéger les informations dans Microsoft 365 Copilot avec Microsoft Purview</span><span class="cert-year" data-i18n="c2_y1_m">Sep 2026</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/7BA12679E805926A?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m2">Gérer l'analyse des secrets GitHub avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y2_m">Juil 2026</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DD3F74A1032245FB?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m3">Résoudre les problèmes GitHub avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y3_m">Juil 2026</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/BDD08DB15026EE57?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m4">Accélérer le développement assisté par l'IA avec GitHub Copilot</span><span class="cert-year" data-i18n="c2_y4_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/F9FD65FA6C51A769?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m5">Sécuriser les services et charges de travail Azure avec Microsoft Defender for Cloud</span><span class="cert-year" data-i18n="c2_y5_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/B615153A1534B285?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m6">Sécuriser le stockage pour Azure Files et Azure Blob Storage</span><span class="cert-year" data-i18n="c2_y6_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/6197AF257BE36D5B?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m7">Sécuriser les solutions d'IA dans le cloud</span><span class="cert-year" data-i18n="c2_y7_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/78F22BE9DC1D8967?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m8">Démarrer avec les tâches de sécurité et de surveillance du cloud</span><span class="cert-year" data-i18n="c2_y8_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/D03D4DA0703BF981?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m9">Mettre en œuvre la rétention, eDiscovery et la conformité des communications dans Microsoft Purview</span><span class="cert-year" data-i18n="c2_y9_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/78DCFCB3138B1B4D?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m10">Mettre en œuvre la protection des informations et DLP avec Microsoft Purview</span><span class="cert-year" data-i18n="c2_y10_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/48DF719E9A59D972?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m11">Déployer et configurer Azure Monitor</span><span class="cert-year" data-i18n="c2_y11_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/954506F415284B2C?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m12">Démarrer avec les tâches de gestion Azure</span><span class="cert-year" data-i18n="c2_y12_m">Déc 2025</span></a>
-                            <a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/1A81505B78D02CD1?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c2_m13">Démarrer avec les identités et l'accès via Microsoft Entra</span><span class="cert-year" data-i18n="c2_y13_m">Déc 2025</span></a>
-                        </div>
-                    </details>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-certified">Microsoft Certified</span>
+                        <span class="tile-date" data-i18n="c1_y1">Mai 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c1_n1">SC-900 : Security, Compliance & Identity</div>
                 </div>
-            </div>
-            <div class="cert-card fade-in">
-                <div class="cert-badge">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 22V12" stroke="currentColor" stroke-width="2"/><path d="M22 7L12 12L2 7" stroke="currentColor" stroke-width="2"/></svg>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="certified" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/E93EA3371F6A5C1F?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-certified" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                 </div>
-                <h3 data-i18n="c3_t">Autres certifications</h3>
-                <div class="cert-list">
-                    <a class="cert-item" href="https://www.credential.net/678a847e-f5a0-4c07-b195-5d35831bdc23" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c3_n1">Certification Google Analytics</span><span class="cert-year" data-i18n="c3_y1">Jan 2026</span></a>
-                    <a class="cert-item" href="https://www.credly.com/badges/315aaf76-e8a6-4949-8cd8-b0bd75ea61dc" target="_blank" rel="noopener"><span class="cert-name" data-i18n="c3_n2">Certiport IT Technical Support Specialist</span><span class="cert-year" data-i18n="c3_y2">Août 2021</span></a>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-certified">Microsoft Certified</span>
+                        <span class="tile-date" data-i18n="c1_y2">Mar 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c1_n2">AI-901 : Notions de base de l'IA Azure</div>
                 </div>
-            </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="certified" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/152F0BEFD4F529DB?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-certified" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-certified">Microsoft Certified</span>
+                        <span class="tile-date" data-i18n="c1_y3">Jan 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c1_n3">DP-900 : Principes de base des données Azure</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="certified" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/8B277E21E3B19A40?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-certified" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-certified">Microsoft Certified</span>
+                        <span class="tile-date" data-i18n="c1_y4">Oct 2020</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c1_n4">PL-900 : Notions fondamentales de Power Platform</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="certified" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/1955BB776A559952?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-certified" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-certified">Microsoft Certified</span>
+                        <span class="tile-date" data-i18n="c1_y5">Sept 2020</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c1_n5">AZ-900 : Principes de base d'Azure</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <!-- Microsoft Pro Badge (1) -->
+            <a class="credential-tile fade-in" data-category="pro" href="https://www.credly.com/earner/earned/badge/a37cb56f-5518-4517-8f5d-7efde250d128" target="_blank" rel="noopener">
+                <div class="tile-icon icon-pro" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12,2 21,7.2 21,16.8 12,22 3,16.8 3,7.2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-pro">Microsoft Pro Badge</span>
+                        <span class="tile-date" data-i18n="c_pro_y1">Oct 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c_pro_n1">GitHub Copilot - Proficient</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <!-- Applied Skills (19) -->
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/243DFDF8FE409476?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y1">Sep 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_n1">Créer un agent dans Microsoft Copilot Studio</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/6AA03AD7E5E73E94?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y2">Sep 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_n2">Développer un agent avec des outils intégrés</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/527205752C3451BF?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y3">Juil 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_n3">Commencer à développer des agents dans Microsoft Foundry</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/A6033CF16EE15AB6?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y4">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_n4">Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/B4327D485D2B4ECA?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y5">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_n5">Rationaliser les flux de travail métier avec la conversation IA</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/F3190484DD771713?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y6">Nov 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_n6">Générer des rapports avec des agents de recherche IA</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DE5FCE12E79EBDEE?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y1_m">Sep 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m1">Protéger les informations dans Microsoft 365 Copilot avec Microsoft Purview</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/7BA12679E805926A?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y2_m">Juil 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m2">Gérer l'analyse des secrets GitHub avec GitHub Copilot</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/DD3F74A1032245FB?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y3_m">Juil 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m3">Résoudre les problèmes GitHub avec GitHub Copilot</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/BDD08DB15026EE57?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y4_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m4">Accélérer le développement assisté par l'IA avec GitHub Copilot</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/F9FD65FA6C51A769?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y5_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m5">Sécuriser les services et charges de travail Azure avec Microsoft Defender for Cloud</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/B615153A1534B285?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y6_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m6">Sécuriser le stockage pour Azure Files et Azure Blob Storage</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/6197AF257BE36D5B?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y7_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m7">Sécuriser les solutions d'IA dans le cloud</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/78F22BE9DC1D8967?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y8_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m8">Démarrer avec les tâches de sécurité et de surveillance du cloud</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/D03D4DA0703BF981?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y9_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m9">Mettre en œuvre la rétention, eDiscovery et la conformité des communications dans Microsoft Purview</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/78DCFCB3138B1B4D?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y10_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m10">Mettre en œuvre la protection des informations et DLP avec Microsoft Purview</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/48DF719E9A59D972?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y11_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m11">Déployer et configurer Azure Monitor</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/954506F415284B2C?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y12_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m12">Démarrer avec les tâches de gestion Azure</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/1A81505B78D02CD1?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
+                <div class="tile-icon icon-applied" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-date" data-i18n="c2_y13_m">Déc 2025</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c2_m13">Démarrer avec les identités et l'accès via Microsoft Entra</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <!-- Autres Certifications (2) -->
+            <a class="credential-tile fade-in" data-category="other" href="https://www.credential.net/678a847e-f5a0-4c07-b195-5d35831bdc23" target="_blank" rel="noopener">
+                <div class="tile-icon icon-other" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-other" data-i18n="badge_other">Certification</span>
+                        <span class="tile-date" data-i18n="c3_y1">Jan 2026</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c3_n1">Certification Google Analytics</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="other" href="https://www.credly.com/badges/315aaf76-e8a6-4949-8cd8-b0bd75ea61dc" target="_blank" rel="noopener">
+                <div class="tile-icon icon-other" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge badge-other" data-i18n="badge_other">Certification</span>
+                        <span class="tile-date" data-i18n="c3_y2">Août 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c3_n2">Certiport IT Technical Support Specialist</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
         </div>
     </div>
 </section>
@@ -764,8 +1636,11 @@ const I18N = {
         sk_git: "Contrôle de version, branching, workflows", sk_workspace: "Sheets, Forms, collaboration en temps réel",
         sk_copilot: "IA générative, productivité, collaboration",
         sk_kobo: "Collecte de données terrain, formulaires, enquêtes",
+        sk_tab_all: "Tous", sk_tab_data: "Data & BI", sk_tab_cloud: "Cloud & IA", sk_tab_dev: "Dev & Systèmes", sk_tab_collab: "Collaboration & Terrain",
+        sk_cat_data: "Data & BI", sk_cat_cloud: "Cloud & IA", sk_cat_dev: "Dev & Systèmes", sk_cat_collab: "Collaboration & Terrain",
         cert_tag: "Apprentissage & pratique", cert_title: "Développer, expérimenter, approfondir",
         cert_sub: "Une démarche d’apprentissage continu fondée sur la pratique, l’expérimentation et la validation de compétences pertinentes.",
+        tab_all: "Tous", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_other: "Autres", badge_other: "Certification",
         c1_n1: "SC-900 : Security, Compliance & Identity", c1_y1: "Mai 2021",
         c1_n2: "AI-901 : Notions de base de l'IA Azure", c1_y2: "Mar 2021",
         c1_n3: "DP-900 : Principes de base des données Azure", c1_y3: "Jan 2021",
@@ -792,7 +1667,10 @@ const I18N = {
         c2_m11: "Déployer et configurer Azure Monitor", c2_y11_m: "Déc 2025",
         c2_m12: "Démarrer avec les tâches de gestion Azure", c2_y12_m: "Déc 2025",
         c2_m13: "Démarrer avec les identités et l'accès via Microsoft Entra", c2_y13_m: "Déc 2025",
-        c3_t: "Autres certifications", c3_n1: "Certification Google Analytics", c3_y1: "Jan 2026",
+        c_pro_t: "Microsoft Pro Badge",
+        c_pro_n1: "GitHub Copilot - Proficient", c_pro_y1: "Oct 2026",
+        c3_t: "Autres certifications",
+        c3_n1: "Certification Google Analytics", c3_y1: "Jan 2026",
         c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Août 2021",
         contact_tag: "Contact", contact_title: "Travaillons ensemble",
         contact_sub: "Un projet en tête ? Une opportunité à discuter ? Retrouvez-moi sur vos plateformes préférées.",
@@ -834,8 +1712,11 @@ const I18N = {
         sk_git: "Version control, branching, workflows", sk_workspace: "Sheets, Forms, real-time collaboration",
         sk_copilot: "Generative AI, productivity, collaboration",
         sk_kobo: "Field data collection, forms, surveys",
+        sk_tab_all: "All", sk_tab_data: "Data & BI", sk_tab_cloud: "Cloud & AI", sk_tab_dev: "Dev & Systems", sk_tab_collab: "Field & Collaboration",
+        sk_cat_data: "Data & BI", sk_cat_cloud: "Cloud & AI", sk_cat_dev: "Dev & Systems", sk_cat_collab: "Field & Collaboration",
         cert_tag: "Learning and practice", cert_title: "Develop, experiment, deepen",
         cert_sub: "A continuous learning approach based on practice, experimentation, and the validation of relevant skills.",
+        tab_all: "All", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_other: "Other", badge_other: "Certification",
         c1_n1: "SC-900: Security, Compliance & Identity", c1_y1: "May 2021",
         c1_n2: "AI-901: Azure AI Fundamentals", c1_y2: "Mar 2021",
         c1_n3: "DP-900: Azure Data Fundamentals", c1_y3: "Jan 2021",
@@ -862,7 +1743,10 @@ const I18N = {
         c2_m11: "Deploy and configure Azure Monitor", c2_y11_m: "Dec 2025",
         c2_m12: "Get started with Azure management tasks", c2_y12_m: "Dec 2025",
         c2_m13: "Get started with identities and access using Microsoft Entra", c2_y13_m: "Dec 2025",
-        c3_t: "Other certifications", c3_n1: "Google Analytics Certification", c3_y1: "Jan 2026",
+        c_pro_t: "Microsoft Pro Badge",
+        c_pro_n1: "GitHub Copilot - Proficient", c_pro_y1: "Oct 2026",
+        c3_t: "Other certifications",
+        c3_n1: "Google Analytics Certification", c3_y1: "Jan 2026",
         c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Aug 2021",
         contact_tag: "Contact", contact_title: "Let's work together",
         contact_sub: "A project in mind? An opportunity to discuss? Find me on your favourite platforms.",
@@ -960,7 +1844,55 @@ const gridObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.1 });
-document.querySelectorAll('.project-card, .skill-card, .cert-card, .about-card').forEach(el => gridObserver.observe(el));
+document.querySelectorAll('.project-card, .skill-tile, .credential-tile, .about-card').forEach(el => gridObserver.observe(el));
+
+/* ===== Filtrage des compétences par onglets ===== */
+const skillTabs = document.querySelectorAll('.skill-tab');
+const skillTiles = document.querySelectorAll('.skill-tile');
+skillTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        skillTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.getAttribute('data-filter');
+        skillTiles.forEach(tile => {
+            const cat = tile.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+                tile.classList.remove('tile-hidden');
+            } else {
+                tile.classList.add('tile-hidden');
+            }
+        });
+    });
+});
+
+/* ===== Filtrage des titres de compétence par onglets ===== */
+const certTabs = document.querySelectorAll('.cert-tab');
+const credentialTiles = document.querySelectorAll('.credential-tile');
+certTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        certTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.getAttribute('data-filter');
+        credentialTiles.forEach(tile => {
+            const cat = tile.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+                tile.classList.remove('tile-hidden');
+            } else {
+                tile.classList.add('tile-hidden');
+            }
+        });
+    });
+});
 
 /* ===== Smooth scroll ===== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
