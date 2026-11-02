@@ -84,7 +84,8 @@ html[data-theme="dark"] body { background: #0e1f22; }
 html[data-theme="dark"] .dot-grid { opacity: 0.16; }
 html[data-theme="dark"] .navbar { background: rgba(16,34,37,0.55); }
 html[data-theme="dark"] .navbar.scrolled { background: rgba(16,34,37,0.85); }
-html[data-theme="dark"] .section-alt { background: rgba(12,48,56,0.30); border-color: rgba(114,196,185,0.08); }
+html[data-theme="dark"] .section-alt { background: rgba(10,30,35,0.52); border-color: rgba(114,196,185,0.10); }
+html[data-theme="dark"] .section-alt::before { background: linear-gradient(135deg, rgba(114,196,185,0.06) 0%, rgba(16,34,37,0) 100%); }
 html[data-theme="dark"] .tag { background: rgba(16,34,37,0.9); color: #F3F8F5; }
 html[data-theme="dark"] .profile-img { border-color: #102225; }
 html[data-theme="dark"] .btn-primary, html[data-theme="dark"] .project-link.primary { color: #122624; }
@@ -223,8 +224,25 @@ html[data-theme="dark"] .orb-3 { background: radial-gradient(circle, rgba(240, 1
 .wheel { width: 4px; height: 8px; background: var(--gray-500); border-radius: 2px; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); animation: scroll-wheel 1.5s infinite; }
 @keyframes scroll-wheel { 0% { transform: translateX(-50%) translateY(0); opacity: 1;} 100% { transform: translateX(-50%) translateY(12px); opacity: 0;} }
 
-.section { padding: 6rem 0; position: relative; }
-.section-alt { background: rgba(36, 127, 130, 0.028); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+.section { padding: 6rem 0; position: relative; background: transparent; }
+.section-alt {
+    background: rgba(248, 250, 249, 0.62);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    position: relative;
+    overflow: hidden;
+}
+.section-alt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(36,127,130,0.04) 0%, rgba(242,181,68,0.03) 60%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+.section-alt > .container { position: relative; z-index: 1; }
 .section-header { text-align: center; margin-bottom: 4rem; }
 .section-tag { display: inline-block; padding: 0.375rem 1rem; background: var(--yellow-100); color: var(--yellow-800); border-radius: var(--radius-xl); font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem; border: 1px solid var(--yellow-200); }
 .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
@@ -445,6 +463,9 @@ html[data-theme="dark"] .icon-cat-dev { background: rgba(45, 212, 191, 0.18); co
 .icon-cat-collab { background: rgba(168, 85, 247, 0.12); color: #9333ea; }
 html[data-theme="dark"] .icon-cat-collab { background: rgba(192, 132, 252, 0.18); color: #c084fc; }
 
+.icon-cat-support { background: rgba(239, 68, 68, 0.11); color: #dc2626; }
+html[data-theme="dark"] .icon-cat-support { background: rgba(248, 113, 113, 0.18); color: #f87171; }
+
 .skill-tile-content {
     flex: 1;
     min-width: 0;
@@ -464,6 +485,51 @@ html[data-theme="dark"] .cat-tag-cloud { color: #fbbf24; }
 html[data-theme="dark"] .cat-tag-dev { color: #2dd4bf; }
 .cat-tag-collab { color: #9333ea; }
 html[data-theme="dark"] .cat-tag-collab { color: #c084fc; }
+.cat-tag-support { color: #dc2626; }
+html[data-theme="dark"] .cat-tag-support { color: #f87171; }
+
+/* ===== Show-more / Collapse ===== */
+.show-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.75rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+.btn-show-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 2px solid var(--card-border);
+    background: var(--card-bg);
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+.btn-show-more:hover {
+    border-color: var(--yellow-500);
+    color: var(--yellow-700);
+    background: var(--yellow-50);
+    transform: translateY(-2px);
+}
+html[data-theme="dark"] .btn-show-more:hover {
+    background: rgba(244,196,90,0.08);
+    color: var(--yellow-400);
+    border-color: var(--yellow-400);
+}
+.btn-show-more .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+.btn-show-more.expanded .arrow { transform: rotate(180deg); }
+.tile-extra-hidden { display: none !important; }
 
 .skill-tile h3 {
     font-size: 1.05rem;
@@ -663,6 +729,7 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
     .section { padding: 4rem 0; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .credentials-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
     .container { padding: 0 1rem; }
@@ -729,9 +796,9 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
     <div class="container">
         <div class="hero-content fade-in">
             <div class="hero-text">
-                <span class="hero-badge">Data Analyst & BI</span>
-                <h1 class="hero-title" data-i18n="hero_title">Transformer la donnée en<br><span class="gradient-text">décisions éclairées</span></h1>
-                <p class="hero-description" data-i18n="hero_desc">Mon parcours n'est pas linéaire, c'est ma force. Du droit public à l'intelligence économique en passant par les systèmes informatiques, je mets la rigueur de la preuve au service de la donnée pour produire des analyses qui éclairent réellement les décisions stratégiques.</p>
+                <span class="hero-badge" data-i18n="hero_badge">Data Analyst · BI · IT Support</span>
+                <h1 class="hero-title" data-i18n="hero_title">L'analyse data et le support informatique<br><span class="gradient-text">au service de la performance</span></h1>
+                <p class="hero-description" data-i18n="hero_desc">Issu du droit et titulaire d'un Master en IA & Intelligence Économique couplé à une formation en maintenance informatique, j'aide les organisations à piloter leur performance. Fort d'une dizaine d'études de marché (pricing, expansion, qualité de service) pour des grands comptes, je combine analyse de données, tableaux de bord décisionnels et support IT.</p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary"><span data-i18n="hero_cta1">Découvrir mes projets</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 5L12 10L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
                     <a href="#contact" class="btn btn-secondary"><span data-i18n="hero_cta2">Me contacter</span></a>
@@ -760,17 +827,22 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                 <div class="about-card">
                     <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M14 2H6C5.47 2 4.96 2.21 4.59 2.59C4.21 2.96 4 3.47 4 4V20C4 20.53 4.21 21.04 4.59 21.41C4.96 21.79 5.47 22 6 22H18C18.53 22 19.04 21.79 19.41 21.41C19.79 21.04 20 20.53 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 data-i18n="a1_t">La méthode du juriste</h3>
-                    <p data-i18n="a1_p">Qualifier les faits avant de conclure, citer ses sources, peser le pour et le contre, distinguer ce qui est établi de ce qui ne l'est pas. Cette rigueur juridique structure chacune de mes analyses. Le but ? Rester en totale conformité avec les normes éthiques et légales.</p>
+                    <p data-i18n="a1_p">Qualifier les faits, croiser les sources, peser le pour et le contre : cette méthodologie issue du droit public structure l'ensemble de mes travaux. Elle me permet de produire des conclusions fiables, impartiales et parfaitement alignées avec la conformité et les normes légales.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z" stroke="currentColor" stroke-width="2"/><path d="M2 12H22" stroke="currentColor" stroke-width="2"/><path d="M12 2C14.5 4.74 15.92 8.29 16 12C15.92 15.71 14.5 19.26 12 22C9.5 19.26 8.08 15.71 8 12C8.08 8.29 9.5 4.74 12 2Z" stroke="currentColor" stroke-width="2"/></svg></div>
                     <h3 data-i18n="a2_t">Intelligence économique</h3>
-                    <p data-i18n="a2_p">De l'expression des besoins à la protection du patrimoine informationnel en passant par la collecte des données, leur traitement, leur analyse et la visualisation de l'information, je maîtrise l'ensemble du cycle itératif pour produire des livrables actionnables qui répondent aux enjeux business.</p>
+                    <p data-i18n="a2_p">De l'expression des besoins à la protection du patrimoine informationnel, je pilote la collecte, le traitement, l'analyse et la dataviz. Mon objectif : transformer la donnée brute en livrables stratégiques directement actionnables pour les décideurs.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="6" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="12" cy="12" r="2.6"/><circle cx="19" cy="6" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M7 7l3 3.2M7 17l3-3.2M14.5 10.2L17 7M14.5 13.8L17 17"/><path d="M12 9.4V5.5M12 14.6v3.9" opacity="0.55"/></svg></div>
                     <h3 data-i18n="a3_t">Intelligence artificielle</h3>
-                    <p data-i18n="a3_p">Formé également aux fondamentaux de l'Intelligence Artificielle, du Machine Learning et du Deep Learning, j'applique ces connaissances à la création d'agents intelligents et à l'automatisation de processus. En constante montée en compétences, je travaille au déploiement de projets IA de bout en bout.</p>
+                    <p data-i18n="a3_p">Formé aux bases du Machine Learning et du Deep Learning, j'applique l'IA à l'automatisation de workflows et au développement d'agents intelligents. En constante veille et pratique, je conçois et déploie des solutions IA de bout en bout pour optimiser la performance opérationnelle.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon" style="background:rgba(239,68,68,0.1);color:#dc2626"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M7 11h.01M10 8h7M10 11h5"/></svg></div>
+                    <h3 data-i18n="a4_t">Support informatique</h3>
+                    <p data-i18n="a4_p">Titulaire également d'un Diplôme de Qualification Professionnelle en Maintenance Informatique (mention Très Bien), complété par des certifications en support IT et cloud, je m'appuie sur une solide expérience terrain. De l'installation au diagnostic en passant par la virtualisation et l'IAM, je veille à la disponibilité, l'intégrité et la sécurité des infrastructures.</p>
                 </div>
             </div>
         </div>
@@ -858,7 +930,7 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
             <div class="skill-tabs" role="tablist" aria-label="Filtres des compétences techniques">
                 <button class="skill-tab active" data-filter="all" role="tab" aria-selected="true">
                     <span data-i18n="sk_tab_all">Tous</span>
-                    <span class="tab-count">13</span>
+                    <span class="tab-count">22</span>
                 </button>
                 <button class="skill-tab" data-filter="data" role="tab" aria-selected="false">
                     <span data-i18n="sk_tab_data">Data & BI</span>
@@ -875,6 +947,10 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                 <button class="skill-tab" data-filter="collab" role="tab" aria-selected="false">
                     <span data-i18n="sk_tab_collab">Collaboration & Terrain</span>
                     <span class="tab-count">2</span>
+                </button>
+                <button class="skill-tab" data-filter="support" role="tab" aria-selected="false">
+                    <span data-i18n="sk_tab_support">Support IT</span>
+                    <span class="tab-count">9</span>
                 </button>
             </div>
         </div>
@@ -1063,6 +1139,112 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                     <p data-i18n="sk_kobo">Collecte de données terrain, formulaires, enquêtes</p>
                 </div>
             </div>
+
+            <!-- Support IT (9) -->
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="13" rx="2"/><path d="M8 21h8M12 16v5"/><rect x="5" y="6" width="4" height="3" rx="0.5" fill="currentColor" stroke="none" opacity="0.5"/><path d="M11 7.5h6M11 9.5h4"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Windows 11 / Server</h3>
+                    <p data-i18n="sk_windows">Administration, configuration, maintenance</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><circle cx="6" cy="6" r="0.8" fill="currentColor" stroke="none"/><circle cx="10" cy="6" r="0.8" fill="currentColor" stroke="none"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Virtualisation</h3>
+                    <p data-i18n="sk_virtual">VirtualBox, Hyper-V — environnements virtuels et tests</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h20M2 16h20M8 8v8M16 8v8"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Cisco Packet Tracer</h3>
+                    <p data-i18n="sk_packettracer">Simulation réseau, topologies, protocoles</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M3 12h12"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Accès distant</h3>
+                    <p data-i18n="sk_remote">TeamViewer, AnyDesk — support à distance</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/><path d="M16.5 6.5l1-1M7.5 6.5l-1-1"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Diagnostic & Dépannage</h3>
+                    <p data-i18n="sk_diag">Identification et résolution de pannes matérielles et logicielles</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M7.5 4.21l4.5 2.6 4.5-2.6M12 22.08V12M3.27 6.96L12 12l8.73-5.04"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Installation & Déploiement</h3>
+                    <p data-i18n="sk_install">Matériel, logiciels, postes de travail — de A à Z</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Service Client</h3>
+                    <p data-i18n="sk_service">Accompagnement utilisateurs, écoute, pédagogie technique</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Gestion des identités & accès</h3>
+                    <p data-i18n="sk_iam">Comptes utilisateurs, permissions, sécurité Active Directory</p>
+                </div>
+            </div>
+
+            <div class="skill-tile fade-in" data-category="support">
+                <div class="skill-tile-icon icon-cat-support" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div class="skill-tile-content">
+                    <div class="skill-tile-category cat-tag-support" data-i18n="sk_cat_support">Support IT</div>
+                    <h3>Réseau & Sécurité</h3>
+                    <p data-i18n="sk_network">Protocoles TCP/IP, sécurité réseau, configuration</p>
+                </div>
+            </div>
+        </div>
+        <div class="show-more-wrap" id="skillsShowMoreWrap">
+            <button class="btn-show-more" id="skillsShowMore" aria-expanded="false">
+                <span data-i18n="btn_see_more">Voir plus</span>
+                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
         </div>
     </div>
 </section>
@@ -1078,7 +1260,7 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
             <div class="cert-tabs" role="tablist" aria-label="Filtres des titres de compétence">
                 <button class="cert-tab active" data-filter="all" role="tab" aria-selected="true">
                     <span data-i18n="tab_all">Tous</span>
-                    <span class="tab-count">27</span>
+                    <span class="tab-count">30</span>
                 </button>
                 <button class="cert-tab" data-filter="certified" role="tab" aria-selected="false">
                     <span data-i18n="tab_certified">Microsoft Certified</span>
@@ -1092,9 +1274,13 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                     <span data-i18n="tab_pro">Microsoft Pro Badge</span>
                     <span class="tab-count">1</span>
                 </button>
-                <button class="cert-tab" data-filter="other" role="tab" aria-selected="false">
-                    <span data-i18n="tab_other">Autres</span>
-                    <span class="tab-count">2</span>
+                <button class="cert-tab" data-filter="google" role="tab" aria-selected="false">
+                    <span data-i18n="tab_google">Google</span>
+                    <span class="tab-count">1</span>
+                </button>
+                <button class="cert-tab" data-filter="pearson" role="tab" aria-selected="false">
+                    <span data-i18n="tab_pearson">Pearson</span>
+                    <span class="tab-count">4</span>
                 </button>
             </div>
         </div>
@@ -1182,7 +1368,7 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
             </a>
 
             <!-- Microsoft Pro Badge (1) -->
-            <a class="credential-tile fade-in" data-category="pro" href="https://www.credly.com/earner/earned/badge/a37cb56f-5518-4517-8f5d-7efde250d128" target="_blank" rel="noopener">
+            <a class="credential-tile fade-in" data-category="pro" href="https://www.credly.com/badges/a37cb56f-5518-4517-8f5d-7efde250d128/public_url" target="_blank" rel="noopener">
                 <div class="tile-icon icon-pro" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12,2 21,7.2 21,16.8 12,22 3,16.8 3,7.2"/></svg>
                 </div>
@@ -1503,14 +1689,14 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                 </span>
             </a>
 
-            <!-- Autres Certifications (2) -->
-            <a class="credential-tile fade-in" data-category="other" href="https://www.credential.net/678a847e-f5a0-4c07-b195-5d35831bdc23" target="_blank" rel="noopener">
-                <div class="tile-icon icon-other" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <!-- Google (1) -->
+            <a class="credential-tile fade-in" data-category="google" href="https://www.credential.net/678a847e-f5a0-4c07-b195-5d35831bdc23" target="_blank" rel="noopener">
+                <div class="tile-icon" style="background:rgba(66,133,244,0.12);color:#4285f4" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-other" data-i18n="badge_other">Certification</span>
+                        <span class="tile-badge" style="color:#4285f4">Google</span>
                         <span class="tile-date" data-i18n="c3_y1">Jan 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c3_n1">Certification Google Analytics</div>
@@ -1520,21 +1706,76 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                 </span>
             </a>
 
-            <a class="credential-tile fade-in" data-category="other" href="https://www.credly.com/badges/315aaf76-e8a6-4949-8cd8-b0bd75ea61dc" target="_blank" rel="noopener">
-                <div class="tile-icon icon-other" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <!-- Pearson / Certiport (4) -->
+            <a class="credential-tile fade-in" data-category="pearson" href="https://www.credly.com/badges/315aaf76-e8a6-4949-8cd8-b0bd75ea61dc" target="_blank" rel="noopener">
+                <div class="tile-icon" style="background:rgba(0,102,204,0.12);color:#0066cc" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-other" data-i18n="badge_other">Certification</span>
-                        <span class="tile-date" data-i18n="c3_y2">Août 2021</span>
+                        <span class="tile-badge" style="color:#0066cc">Pearson IT Specialist</span>
+                        <span class="tile-date" data-i18n="c4_y">Août 2021</span>
                     </div>
-                    <div class="tile-title" data-i18n="c3_n2">Certiport IT Technical Support Specialist</div>
+                    <div class="tile-title" data-i18n="c4_n_pathway">IT Technical Support Specialist Pathway</div>
                 </div>
                 <span class="tile-action" aria-hidden="true">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
                 </span>
             </a>
+
+            <a class="credential-tile fade-in" data-category="pearson" href="https://www.credly.com/badges/e3be95e9-c3e6-4254-8152-b07cd0c3d48b/public_url" target="_blank" rel="noopener">
+                <div class="tile-icon" style="background:rgba(0,102,204,0.12);color:#0066cc" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge" style="color:#0066cc">Pearson IT Specialist</span>
+                        <span class="tile-date" data-i18n="c4_y">Août 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c4_n1">IT Specialist — Network Security</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="pearson" href="https://www.credly.com/badges/6db89d5c-6cf4-4ad2-8b1e-dbf7c7fd8a08/public_url" target="_blank" rel="noopener">
+                <div class="tile-icon" style="background:rgba(0,102,204,0.12);color:#0066cc" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge" style="color:#0066cc">Pearson IT Specialist</span>
+                        <span class="tile-date" data-i18n="c4_y">Août 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c4_n2">IT Specialist — Device Configuration & Management</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+
+            <a class="credential-tile fade-in" data-category="pearson" href="https://www.credly.com/badges/dc87857f-7d7c-43f6-9f1d-fd30202a22f7/public_url" target="_blank" rel="noopener">
+                <div class="tile-icon" style="background:rgba(0,102,204,0.12);color:#0066cc" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="tile-content">
+                    <div class="tile-meta">
+                        <span class="tile-badge" style="color:#0066cc">Pearson IT Specialist</span>
+                        <span class="tile-date" data-i18n="c4_y">Août 2021</span>
+                    </div>
+                    <div class="tile-title" data-i18n="c4_n3">IT Specialist — Networking</div>
+                </div>
+                <span class="tile-action" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H9M17 7V15"/></svg>
+                </span>
+            </a>
+        </div>
+        <div class="show-more-wrap" id="certsShowMoreWrap">
+            <button class="btn-show-more" id="certsShowMore" aria-expanded="false">
+                <span data-i18n="btn_see_more">Voir plus</span>
+                <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
         </div>
     </div>
 </section>
@@ -1606,16 +1847,19 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
 const I18N = {
     fr: {
         nav_about: "À propos", nav_projects: "Projets", nav_skills: "Compétences", nav_certs: "Certifications", nav_contact: "Contact",
-        hero_title: "Transformer la donnée en<br><span class=\"gradient-text\">décisions éclairées</span>",
-        hero_desc: "Mon parcours n'est pas linéaire, c'est ma force. Du droit public à l'intelligence économique en passant par les systèmes informatiques, je mets la rigueur de la preuve au service de la donnée pour produire des analyses qui éclairent réellement les décisions stratégiques.",
+        hero_badge: "Data Analyst · BI · IT Support",
+        hero_title: "L'analyse data et le support informatique<br><span class=\"gradient-text\">au service de la performance</span>",
+        hero_desc: "Issu du droit et titulaire d'un Master en IA & Intelligence Économique couplé à une formation en maintenance informatique, j'aide les organisations à piloter leur performance. Fort d'une dizaine d'études de marché (pricing, expansion, qualité de service) pour des grands comptes, je combine analyse de données, tableaux de bord décisionnels et support IT.",
         hero_cta1: "Découvrir mes projets", hero_cta2: "Me contacter",
         about_tag: "À propos", about_title: "Une approche unique",
         a1_t: "La méthode du juriste",
-        a1_p: "Qualifier les faits avant de conclure, citer ses sources, peser le pour et le contre, distinguer ce qui est établi de ce qui ne l'est pas. Cette rigueur juridique structure chacune de mes analyses. Le but ? Rester en totale conformité avec les normes éthiques et légales.",
+        a1_p: "Qualifier les faits, croiser les sources, peser le pour et le contre : cette méthodologie issue du droit public structure l'ensemble de mes travaux. Elle me permet de produire des conclusions fiables, impartiales et parfaitement alignées avec la conformité et les normes légales.",
         a2_t: "Intelligence économique",
-        a2_p: "De l'expression des besoins à la protection du patrimoine informationnel en passant par la collecte des données, leur traitement, leur analyse et la visualisation de l'information, je maîtrise l'ensemble du cycle itératif pour produire des livrables actionnables qui répondent aux enjeux business.",
+        a2_p: "De l'expression des besoins à la protection du patrimoine informationnel, je pilote la collecte, le traitement, l'analyse et la dataviz. Mon objectif : transformer la donnée brute en livrables stratégiques directement actionnables pour les décideurs.",
         a3_t: "Intelligence artificielle",
-        a3_p: "Formé également aux fondamentaux de l'Intelligence Artificielle, du Machine Learning et du Deep Learning, j'applique ces connaissances à la création d'agents intelligents et à l'automatisation de processus. En constante montée en compétences, je travaille au déploiement de projets IA de bout en bout.",
+        a3_p: "Formé aux bases du Machine Learning et du Deep Learning, j'applique l'IA à l'automatisation de workflows et au développement d'agents intelligents. En constante veille et pratique, je conçois et déploie des solutions IA de bout en bout pour optimiser la performance opérationnelle.",
+        a4_t: "Support informatique",
+        a4_p: "Titulaire également d'un Diplôme de Qualification Professionnelle en Maintenance Informatique (mention Très Bien), complété par des certifications en support IT et cloud, je m'appuie sur une solide expérience terrain. De l'installation au diagnostic en passant par la virtualisation et l'IAM, je veille à la disponibilité, l'intégrité et la sécurité des infrastructures.",
         proj_tag: "Projets", proj_title: "Des travaux qui ont de l'impact",
         proj_sub: "Chaque projet est une réponse concrète à un problème business, avec des données vérifiables et des méthodologies transparentes.",
         p1_d: "Outil d'analyse macro-financière du risque pays complété par un jumeau Power BI. Il intègre une analyse de scénarios qui évalue, pour chaque indicateur, l'effet d'un changement de valeur sur les signaux de risque et d'opportunité.",
@@ -1636,11 +1880,21 @@ const I18N = {
         sk_git: "Contrôle de version, branching, workflows", sk_workspace: "Sheets, Forms, collaboration en temps réel",
         sk_copilot: "IA générative, productivité, collaboration",
         sk_kobo: "Collecte de données terrain, formulaires, enquêtes",
-        sk_tab_all: "Tous", sk_tab_data: "Data & BI", sk_tab_cloud: "Cloud & IA", sk_tab_dev: "Dev & Systèmes", sk_tab_collab: "Collaboration & Terrain",
-        sk_cat_data: "Data & BI", sk_cat_cloud: "Cloud & IA", sk_cat_dev: "Dev & Systèmes", sk_cat_collab: "Collaboration & Terrain",
+        sk_tab_all: "Tous", sk_tab_data: "Data & BI", sk_tab_cloud: "Cloud & IA", sk_tab_dev: "Dev & Systèmes", sk_tab_collab: "Collaboration & Terrain", sk_tab_support: "Support IT",
+        sk_cat_data: "Data & BI", sk_cat_cloud: "Cloud & IA", sk_cat_dev: "Dev & Systèmes", sk_cat_collab: "Collaboration & Terrain", sk_cat_support: "Support IT",
+        sk_windows: "Administration, configuration, maintenance",
+        sk_virtual: "VirtualBox, Hyper-V - environnements virtuels et tests",
+        sk_packettracer: "Simulation réseau, topologies, protocoles",
+        sk_remote: "TeamViewer, AnyDesk - support à distance",
+        sk_diag: "Identification et résolution de pannes matérielles et logicielles",
+        sk_install: "Matériel, logiciels, postes de travail - de A à Z",
+        sk_service: "Accompagnement utilisateurs, écoute, pédagogie technique",
+        sk_iam: "Comptes utilisateurs, permissions, sécurité Active Directory",
+        sk_network: "Protocoles TCP/IP, sécurité réseau, configuration",
+        btn_see_more: "Voir plus", btn_collapse: "Réduire",
         cert_tag: "Apprentissage & pratique", cert_title: "Développer, expérimenter, approfondir",
         cert_sub: "Une démarche d’apprentissage continu fondée sur la pratique, l’expérimentation et la validation de compétences pertinentes.",
-        tab_all: "Tous", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_other: "Autres", badge_other: "Certification",
+        tab_all: "Tous", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_google: "Google", tab_pearson: "Pearson", badge_other: "Certification",
         c1_n1: "SC-900 : Security, Compliance & Identity", c1_y1: "Mai 2021",
         c1_n2: "AI-901 : Notions de base de l'IA Azure", c1_y2: "Mar 2021",
         c1_n3: "DP-900 : Principes de base des données Azure", c1_y3: "Jan 2021",
@@ -1669,21 +1923,25 @@ const I18N = {
         c2_m13: "Démarrer avec les identités et l'accès via Microsoft Entra", c2_y13_m: "Déc 2025",
         c_pro_t: "Microsoft Pro Badge",
         c_pro_n1: "GitHub Copilot - Proficient", c_pro_y1: "Oct 2026",
-        c3_t: "Autres certifications",
         c3_n1: "Certification Google Analytics", c3_y1: "Jan 2026",
-        c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Août 2021",
+        c4_y: "Août 2021",
+        c4_n_pathway: "IT Technical Support Specialist - Pathway Complet",
+        c4_n1: "IT Specialist - Network Security",
+        c4_n2: "IT Specialist - Device Configuration & Management",
+        c4_n3: "IT Specialist - Networking",
         contact_tag: "Contact", contact_title: "Travaillons ensemble",
         contact_sub: "Un projet en tête ? Une opportunité à discuter ? Retrouvez-moi sur vos plateformes préférées.",
-        contact_note: "Ouvert aux opportunités de Data Analyst / BI Analyst / Market Research.",
+        contact_note: "Ouvert aux opportunités de Data Analyst / BI Analyst / IT Support.",
         f_name: "Nom", f_email: "Email", f_subject: "Sujet", f_message: "Message", f_send: "Envoyer le message",
         footer_r: "© 2026 Maxime NDACLEU. Tous droits réservés.", footer_top: "Haut de page",
         form_alert: "Merci pour votre message ! Je vous répondrai dans les meilleurs délais.",
-        meta_desc: "Maxime NDACLEU - Data Analyst & BI. Du droit public aux systèmes informatiques et à l'IA : la rigueur de la preuve au service de la donnée."
+        meta_desc: "Maxime NDACLEU - Data Analyst | BI | IT Support. Pluridisciplinaire : droit, intelligence économique, systèmes informatiques et IA."
     },
     en: {
         nav_about: "About", nav_projects: "Projects", nav_skills: "Skills", nav_certs: "Certifications", nav_contact: "Contact",
-        hero_title: "Turning data into<br><span class=\"gradient-text\">informed decisions</span>",
-        hero_desc: "My path is not linear, that is my strength. From public law to business intelligence via computer systems, I put the rigour of evidence at the service of data to produce analyses that genuinely inform strategic decisions.",
+        hero_badge: "Data Analyst · BI · IT Support",
+        hero_title: "Leveraging data analytics and IT support<br><span class=\"gradient-text\">for enhanced performance</span>",
+        hero_desc: "With a background in public law, a Master’s degree in AI & Business Intelligence, and a background in IT support, I help organizations drive performance. Having led over ten market studies (pricing, expansion, service quality) for major corporate clients, I combine data analysis, decision-making dashboards, and IT support.",
         hero_cta1: "Explore my projects", hero_cta2: "Contact me",
         about_tag: "About", about_title: "A unique approach",
         a1_t: "The jurist's method",
@@ -1692,6 +1950,8 @@ const I18N = {
         a2_p: "From needs definition to information asset protection, through data collection, processing, analysis and visualization, I master the entire iterative cycle to deliver actionable outputs that address business challenges.",
         a3_t: "Artificial intelligence",
         a3_p: "Also trained in the fundamentals of Artificial Intelligence, Machine Learning and Deep Learning, I apply this knowledge to building intelligent agents and automating processes. Continuously upskilling, I am working towards end-to-end AI project deployment.",
+        a4_t: "IT Support",
+        a4_p: "Holding a Vocational Qualification Diploma in IT Maintenance (with honors) alongside IT Support and Cloud certifications, I build on hands-on field experience. From installation and diagnostics to virtualization and IAM, I ensure the availability, integrity, and security of IT infrastructures.",
         proj_tag: "Projects", proj_title: "Work that makes an impact",
         proj_sub: "Each project is a concrete answer to a business problem, with verifiable data and transparent methodologies.",
         p1_d: "Macro-financial country risk analysis tool complemented by a Power BI twin. It includes a scenario analysis that assesses, for each indicator, how a change in value would affect the risk and opportunity signals.",
@@ -1712,11 +1972,21 @@ const I18N = {
         sk_git: "Version control, branching, workflows", sk_workspace: "Sheets, Forms, real-time collaboration",
         sk_copilot: "Generative AI, productivity, collaboration",
         sk_kobo: "Field data collection, forms, surveys",
-        sk_tab_all: "All", sk_tab_data: "Data & BI", sk_tab_cloud: "Cloud & AI", sk_tab_dev: "Dev & Systems", sk_tab_collab: "Field & Collaboration",
-        sk_cat_data: "Data & BI", sk_cat_cloud: "Cloud & AI", sk_cat_dev: "Dev & Systems", sk_cat_collab: "Field & Collaboration",
+        sk_tab_all: "All", sk_tab_data: "Data & BI", sk_tab_cloud: "Cloud & AI", sk_tab_dev: "Dev & Systems", sk_tab_collab: "Field & Collaboration", sk_tab_support: "IT Support",
+        sk_cat_data: "Data & BI", sk_cat_cloud: "Cloud & AI", sk_cat_dev: "Dev & Systems", sk_cat_collab: "Field & Collaboration", sk_cat_support: "IT Support",
+        sk_windows: "Administration, configuration, maintenance",
+        sk_virtual: "VirtualBox, Hyper-V - virtual environments & testing",
+        sk_packettracer: "Network simulation, topologies, protocols",
+        sk_remote: "TeamViewer, AnyDesk - remote support",
+        sk_diag: "Hardware and software fault identification and resolution",
+        sk_install: "Hardware, software, workstations - end-to-end",
+        sk_service: "User support, listening, technical coaching",
+        sk_iam: "User accounts, permissions, Active Directory security",
+        sk_network: "TCP/IP protocols, network security, configuration",
+        btn_see_more: "See more", btn_collapse: "Collapse",
         cert_tag: "Learning and practice", cert_title: "Develop, experiment, deepen",
         cert_sub: "A continuous learning approach based on practice, experimentation, and the validation of relevant skills.",
-        tab_all: "All", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_other: "Other", badge_other: "Certification",
+        tab_all: "All", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_google: "Google", tab_pearson: "Pearson", badge_other: "Certification",
         c1_n1: "SC-900: Security, Compliance & Identity", c1_y1: "May 2021",
         c1_n2: "AI-901: Azure AI Fundamentals", c1_y2: "Mar 2021",
         c1_n3: "DP-900: Azure Data Fundamentals", c1_y3: "Jan 2021",
@@ -1745,16 +2015,19 @@ const I18N = {
         c2_m13: "Get started with identities and access using Microsoft Entra", c2_y13_m: "Dec 2025",
         c_pro_t: "Microsoft Pro Badge",
         c_pro_n1: "GitHub Copilot - Proficient", c_pro_y1: "Oct 2026",
-        c3_t: "Other certifications",
         c3_n1: "Google Analytics Certification", c3_y1: "Jan 2026",
-        c3_n2: "Certiport IT Technical Support Specialist", c3_y2: "Aug 2021",
+        c4_y: "Aug 2021",
+        c4_n_pathway: "IT Technical Support Specialist - Full Pathway",
+        c4_n1: "IT Specialist - Network Security",
+        c4_n2: "IT Specialist - Device Configuration & Management",
+        c4_n3: "IT Specialist - Networking",
         contact_tag: "Contact", contact_title: "Let's work together",
         contact_sub: "A project in mind? An opportunity to discuss? Find me on your favourite platforms.",
-        contact_note: "Open to Data Analyst / BI Analyst / Market Research opportunities.",
+        contact_note: "Open to Data Analyst / BI Analyst / IT Support opportunities.",
         f_name: "Name", f_email: "Email", f_subject: "Subject", f_message: "Message", f_send: "Send message",
         footer_r: "© 2026 Maxime NDACLEU. All rights reserved.", footer_top: "Back to top",
         form_alert: "Thank you for your message! I will get back to you as soon as possible.",
-        meta_desc: "Maxime NDACLEU - Data Analyst & BI. From public law to computer systems and AI: the rigour of evidence at the service of data."
+        meta_desc: "Maxime NDACLEU - Data Analyst | BI | IT Support. Multidisciplinary: law, business intelligence, IT systems and AI."
     }
 };
 
@@ -1846,9 +2119,46 @@ const gridObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.project-card, .skill-tile, .credential-tile, .about-card').forEach(el => gridObserver.observe(el));
 
+/* ===== Show-more / Collapse helper ===== */
+function initShowMore(gridId, btnId, wrapId, LIMIT) {
+    const grid = document.getElementById(gridId);
+    const btn  = document.getElementById(btnId);
+    const wrap = document.getElementById(wrapId);
+    if (!grid || !btn) return;
+
+    function getVisible() {
+        return Array.from(grid.children).filter(t => !t.classList.contains('tile-hidden'));
+    }
+
+    function applyLimit(expanded) {
+        const visible = getVisible();
+        const needsBtn = visible.length > LIMIT;
+        wrap.style.display = needsBtn ? 'flex' : 'none';
+        visible.forEach((t, i) => {
+            if (expanded || i < LIMIT) t.classList.remove('tile-extra-hidden');
+            else t.classList.add('tile-extra-hidden');
+        });
+        btn.classList.toggle('expanded', expanded);
+        const lang = document.documentElement.lang || 'fr';
+        const moreKey = lang === 'en' ? 'See more' : 'Voir plus';
+        const lessKey = lang === 'en' ? 'Collapse' : 'Réduire';
+        btn.querySelector('span').textContent = expanded ? lessKey : moreKey;
+        btn.setAttribute('aria-expanded', expanded);
+    }
+
+    btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        applyLimit(!isExpanded);
+    });
+
+    return applyLimit;
+}
+
 /* ===== Filtrage des compétences par onglets ===== */
 const skillTabs = document.querySelectorAll('.skill-tab');
 const skillTiles = document.querySelectorAll('.skill-tile');
+const applySkillLimit = initShowMore('skillsGrid', 'skillsShowMore', 'skillsShowMoreWrap', 6);
+
 skillTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         skillTabs.forEach(t => {
@@ -1865,14 +2175,19 @@ skillTabs.forEach(tab => {
                 tile.classList.remove('tile-hidden');
             } else {
                 tile.classList.add('tile-hidden');
+                tile.classList.remove('tile-extra-hidden');
             }
         });
+        if (applySkillLimit) applySkillLimit(false);
     });
 });
+if (applySkillLimit) applySkillLimit(false);
 
 /* ===== Filtrage des titres de compétence par onglets ===== */
 const certTabs = document.querySelectorAll('.cert-tab');
 const credentialTiles = document.querySelectorAll('.credential-tile');
+const applyCertLimit = initShowMore('credentialsGrid', 'certsShowMore', 'certsShowMoreWrap', 6);
+
 certTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         certTabs.forEach(t => {
@@ -1889,10 +2204,13 @@ certTabs.forEach(tab => {
                 tile.classList.remove('tile-hidden');
             } else {
                 tile.classList.add('tile-hidden');
+                tile.classList.remove('tile-extra-hidden');
             }
         });
+        if (applyCertLimit) applyCertLimit(false);
     });
 });
+if (applyCertLimit) applyCertLimit(false);
 
 /* ===== Smooth scroll ===== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
