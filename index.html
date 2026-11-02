@@ -4,25 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" id="metaDesc" content="Maxime NDACLEU — Data Analyst & BI. Du droit public aux systèmes informatiques et à l'IA : la rigueur de la preuve au service de la donnée.">
-<meta name="theme-color" content="#F2B544">
+<meta name="theme-color" content="#FFFDF9">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://maxin-dac.github.io/">
-<meta property="og:title" content="Maxime NDACLEU | Data Analyst & BI">
-<meta property="og:description" content="Data Analyst & BI : transformer la donnée en décisions éclairées.">
+<meta property="og:title" content="Maxime NDACLEU | Data Analyst · BI · IT Support">
+<meta property="og:description" content="L'analyse data et le support informatique
+au service de la performance.">
 <meta property="og:image" content="https://maxin-dac.github.io/images/Maxime-NDACLEU.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Maxime NDACLEU | Data Analyst & BI">
-<meta name="twitter:description" content="Data Analyst & BI : transformer la donnée en décisions éclairées.">
+<meta name="twitter:title" content="Maxime NDACLEU | Data Analyst · BI · IT Support">
+<meta name="twitter:description" content="L'analyse data et le support informatique
+au service de la performance">
 <meta name="twitter:image" content="https://maxin-dac.github.io/images/Maxime-NDACLEU.jpg">
 <link rel="canonical" href="https://maxin-dac.github.io/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FFCB2B'/%3E%3Cstop offset='1' stop-color='%23D4A000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='26' font-weight='800' text-anchor='middle' fill='%23171717'%3EMN%3C/text%3E%3C/svg%3E">
-<title>Maxime NDACLEU | Data Analyst & BI</title>
+<title>Maxime NDACLEU | Data Analyst · BI · IT Support</title>
 <script>
 (function () {
     var t = localStorage.getItem('theme');
     var p = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', t || (p ? 'dark' : 'light'));
+    var theme = t || (p ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0E1F22' : '#FFFDF9');
 })();
 </script>
 <script type="application/ld+json">
@@ -45,9 +49,16 @@
     --yellow-400: #F7C65A; --yellow-500: #F2B544; --yellow-600: #D99624; --yellow-700: #A96813;
     --yellow-800: #7C4B12; --yellow-900: #51300D;
     --teal-50: #EEF8F6; --teal-100: #D8EFEB; --teal-200: #B7DFD9; --teal-300: #83C5BE;
-    --teal-500: #247F82; --teal-600: #17656B; --teal-700: #124D55; --teal-900: #0C3038;
+    --teal-400: #4FA39E; --teal-500: #247F82; --teal-600: #17656B; --teal-700: #124D55; --teal-900: #0C3038;
     --coral-50: #FFF2EC; --coral-100: #FFDCD0; --coral-300: #F6A18A; --coral-500: #D96852;
     --white: #FFFDF9;
+    --page-background: #FFFDF9;
+    --nav-background: rgba(255, 253, 249, 0.88);
+    --nav-scrolled-background: rgba(255, 253, 249, 0.96);
+    --section-background: rgba(238, 242, 241, 0.72);
+    --text-primary: #122624;
+    --border-subtle: rgba(36, 127, 130, 0.16);
+    --accent-foreground: #171717;
     --footer-bg: #0C3038;
     --card-bg: rgba(255, 253, 249, 0.78);
     --card-border: rgba(36, 127, 130, 0.12);
@@ -57,6 +68,7 @@
     --gray-400: #8A9C9A; --gray-500: #637875; --gray-600: #48605D; --gray-700: #304945;
     --gray-800: #1D3533; --gray-900: #122624;
     --shadow: 0 4px 6px -1px rgba(0,0,0,0.06), 0 2px 4px -2px rgba(0,0,0,0.04);
+    --shadow-sm: 0 2px 8px rgba(18, 38, 36, 0.06);
     --shadow-lg: 0 12px 24px -4px rgba(0,0,0,0.08);
     --shadow-xl: 0 24px 40px -12px rgba(0,0,0,0.18);
     --radius-sm: 0.5rem; --radius-md: 0.75rem; --radius-lg: 1rem; --radius-xl: 1.5rem;
@@ -68,9 +80,15 @@ html[data-theme="dark"] {
     --yellow-400: #F4C45A; --yellow-500: #F2B544; --yellow-600: #E1A333; --yellow-700: #F2C768;
     --yellow-800: #F5D68D; --yellow-900: #FFE8B0;
     --teal-50: #102A2D; --teal-100: #163C40; --teal-200: #20565A; --teal-300: #3D8888;
-    --teal-500: #72C4B9; --teal-600: #8BD2C5; --teal-700: #A5DED2; --teal-900: #D0F0E8;
+    --teal-400: #58ADA5; --teal-500: #72C4B9; --teal-600: #8BD2C5; --teal-700: #A5DED2; --teal-900: #D0F0E8;
     --coral-50: #3A2524; --coral-100: #5A3430; --coral-300: #C87867; --coral-500: #F09A83;
     --white: #102225;
+    --page-background: #0E1F22;
+    --nav-background: rgba(16, 34, 37, 0.88);
+    --nav-scrolled-background: rgba(16, 34, 37, 0.96);
+    --section-background: rgba(10, 30, 35, 0.68);
+    --text-primary: #F3F8F5;
+    --border-subtle: rgba(114, 196, 185, 0.18);
     --footer-bg: #091B20;
     --card-bg: rgba(16, 34, 37, 0.65);
     --card-border: rgba(114, 196, 185, 0.14);
@@ -741,6 +759,139 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
     .profile-frame { width: 250px; height: 250px; }
     .logo-text { display: none; }
 }
+
+html { scroll-padding-top: 5rem; }
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+body { background: var(--page-background); color: var(--text-primary); }
+.page-bg { background-color: var(--page-background); }
+.navbar { background: var(--nav-background); border-color: var(--border-subtle); }
+.navbar.scrolled { background: var(--nav-scrolled-background); }
+.section-alt { background: var(--section-background); border-color: var(--border-subtle); }
+html[data-theme="dark"] .navbar { background: var(--nav-background); }
+html[data-theme="dark"] .section-alt { background: var(--section-background); border-color: var(--border-subtle); }
+.section { scroll-margin-top: 5rem; }
+
+.about-card,
+.project-card,
+.skill-tile,
+.credential-tile {
+    border-color: var(--border-subtle);
+    border-radius: var(--radius-lg);
+}
+.about-card:hover,
+.project-card:hover,
+.skill-tile:hover,
+.credential-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-hover-border);
+    box-shadow: var(--card-hover-shadow);
+}
+.skill-tile::before,
+.credential-tile::before {
+    background: linear-gradient(90deg, var(--teal-400), var(--yellow-400));
+}
+
+.btn,
+.project-link,
+.btn-show-more {
+    min-height: 44px;
+    border-radius: var(--radius-md);
+}
+.btn-primary,
+.project-link.primary,
+.lang-toggle button.active,
+#backToTop {
+    color: var(--accent-foreground);
+}
+.project-link { border-radius: var(--radius-md); }
+.skill-tab,
+.cert-tab { min-height: 42px; }
+.skill-tab.active,
+.cert-tab.active,
+html[data-theme="dark"] .skill-tab.active,
+html[data-theme="dark"] .cert-tab.active {
+    background: var(--yellow-400);
+    color: var(--accent-foreground);
+    box-shadow: 0 3px 10px rgba(18, 38, 36, 0.12);
+}
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-subtle);
+    background: var(--card-bg);
+    color: var(--yellow-700);
+}
+html[data-theme="dark"] .theme-toggle { color: var(--yellow-400); }
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    border-color: var(--yellow-500);
+    background: var(--yellow-50);
+}
+html[data-theme="dark"] .theme-toggle:hover { background: var(--yellow-50); }
+.lang-toggle { border-color: var(--border-subtle); }
+.lang-toggle button { min-height: 38px; }
+.lang-toggle button:not(.active):hover { background: var(--yellow-50); }
+
+.mobile-menu-toggle {
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+}
+.mobile-menu-toggle:hover { background: var(--yellow-50); }
+.nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.nav-links a:hover,
+.nav-links a.active { color: var(--teal-600); }
+html[data-theme="dark"] .nav-links a:hover,
+html[data-theme="dark"] .nav-links a.active { color: var(--teal-500); }
+
+.form-group input,
+.form-group textarea {
+    border-width: 1px;
+    border-color: var(--border-subtle);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--teal-500);
+    box-shadow: 0 0 0 3px rgba(36, 127, 130, 0.16);
+}
+html[data-theme="dark"] .form-group input:focus,
+html[data-theme="dark"] .form-group textarea:focus {
+    box-shadow: 0 0 0 3px rgba(114, 196, 185, 0.2);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline-color: var(--teal-500);
+    outline-offset: 3px;
+}
+
+@media (hover: none) {
+    .project-card .project-overlay { opacity: 1; }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        padding: 1.25rem 1.5rem;
+        background: var(--nav-scrolled-background);
+        border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-links a { width: 100%; }
+    .hero {
+        min-height: auto;
+        padding: 6rem 0 4rem;
+    }
+    .scroll-indicator { display: none; }
+}
+@media (max-width: 480px) {
+    .hero { padding: 5.5rem 0 3.5rem; }
+    .hero-cta .btn { width: 100%; justify-content: center; }
+    .project-content { padding: 1.25rem; }
+}
 </style>
 </head>
 <body>
@@ -840,7 +991,7 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
                     <p data-i18n="a3_p">Formé aux bases du Machine Learning et du Deep Learning, j'applique l'IA à l'automatisation de workflows et au développement d'agents intelligents. En constante veille et pratique, je conçois et déploie des solutions IA de bout en bout pour optimiser la performance opérationnelle.</p>
                 </div>
                 <div class="about-card">
-                    <div class="card-icon" style="background:rgba(239,68,68,0.1);color:#dc2626"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M7 11h.01M10 8h7M10 11h5"/></svg></div>
+                    <div class="card-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h.01M7 11h.01M10 8h7M10 11h5"/></svg></div>
                     <h3 data-i18n="a4_t">Support informatique</h3>
                     <p data-i18n="a4_p">Titulaire également d'un Diplôme de Qualification Professionnelle en Maintenance Informatique (mention Très Bien), complété par des certifications en support IT et cloud, je m'appuie sur une solide expérience terrain. De l'installation au diagnostic en passant par la virtualisation et l'IAM, je veille à la disponibilité, l'intégrité et la sécurité des infrastructures.</p>
                 </div>
@@ -2058,6 +2209,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#0E1F22' : '#FFFDF9');
 });
 
 /* ===== Progression + retour haut ===== */
