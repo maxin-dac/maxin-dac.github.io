@@ -892,6 +892,8 @@ textarea:focus-visible {
     .hero-cta .btn { width: 100%; justify-content: center; }
     .project-content { padding: 1.25rem; }
 }
+#skills,
+#certifications { overflow-anchor: none; }
 </style>
 </head>
 <body>
@@ -2300,7 +2302,10 @@ function initShowMore(gridId, btnId, wrapId, LIMIT) {
 
     btn.addEventListener('click', () => {
         const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        const buttonTop = btn.getBoundingClientRect().top;
         applyLimit(!isExpanded);
+        const newButtonTop = btn.getBoundingClientRect().top;
+        window.scrollBy({ top: newButtonTop - buttonTop, behavior: 'instant' });
     });
 
     return applyLimit;
