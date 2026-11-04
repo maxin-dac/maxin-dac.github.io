@@ -201,6 +201,9 @@ html[data-theme="dark"] .orb-3 { background: radial-gradient(circle, rgba(240, 1
     background: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), rgba(36,127,130,0.08), transparent 70%);
     transition: background 0.1s ease;
 }
+html[data-theme="dark"] .spotlight {
+    background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(114, 196, 185, 0.14), transparent 70%);
+}
 
 .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,253,249,0.65); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); border-bottom: 1px solid var(--card-border); transition: var(--transition); }
 .navbar.scrolled { background: rgba(255,253,249,0.85); box-shadow: var(--shadow); }
@@ -418,24 +421,10 @@ html[data-theme="dark"] .cert-tab .tab-count {
     position: relative;
     overflow: hidden;
 }
-.skill-tile::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--teal-400), var(--yellow-400));
-    opacity: 0;
-    transition: var(--transition);
-}
 .skill-tile:hover {
     transform: translateY(-4px);
     border-color: var(--teal-400);
     box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
-.skill-tile:hover::before {
-    opacity: 1;
 }
 .skill-tile-icon {
     width: 48px;
@@ -586,24 +575,10 @@ html[data-theme="dark"] .btn-show-more:hover {
     position: relative;
     overflow: hidden;
 }
-.credential-tile::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--teal-400), var(--yellow-400));
-    opacity: 0;
-    transition: var(--transition);
-}
 .credential-tile:hover {
     transform: translateY(-4px);
     border-color: var(--teal-400);
     box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-}
-.credential-tile:hover::before {
-    opacity: 1;
 }
 .tile-icon {
     width: 44px;
@@ -794,11 +769,6 @@ html[data-theme="dark"] .section-alt { background: var(--section-background); bo
     border-color: var(--card-hover-border);
     box-shadow: var(--card-hover-shadow);
 }
-.skill-tile::before,
-.credential-tile::before {
-    background: linear-gradient(90deg, var(--teal-400), var(--yellow-400));
-}
-
 .btn,
 .project-link,
 .btn-show-more {
