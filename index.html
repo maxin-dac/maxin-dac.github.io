@@ -223,7 +223,9 @@ html[data-theme="dark"] .spotlight {
 .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 70px; position: relative; }
 .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .hero-badge { display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(90deg, var(--yellow-100), var(--coral-50)); color: var(--yellow-800); border-radius: var(--radius-xl); font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; border: 1px solid var(--yellow-200); }
-.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; }
+.hero-name { position: relative; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.25rem; padding-bottom: 0.875rem; }
+.hero-name::after { content: ''; position: absolute; left: 0; bottom: 0; width: 3.5rem; height: 3px; border-radius: 999px; background: linear-gradient(90deg, var(--teal-500), var(--yellow-500)); }
+.hero-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; }
 .gradient-text { background: linear-gradient(120deg, var(--teal-600) 0%, var(--yellow-700) 62%, var(--coral-500) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero-description { font-size: 1.125rem; color: var(--gray-600); margin-bottom: 2rem; line-height: 1.7; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -717,6 +719,7 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
 }
 @media (max-width: 1024px) {
     .hero-content { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+    .hero-name::after { left: 50%; transform: translateX(-50%); }
     .hero-cta { justify-content: center; }
     .hero-image { order: -1; }
     .contact-content { grid-template-columns: 1fr; gap: 3rem; }
@@ -1073,6 +1076,7 @@ html[data-theme="dark"] :where(.about-card, .project-card, .skill-tile, .credent
     <div class="container">
         <div class="hero-content fade-in">
             <div class="hero-text">
+                <p class="hero-name gradient-text">Maxime NDACLEU</p>
                 <span class="hero-badge" data-i18n="hero_badge">Data Analyst · BI · IT Support</span>
                 <h1 class="hero-title" data-i18n="hero_title">L'analyse data et le support informatique<br><span class="gradient-text">au service de la performance</span></h1>
                 <p class="hero-description" data-i18n="hero_desc">Issu du droit et titulaire d'un Master en IA & Intelligence Économique couplé à une formation en maintenance informatique, j'aide les organisations à piloter leur performance. Fort d'une dizaine d'études de marché (pricing, expansion, qualité de service) pour des grands comptes, je combine analyse de données, tableaux de bord décisionnels et support IT.</p>
