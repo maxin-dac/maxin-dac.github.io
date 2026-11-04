@@ -930,6 +930,34 @@ html[data-theme="dark"] .suite-icon.accent-teal { background: rgba(88, 173, 165,
 html[data-theme="dark"] .suite-icon.accent-yellow { background: rgba(242, 181, 68, 0.16); color: var(--yellow-400); }
 html[data-theme="dark"] .suite-icon.accent-coral { background: rgba(240, 154, 131, 0.16); color: var(--coral-500); }
 html[data-theme="dark"] .suite-icon.accent-deep { background: rgba(114, 196, 185, 0.2); color: var(--teal-300); }
+
+/* ===== Animation des icônes au survol ===== */
+.suite-icon { transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1); }
+.suite-item:hover .suite-icon { transform: scale(1.08); }
+.suite-icon svg > * { transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1); }
+
+/* DataDiff : les deux panneaux s'écartent */
+.suite-item:hover .suite-icon.accent-teal svg > :nth-child(1),
+.suite-item:hover .suite-icon.accent-teal svg > :nth-child(3) { transform: translateX(-1.5px); }
+.suite-item:hover .suite-icon.accent-teal svg > :nth-child(2),
+.suite-item:hover .suite-icon.accent-teal svg > :nth-child(4),
+.suite-item:hover .suite-icon.accent-teal svg > :nth-child(5) { transform: translateX(1.5px); }
+
+/* CSVClean : l'étincelle pivote */
+.suite-icon.accent-yellow svg > :nth-child(3) { transform-box: fill-box; transform-origin: center; }
+.suite-item:hover .suite-icon.accent-yellow svg > :nth-child(3) { transform: rotate(90deg) scale(1.15); }
+
+/* Privacy Risk Lens : la loupe balaie */
+.suite-item:hover .suite-icon.accent-coral svg > :nth-child(2),
+.suite-item:hover .suite-icon.accent-coral svg > :nth-child(3) { transform: translate(1.3px, -1.3px); }
+
+/* Data Contract : la coche se dessine */
+.suite-icon.accent-deep svg > :nth-child(3) { stroke-dasharray: 11; }
+.suite-item:hover .suite-icon.accent-deep svg > :nth-child(3) { animation: suiteCheckDraw 0.5s ease forwards; }
+@keyframes suiteCheckDraw {
+    from { stroke-dashoffset: 11; }
+    to { stroke-dashoffset: 0; }
+}
 .suite-body { min-width: 0; }
 .suite-item-head { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
 .suite-item-head h4 { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; }
@@ -1175,7 +1203,7 @@ html[data-theme="dark"] :where(.about-card, .project-card, .skill-tile, .credent
             <div class="suite-grid">
                 <article class="suite-item">
                     <div class="suite-icon accent-teal" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="7.5" height="15" rx="1.5"/><rect x="13.5" y="4.5" width="7.5" height="15" rx="1.5"/><path d="M5.5 9h2.5M5.5 13h2.5M16 9h2.5"/><circle cx="17.25" cy="13" r="1.25" fill="currentColor" stroke="none"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="7.5" height="15" rx="1.5"/><rect x="13.5" y="4.5" width="7.5" height="15" rx="1.5"/><path d="M5.5 9h2.5M5.5 13h2.5"/><path d="M16 9h2.5"/><circle cx="17.25" cy="13" r="1.25" fill="currentColor" stroke="none"/></svg>
                     </div>
                     <div class="suite-body">
                         <div class="suite-item-head">
