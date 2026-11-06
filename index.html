@@ -2609,6 +2609,33 @@ certTabs.forEach(tab => {
         if (applyCertLimit) applyCertLimit(false);
     });
 });
+
+/* Tri des titres de compétence par date d'obtention, du plus récent au plus ancien */
+(function sortCredentialsByDate() {
+    const grid = document.getElementById('credentialsGrid');
+    if (!grid) return;
+    const MONTHS = {
+        jan: 1, janv: 1, january: 1, feb: 2, fev: 2, févr: 2, february: 2,
+        mar: 3, mars: 3, march: 3, apr: 4, avr: 4, april: 4,
+        mai: 5, may: 5, juin: 6, jun: 6, june: 6,
+        juil: 7, jul: 7, july: 7, aout: 8, août: 8, aug: 8, august: 8,
+        sep: 9, sept: 9, september: 9, oct: 10, october: 10,
+        nov: 11, november: 11, dec: 12, déc: 12, december: 12
+    };
+    function score(tile) {
+        const dateEl = tile.querySelector('.tile-date');
+        if (!dateEl) return 0;
+        const raw = dateEl.textContent.trim().toLowerCase().replace(/\./g, '');
+        const parts = raw.match(/([^\s\d]+)\s*(\d{4})/);
+        if (!parts) return 0;
+        return parseInt(parts[2], 10) * 12 + (MONTHS[parts[1]] || 0);
+    }
+    Array.from(grid.children)
+        .map((el, i) => ({ el, i, s: score(el) }))
+        .sort((a, b) => (b.s - a.s) || (a.i - b.i))
+        .forEach(item => grid.appendChild(item.el));
+})();
+
 if (applyCertLimit) applyCertLimit(false);
 
 /* ===== Smooth scroll ===== */
