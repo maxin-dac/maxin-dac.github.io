@@ -733,6 +733,10 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
     .credentials-grid { grid-template-columns: 1fr; }
+    .social-row { gap: 1rem; margin-bottom: 2rem; }
+    .social-btn { width: 56px; height: 56px; }
+    .social-btn svg { width: 24px; height: 24px; }
+    .social-label { font-size: 0.75rem; white-space: nowrap; }
 }
 @media (max-width: 480px) {
     .container { padding: 0 1rem; }
@@ -743,6 +747,10 @@ html[data-theme="dark"] .credential-tile:hover .tile-action {
     .skill-tab, .cert-tab { flex: 1 1 calc(50% - 0.5rem); justify-content: center; }
     .profile-frame { width: 250px; height: 250px; }
     .logo-text { display: none; }
+    .social-row { gap: 0.5rem; }
+    .social-btn { width: 46px; height: 46px; }
+    .social-btn svg { width: 20px; height: 20px; }
+    .social-label { font-size: 0.6875rem; }
 }
 
 html { scroll-padding-top: 5rem; }
