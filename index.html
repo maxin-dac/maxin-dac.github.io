@@ -100,11 +100,7 @@ html[data-theme="dark"] {
     --gray-400: #78908C; --gray-500: #9BB0AB; --gray-600: #B7C8C3; --gray-700: #D0DEDA;
     --gray-800: #E0EBE7; --gray-900: #F3F8F5;
 }
-html[data-theme="dark"] body { background: #0e1f22; }
 html[data-theme="dark"] .dot-grid { opacity: 0.16; }
-html[data-theme="dark"] .navbar { background: rgba(16,34,37,0.55); }
-html[data-theme="dark"] .navbar.scrolled { background: rgba(16,34,37,0.85); }
-html[data-theme="dark"] .section-alt { background: rgba(10,30,35,0.52); border-color: rgba(114,196,185,0.10); }
 html[data-theme="dark"] .section-alt::before { background: linear-gradient(135deg, rgba(114,196,185,0.06) 0%, rgba(16,34,37,0) 100%); }
 html[data-theme="dark"] .tag { background: rgba(16,34,37,0.9); color: #F3F8F5; }
 html[data-theme="dark"] .profile-img { border-color: #102225; }
@@ -123,10 +119,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.hero-title, .section-title, .project-header h3, .skill-card h3, .cert-card h3, .about-card h3 {
+.hero-title, .section-title, .project-header h3, .about-card h3 {
     letter-spacing: -0.015em;
 }
-.project-year, .cert-year, .tag, .section-tag, .hero-badge { font-family: inherit; }
+.project-year, .tag, .section-tag, .hero-badge { font-family: inherit; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 ::selection { background: var(--yellow-400); color: #171717; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--yellow-500); outline-offset: 2px; border-radius: 4px; }
@@ -207,8 +203,8 @@ html[data-theme="dark"] .spotlight {
     background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(114, 196, 185, 0.14), transparent 70%);
 }
 
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,253,249,0.65); backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); border-bottom: 1px solid var(--card-border); transition: var(--transition); }
-.navbar.scrolled { background: rgba(255,253,249,0.85); box-shadow: var(--shadow); }
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; backdrop-filter: blur(14px) saturate(1.6); -webkit-backdrop-filter: blur(14px) saturate(1.6); border-bottom: 1px solid var(--card-border); transition: var(--transition); }
+.navbar.scrolled { box-shadow: var(--shadow); }
 .nav-content { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 1rem; }
 .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--gray-900); font-weight: 700; font-size: 1.125rem; }
 .logo-mark { display: flex; }
@@ -615,8 +611,6 @@ html[data-theme="dark"] .icon-certified { background: rgba(56, 189, 248, 0.18); 
 html[data-theme="dark"] .icon-applied { background: rgba(45, 212, 191, 0.18); color: #2dd4bf; }
 .icon-pro { background: rgba(245, 158, 11, 0.15); color: var(--yellow-700); }
 html[data-theme="dark"] .icon-pro { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
-.icon-other { background: rgba(168, 85, 247, 0.12); color: #9333ea; }
-html[data-theme="dark"] .icon-other { background: rgba(192, 132, 252, 0.18); color: #c084fc; }
 .icon-google { background: rgba(66, 133, 244, 0.12); color: #4285f4; }
 html[data-theme="dark"] .icon-google { background: rgba(138, 180, 248, 0.16); color: #8ab4f8; }
 .icon-databricks { background: rgba(255, 54, 33, 0.12); color: #ff3621; }
@@ -657,8 +651,6 @@ html[data-theme="dark"] .badge-certified { color: #38bdf8; }
 html[data-theme="dark"] .badge-applied { color: #2dd4bf; }
 .badge-pro { color: var(--yellow-700); }
 html[data-theme="dark"] .badge-pro { color: #fbbf24; }
-.badge-other { color: #9333ea; }
-html[data-theme="dark"] .badge-other { color: #c084fc; }
 
 .tile-date {
     font-size: 0.78rem;
@@ -767,8 +759,6 @@ body { background: var(--page-background); color: var(--text-primary); }
 .navbar { background: var(--nav-background); border-color: var(--border-subtle); }
 .navbar.scrolled { background: var(--nav-scrolled-background); }
 .section-alt { background: var(--section-background); border-color: var(--border-subtle); }
-html[data-theme="dark"] .navbar { background: var(--nav-background); }
-html[data-theme="dark"] .section-alt { background: var(--section-background); border-color: var(--border-subtle); }
 .section { scroll-margin-top: 5rem; }
 
 .about-card,
@@ -1654,7 +1644,7 @@ svg * {
                     <span class="tab-count">5</span>
                 </button>
                 <button class="cert-tab" data-filter="applied" role="tab" aria-selected="false">
-                    <span data-i18n="tab_applied">Applied Skills</span>
+                    <span data-i18n="tab_applied">Microsoft Applied Skills</span>
                     <span class="tab-count">19</span>
                 </button>
                 <button class="cert-tab" data-filter="pro" role="tab" aria-selected="false">
@@ -1775,14 +1765,14 @@ svg * {
                 </span>
             </a>
 
-            <!-- Applied Skills (19) -->
+            <!-- Microsoft Applied Skills (19) -->
             <a class="credential-tile fade-in" data-category="applied" href="https://learn.microsoft.com/api/credentials/share/en-us/MaximeNdacleu-3447/243DFDF8FE409476?sharingId=34F19E8BC9A183B8" target="_blank" rel="noopener">
                 <div class="tile-icon icon-applied" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y1">Sep 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_n1">Créer un agent dans Microsoft Copilot Studio</div>
@@ -1798,7 +1788,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y2">Sep 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_n2">Développer un agent avec des outils intégrés</div>
@@ -1814,7 +1804,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y3">Juil 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_n3">Commencer à développer des agents dans Microsoft Foundry</div>
@@ -1830,7 +1820,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y4">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_n4">Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric</div>
@@ -1846,7 +1836,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y5">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_n5">Rationaliser les flux de travail métier avec la conversation IA</div>
@@ -1862,7 +1852,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y6">Nov 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_n6">Générer des rapports avec des agents de recherche IA</div>
@@ -1878,7 +1868,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y1_m">Sep 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m1">Protéger les informations dans Microsoft 365 Copilot avec Microsoft Purview</div>
@@ -1894,7 +1884,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y2_m">Juil 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m2">Gérer l'analyse des secrets GitHub avec GitHub Copilot</div>
@@ -1910,7 +1900,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y3_m">Juil 2026</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m3">Résoudre les problèmes GitHub avec GitHub Copilot</div>
@@ -1926,7 +1916,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y4_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m4">Accélérer le développement assisté par l'IA avec GitHub Copilot</div>
@@ -1942,7 +1932,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y5_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m5">Sécuriser les services et charges de travail Azure avec Microsoft Defender for Cloud</div>
@@ -1958,7 +1948,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y6_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m6">Sécuriser le stockage pour Azure Files et Azure Blob Storage</div>
@@ -1974,7 +1964,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y7_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m7">Sécuriser les solutions d'IA dans le cloud</div>
@@ -1990,7 +1980,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y8_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m8">Démarrer avec les tâches de sécurité et de surveillance du cloud</div>
@@ -2006,7 +1996,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y9_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m9">Mettre en œuvre la rétention, eDiscovery et la conformité des communications dans Microsoft Purview</div>
@@ -2022,7 +2012,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y10_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m10">Mettre en œuvre la protection des informations et DLP avec Microsoft Purview</div>
@@ -2038,7 +2028,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y11_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m11">Déployer et configurer Azure Monitor</div>
@@ -2054,7 +2044,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y12_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m12">Démarrer avec les tâches de gestion Azure</div>
@@ -2070,7 +2060,7 @@ svg * {
                 </div>
                 <div class="tile-content">
                     <div class="tile-meta">
-                        <span class="tile-badge badge-applied">Applied Skills</span>
+                        <span class="tile-badge badge-applied">Microsoft Applied Skills</span>
                         <span class="tile-date" data-i18n="c2_y13_m">Déc 2025</span>
                     </div>
                     <div class="tile-title" data-i18n="c2_m13">Démarrer avec les identités et l'accès via Microsoft Entra</div>
@@ -2329,21 +2319,19 @@ const I18N = {
         btn_see_more: "Voir plus", btn_collapse: "Réduire",
         cert_tag: "Apprentissage & pratique", cert_title: "Développer, expérimenter, approfondir",
         cert_sub: "Une démarche d’apprentissage continu fondée sur la pratique, l’expérimentation et la validation de compétences pertinentes.",
-        tab_all: "Tous", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_google: "Google", tab_databricks: "Databricks", tab_pearson: "Pearson", badge_other: "Certification",
+        tab_all: "Tous", tab_certified: "Microsoft Certified", tab_applied: "Microsoft Applied Skills", tab_pro: "Microsoft Pro Badge", tab_google: "Google", tab_databricks: "Databricks", tab_pearson: "Pearson",
         c5_y1: "Novembre 2025", c5_y2: "Novembre 2025",
         c1_n1: "SC-900 : Security, Compliance & Identity", c1_y1: "Mai 2021",
         c1_n2: "AI-901 : Notions de base de l'IA Azure", c1_y2: "Mar 2021",
         c1_n3: "DP-900 : Principes de base des données Azure", c1_y3: "Jan 2021",
         c1_n4: "PL-900 : Notions fondamentales de Power Platform", c1_y4: "Oct 2020",
         c1_n5: "AZ-900 : Principes de base d'Azure", c1_y5: "Sept 2020",
-        c2_t: "Applied Skills",
         c2_n1: "Créer un agent dans Microsoft Copilot Studio", c2_y1: "Sep 2026", 
         c2_n2: "Développer un agent avec des outils intégrés", c2_y2: "Sep 2026",
         c2_n3: "Commencer à développer des agents dans Microsoft Foundry", c2_y3: "Juil 2026",
         c2_n4: "Mettre en œuvre une solution d'intelligence en temps réel avec Microsoft Fabric", c2_y4: "Déc 2025",
         c2_n5: "Rationaliser les flux de travail métier avec la conversation IA", c2_y5: "Déc 2025",
         c2_n6: "Générer des rapports avec des agents de recherche IA", c2_y6: "Nov 2025",
-        c2_more: "13 autres applied skills",
         c2_m1: "Protéger les informations dans Microsoft 365 Copilot avec Microsoft Purview", c2_y1_m: "Sep 2026",
         c2_m2: "Gérer l'analyse des secrets GitHub avec GitHub Copilot", c2_y2_m: "Juil 2026",
         c2_m3: "Résoudre les problèmes GitHub avec GitHub Copilot", c2_y3_m: "Juil 2026",
@@ -2434,21 +2422,19 @@ const I18N = {
         btn_see_more: "See more", btn_collapse: "Collapse",
         cert_tag: "Learning and practice", cert_title: "Develop, experiment, deepen",
         cert_sub: "A continuous learning approach based on practice, experimentation, and the validation of relevant skills.",
-        tab_all: "All", tab_certified: "Microsoft Certified", tab_applied: "Applied Skills", tab_pro: "Microsoft Pro Badge", tab_google: "Google", tab_databricks: "Databricks", tab_pearson: "Pearson", badge_other: "Certification",
+        tab_all: "All", tab_certified: "Microsoft Certified", tab_applied: "Microsoft Applied Skills", tab_pro: "Microsoft Pro Badge", tab_google: "Google", tab_databricks: "Databricks", tab_pearson: "Pearson",
         c5_y1: "November 2025", c5_y2: "November 2025",
         c1_n1: "SC-900: Security, Compliance & Identity", c1_y1: "May 2021",
         c1_n2: "AI-901: Azure AI Fundamentals", c1_y2: "Mar 2021",
         c1_n3: "DP-900: Azure Data Fundamentals", c1_y3: "Jan 2021",
         c1_n4: "PL-900: Power Platform Fundamentals", c1_y4: "Oct 2020",
         c1_n5: "AZ-900: Azure Fundamentals", c1_y5: "Sep 2020",
-        c2_t: "Applied Skills",
         c2_n1: "Build an agent in Microsoft Copilot Studio", c2_y1: "Sep 2026",
         c2_n2: "Develop an agent with integrated tools", c2_y2: "Sep 2026",
         c2_n3: "Get started developing agents in Microsoft Foundry", c2_y3: "Jul 2026",
         c2_n4: "Implement a Real-Time Intelligence solution with Microsoft Fabric", c2_y4: "Dec 2025",
         c2_n5: "Streamline business workflows with AI chat", c2_y5: "Dec 2025",
         c2_n6: "Generate reports with AI research agents", c2_y6: "Nov 2025",
-        c2_more: "13 more applied skills",
         c2_m1: "Protect information in Microsoft 365 Copilot by using Microsoft Purview", c2_y1_m: "Sep 2026",
         c2_m2: "Manage GitHub secret scanning by using GitHub Copilot", c2_y2_m: "Jul 2026",
         c2_m3: "Resolve GitHub issues by using GitHub Copilot", c2_y3_m: "Jul 2026",
